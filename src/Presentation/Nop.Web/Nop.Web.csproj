@@ -100,6 +100,10 @@
     <None Include="wwwroot\js\karma\vendor\popper.js" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.4" />
+  </ItemGroup>
+
   <!-- This target execute after "Build" target.
     We use it to clean up folder with plugins from unnecessary and obsolete libraries. -->
   <Target Name="NopTarget" AfterTargets="Build">

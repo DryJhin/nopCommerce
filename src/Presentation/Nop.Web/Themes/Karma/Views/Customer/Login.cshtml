@@ -14,6 +14,11 @@
     //register URL with return URL (if specified)
     var registerUrl = Url.RouteUrl("Register", new { returnUrl = this.Context.Request.Query["returnUrl"] }, webHelper.CurrentRequestProtocol);
 }
+<!--product breadcrumb-->
+@section Breadcrumb
+{
+    @Html.BuildBreadcrumbNavigation();
+}
 <div class="page login-page">
     <div class="page-title">
         <h1>@T("Account.Login.Welcome")</h1>

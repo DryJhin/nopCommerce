@@ -3,6 +3,7 @@ using System.IO;
 using System.Net;
 using System.Text;
 using System.Text.Encodings.Web;
+using Humanizer;
 using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -56,7 +57,7 @@ namespace Nop.Web.Framework.Extensions
                 var tabStrip = new StringBuilder();
                 var cssClassWithSpace = !String.IsNullOrEmpty(cssClass) ? " " + cssClass : null;
                 tabStrip.AppendLine($"<div id=\"{name}\" class=\"nav-tabs-custom nav-tabs-localized-fields{cssClassWithSpace}\">");
-                
+
                 //render input contains selected tab name
                 var tabNameToSelect = GetSelectedTabName(helper, name);
                 var selectedTabInput = new TagBuilder("input");
@@ -93,7 +94,7 @@ namespace Nop.Web.Framework.Extensions
                     tabStrip.AppendLine("</li>");
                 }
                 tabStrip.AppendLine("</ul>");
-                    
+
                 //default tab
                 tabStrip.AppendLine("<div class=\"tab-content\">");
                 tabStrip.AppendLine(string.Format("<div class=\"tab-pane{0}\" id=\"{1}\">", standardTabSelected ? " active" : null, standardTabName));
@@ -268,6 +269,56 @@ namespace Nop.Web.Framework.Extensions
                 tag.WriteTo(writer, HtmlEncoder.Default);
                 return writer.ToString();
             }
+        }
+
+        /// <summary>
+        /// Creates breadcum for page navigation, except products
+        /// </summary>
+        /// <param name="tag">Tag</param>
+        /// <returns>String</returns>
+        public static IHtmlContent BuildBreadcrumbNavigation<TModel>(this IHtmlHelper<TModel> helper)
+        {
+            HtmlContentBuilder _emptyBuilder = new HtmlContentBuilder();
+
+            if (helper.ViewContext.RouteData.Values["controller"].ToString() == "Home")
+            {
+                return _emptyBuilder;
+            }
+
+            bool isAction = helper.ViewContext.RouteData.Values["action"].ToString() != "Index";
+            string anchor;
+            string holder = Guid.NewGuid().ToString();
+            string holderController = Guid.NewGuid().ToString();
+            string holderAction = Guid.NewGuid().ToString();
+
+            string controllerName = helper.ViewContext.RouteData.Values["controller"].ToString();
+            string actionName = helper.ViewContext.RouteData.Values["action"].ToString();
+
+            var breadcrumb = new HtmlContentBuilder()
+                                .AppendHtml("<h1>{0}</h1>".FormatWith(isAction ? actionName.Titleize() : controllerName.Titleize()))
+                                .AppendHtml("<nav class='d-flex align-items-center'>")
+                                .AppendHtml(helper.ActionLink(holder, "Index", "Home"));
+
+            if (helper.ViewContext.RouteData.Values["action"].ToString() != "Index")
+            {
+                anchor = breadcrumb
+                    .AppendHtml(helper.ActionLink(holderAction, actionName, controllerName))
+                    .AppendHtml("</nav>")
+                    .ToHtmlString()
+                    .Replace(holder, "Home<span class='lnr lnr-arrow-right'>")
+                    .Replace(holderAction, actionName.Titleize());
+            }
+            else
+            {
+                anchor = breadcrumb
+                    .AppendHtml(helper.ActionLink(holderController, "Index", controllerName))
+                    .AppendHtml("</nav>")
+                    .ToHtmlString()
+                    .Replace(holder, "Home<span class='lnr lnr-arrow-right'>")
+                    .Replace(holderController, controllerName.Titleize());
+            }
+
+            return new HtmlString(anchor);
         }
 
         #endregion
