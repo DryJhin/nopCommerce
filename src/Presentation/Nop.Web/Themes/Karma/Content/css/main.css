@@ -5791,3 +5791,38 @@ label {
     color: #ffba00; }
 
 /*# sourceMappingURL=main.css.map */
+
+
+.flyout-cart {
+  display: none;
+}
+
+.flyout-cart {
+  position: absolute;
+  /*top: 45px;
+	left: 0;*/
+  z-index: 100;
+  width: 300px;
+  box-shadow: 0 0 2px rgba(0,0,0,0.25);
+  background-color: #fff;
+}
+
+.flyout-cart.active {
+  display: block;
+}
+
+#topcartlink {
+  display: block;
+  width: 70%;
+  max-width: 400px;
+  margin: 10px auto 0;
+  background-color: #f6f6f6;
+  padding: 0 20px;
+}
+
+#topcartlink {
+  display: inline-block;
+  width: auto;
+  margin: 0;
+  padding: 0 18px;
+}
