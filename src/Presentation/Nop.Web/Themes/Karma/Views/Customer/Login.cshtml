@@ -4,12 +4,10 @@
 
 @inject IWebHelper webHelper
 @{
-    Layout = "_ColumnsOne";
+    Layout = "_Root";
 
     //title
     Html.AddTitleParts(T("PageTitle.Login").Text);
-    //page class
-    Html.AppendPageCssClassParts("html-login-page");
 
     //register URL with return URL (if specified)
     var registerUrl = Url.RouteUrl("Register", new { returnUrl = this.Context.Request.Query["returnUrl"] }, webHelper.CurrentRequestProtocol);
@@ -19,104 +17,84 @@
 {
     @Html.BuildBreadcrumbNavigation();
 }
-<div class="page login-page">
-    <div class="page-title">
-        <h1>@T("Account.Login.Welcome")</h1>
-    </div>
-    @await Html.PartialAsync("_ExternalAuthentication.Errors")
-    <div class="page-body">
-        <div class="customer-blocks">
-            @if (Model.RegistrationType == UserRegistrationType.Disabled)
-            {
-                <div class="new-wrapper">
-                    <div class="title">
-                        @T("Account.Register")
-                    </div>
-                    <div class="text">
-                        @T("Account.Register.Result.Disabled")
-                    </div>
-                </div>
-            }
-            else if (Model.CheckoutAsGuest)
-            {
-                <div class="new-wrapper checkout-as-guest-or-register-block">
-                    <div class="title">
-                        <strong>@T("Account.Login.CheckoutAsGuestOrRegister")</strong>
-                    </div>
-                    <div class="text">
-                        @await Component.InvokeAsync("TopicBlock", new { systemName = "CheckoutAsGuestOrRegister" })
-                    </div>
-                    <div class="buttons">
-                        <input type="button" class="button-1 checkout-as-guest-button" onclick="location.href='@Url.RouteUrl("Checkout")'" value="@T("Account.Login.CheckoutAsGuest")" />
-                        <input type="button" class="button-1 register-button" onclick="location.href='@registerUrl'" value="@T("Account.Register")" />
-                    </div>
-                </div>
-            }
-            else
-            {
-                <div class="new-wrapper register-block">
-                    <div class="title">
-                        <strong>@T("Account.Login.NewCustomer")</strong>
-                    </div>
-                    <div class="text">
-                        @T("Account.Login.NewCustomerText")
-                    </div>
-                    <div class="buttons">
-                        <input type="button" class="button-1 register-button" onclick="location.href='@registerUrl'" value="@T("Account.Register")" />
-                    </div>
-                </div>
-            }
-            <div class="returning-wrapper fieldset">
-                <form asp-route="Login" asp-route-returnurl="@Context.Request.Query["ReturnUrl"]" method="post">
-                    <div asp-validation-summary="ModelOnly" class="message-error">@T("Account.Login.Unsuccessful")</div>
-                    <div class="title">
-                        <strong>@T("Account.Login.ReturningCustomer")</strong>
-                    </div>
-                    <div class="form-fields">
-                        @if (Model.UsernamesEnabled)
+<!--================Login Box Area =================-->
+<section class="login_box_area section_gap">
+    <div class="container">
+        @await Html.PartialAsync("_ExternalAuthentication.Errors")
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="login_box_img">
+                    <img class="img-fluid" src="img/login.jpg" alt="">
+                    <div class="hover">
+                        @if (Model.RegistrationType == UserRegistrationType.Disabled)
                         {
-                            <div class="inputs">
-                                <label asp-for="Username" asp-postfix=":"></label>
-                                <input asp-for="Username" class="username" autofocus="autofocus" />
-                                <span asp-validation-for="Username"></span>
-                            </div>
+                            <h4>@T("Account.Register")</h4>
+                            <p>@T("Account.Register.Result.Disabled")</p>
+                        }
+                        else if (Model.CheckoutAsGuest)
+                        {
+                            <h4>@T("Account.Login.CheckoutAsGuestOrRegister")</h4>
+                            <p>@await Component.InvokeAsync("TopicBlock", new { systemName = "CheckoutAsGuestOrRegister" })</p>
+                            <a class="primary-btn" href='@Url.RouteUrl("Checkout")'>@T("Account.Login.CheckoutAsGuest")</a>
+                            <a class="primary-btn" href='@registerUrl'>@T("Account.Register")</a>
                         }
                         else
                         {
-                            <div class="inputs">
-                                <label asp-for="Email" asp-postfix=":"></label>
-                                <input asp-for="Email" class="email" autofocus="autofocus" />
-                                <span asp-validation-for="Email"></span>
-                            </div>
+                            <h4>@T("Account.Register")</h4>
+                            <p>@T("Account.Login.NewCustomerText")</p>
+                            <a class="primary-btn" href='@registerUrl'>@T("Account.Register")</a>
                         }
-                        <div class="inputs">
-                            <label asp-for="Password" asp-postfix=":"></label>
-                            <input asp-for="Password" class="password" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="login_form_inner">               
+                    <form asp-route="Login" asp-route-returnurl="@Context.Request.Query["ReturnUrl"]" method="post" class="row login_form">
+                        <div asp-validation-summary="ModelOnly" class="message-error">@T("Account.Login.Unsuccessful")</div>
+                        <h3>@T("Account.Login.ReturningCustomer")</h3>
+                        <div class="col-md-12 form-group">
+                            @if (Model.UsernamesEnabled)
+                            {
+                                <input asp-for="Username" class="form-control" placeholder="Username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'" autofocus="autofocus" />
+                                <span asp-validation-for="Username"></span>
+                            }
+                            else
+                            {
+                                <input asp-for="Email" class="form-control" placeholder="Username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'" autofocus="autofocus" />
+                                <span asp-validation-for="Email"></span>
+                            }
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <input asp-for="Password" class="form-control" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'" />
                             <span asp-validation-for="Password"></span>
                         </div>
-                        <div class="inputs reversed">
-                            <input asp-for="RememberMe" />
-                            <label asp-for="RememberMe"></label>
-                            <span class="forgot-password">
-                                <a asp-route="PasswordRecovery">@T("Account.Login.ForgotPassword")</a>
-                            </span>
-                        </div>
-                        @if (Model.DisplayCaptcha)
-                        {
-                            <div class="captcha-box">
-                                <nop-captcha />
+                        <div class="col-md-12 form-group">
+                            @if (Model.DisplayCaptcha)
+                            {
+                                <div class="captcha-box">
+                                    <nop-captcha />
+                                </div>
+                            }
+                            <div class="creat_account">
+                                <input asp-for="RememberMe" />
+                                <label asp-for="RememberMe"></label>
                             </div>
-                        }
-                    </div>
-                    <div class="buttons">
-                        <input class="button-1 login-button" type="submit" value="@T("Account.Login.LoginButton")" />
-                    </div>
-                </form>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <button type="submit" class="primary-btn">@T("Account.Login.LoginButton")</button>
+                            <a asp-route="PasswordRecovery">@T("Account.Login.ForgotPassword")</a>
+                        </div>
+                        <div class="form-fields">
+                            <div class="inputs reversed">
+                                <span class="forgot-password">
+                                    <a asp-route="PasswordRecovery">@T("Account.Login.ForgotPassword")</a>
+                                </span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
-        <div class="external-authentication">
-            @await Component.InvokeAsync("ExternalMethods", "ExternalAuthentication")
-        </div>
-        @await Component.InvokeAsync("TopicBlock", new { systemName = "LoginRegistrationInfo" })
     </div>
-</div>
+</section>
+<!--================End Login Box Area =================-->
