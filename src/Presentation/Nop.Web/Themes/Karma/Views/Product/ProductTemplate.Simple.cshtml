@@ -42,6 +42,7 @@
         Html.AddHeadCustomParts("<meta property=\"twitter:image\" content=\"" + Model.DefaultPictureModel.ImageUrl + "\" />");
         Html.AddHeadCustomParts("<meta property=\"twitter:url\" content=\"" + webHelper.GetThisPageUrl(false) + "\" />");
     }
+    Html.AppendScriptParts(ResourceLocation.Footer, "~/js/InitializeImageZoom.js");
 }
 <!--product breadcrumb-->
 @section Breadcrumb
