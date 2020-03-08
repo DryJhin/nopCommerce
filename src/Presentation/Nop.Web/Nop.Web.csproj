@@ -59,6 +59,47 @@
     <Folder Include="Plugins\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="Themes\Karma\Views\Customer\AccountActivation.cshtml" />
+    <None Include="Themes\Karma\Views\Customer\AddressAdd.cshtml" />
+    <None Include="Themes\Karma\Views\Customer\AddressEdit.cshtml" />
+    <None Include="Themes\Karma\Views\Customer\Addresses.cshtml" />
+    <None Include="Themes\Karma\Views\Customer\Avatar.cshtml" />
+    <None Include="Themes\Karma\Views\Customer\ChangePassword.cshtml" />
+    <None Include="Themes\Karma\Views\Customer\CheckGiftCardBalance.cshtml" />
+    <None Include="Themes\Karma\Views\Customer\DownloadableProducts.cshtml" />
+    <None Include="Themes\Karma\Views\Customer\EmailRevalidation.cshtml" />
+    <None Include="Themes\Karma\Views\Customer\GdprTools.cshtml" />
+    <None Include="Themes\Karma\Views\Customer\Info.cshtml" />
+    <None Include="Themes\Karma\Views\Customer\Login.cshtml" />
+    <None Include="Themes\Karma\Views\Customer\PasswordRecovery.cshtml" />
+    <None Include="Themes\Karma\Views\Customer\PasswordRecoveryConfirm.cshtml" />
+    <None Include="Themes\Karma\Views\Customer\Register.cshtml" />
+    <None Include="Themes\Karma\Views\Customer\RegisterResult.cshtml" />
+    <None Include="Themes\Karma\Views\Customer\UserAgreement.cshtml" />
+    <None Include="Themes\Karma\Views\Customer\_CheckUsernameAvailability.cshtml" />
+    <None Include="Themes\Karma\Views\Customer\_CustomerAttributes.cshtml" />
+    <None Include="Themes\Karma\Views\Customer\_ExternalAuthentication.Errors.cshtml" />
+    <None Include="Themes\Karma\Views\Shared\Head.cshtml" />
+    <None Include="Themes\Karma\Views\Shared\_Root.Head.cshtml" />
+    <None Include="Themes\Karma\Views\_ViewImports.cshtml" />
+    <None Include="wwwroot\js\karma\.DS_Store" />
+    <None Include="wwwroot\js\karma\countdown.js" />
+    <None Include="wwwroot\js\karma\gmaps.min.js" />
+    <None Include="wwwroot\js\karma\ion.rangeSlider.js" />
+    <None Include="wwwroot\js\karma\jquery.ajaxchimp.min.js" />
+    <None Include="wwwroot\js\karma\jquery.magnific-popup.min.js" />
+    <None Include="wwwroot\js\karma\jquery.nice-select.min.js" />
+    <None Include="wwwroot\js\karma\jquery.sticky.js" />
+    <None Include="wwwroot\js\karma\main.js" />
+    <None Include="wwwroot\js\karma\nouislider.min.js" />
+    <None Include="wwwroot\js\karma\owl.carousel.min.js" />
+    <None Include="wwwroot\js\karma\parallax.min.js" />
+    <None Include="wwwroot\js\karma\vendor\bootstrap.min.js" />
+    <None Include="wwwroot\js\karma\vendor\jquery-2.2.4.min.js" />
+    <None Include="wwwroot\js\karma\vendor\popper.js" />
+  </ItemGroup>
+
   <!-- This target execute after "Build" target.
     We use it to clean up folder with plugins from unnecessary and obsolete libraries. -->
   <Target Name="NopTarget" AfterTargets="Build">
