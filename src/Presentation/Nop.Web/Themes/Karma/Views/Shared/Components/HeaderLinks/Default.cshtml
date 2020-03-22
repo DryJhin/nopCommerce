@@ -3,13 +3,14 @@
 
 <ul class="nav navbar-nav menu_nav ml-auto">
     @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HeaderLinksBefore })
+    @await Component.InvokeAsync("TopMenu")
     @if (Model.IsAuthenticated)
     {
         <li class="nav-item">
-            <a href="@Url.RouteUrl("CustomerInfo")" class="ico-account">@T("Account.MyAccount")@*@Model.CustomerName*@</a>
+            <a class="nav-link dropdown-toggle" href="@Url.RouteUrl("CustomerInfo")">@T("Account.MyAccount")@*@Model.CustomerName*@</a>
         </li>
         <li class="nav-item">
-            <a href="@Url.RouteUrl("Logout")" class="ico-logout">@T("Account.Logout")</a>
+            <a class="nav-link dropdown-toggle" href="@Url.RouteUrl("Logout")">@T("Account.Logout")</a>
         </li>
     }
     else
@@ -17,10 +18,10 @@
         var returnUrl = this.Context.Request.Query["returnUrl"];
 
         <li class="nav-item">
-            <a href="@Url.RouteUrl("Register", new { returnUrl })" class="ico-register">@T("Account.Register")</a>
+            <a href="@Url.RouteUrl("Register", new { returnUrl })" class="nav-link dropdown-toggle">@T("Account.Register")</a>
         </li>
         <li class="nav-item">
-            <a href="@Url.RouteUrl("Login", new { returnUrl })" class="ico-login">@T("Account.Login")</a>
+            <a href="@Url.RouteUrl("Login", new { returnUrl })" class="nav-link dropdown-toggle">@T("Account.Login")</a>
         </li>
     }
     @if (Model.AllowPrivateMessages)
