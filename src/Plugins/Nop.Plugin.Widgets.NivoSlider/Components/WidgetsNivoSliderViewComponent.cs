@@ -2,11 +2,13 @@
 using Microsoft.AspNetCore.Mvc;
 using Nop.Core;
 using Nop.Core.Caching;
+using Nop.Core.Infrastructure;
 using Nop.Plugin.Widgets.NivoSlider.Infrastructure.Cache;
 using Nop.Plugin.Widgets.NivoSlider.Models;
 using Nop.Services.Configuration;
 using Nop.Services.Media;
 using Nop.Web.Framework.Components;
+using Nop.Web.Framework.Themes;
 
 namespace Nop.Plugin.Widgets.NivoSlider.Components
 {
@@ -69,6 +71,13 @@ namespace Nop.Plugin.Widgets.NivoSlider.Components
                 string.IsNullOrEmpty(model.Picture5Url))
                 //no pictures uploaded
                 return Content("");
+
+            string currentThemeName = EngineContext.Current.Resolve<IThemeContext>().WorkingThemeName;
+
+            if (currentThemeName == "Karma")
+            {
+                return View("~/Plugins/Widgets.NivoSlider/Views/Karma/PublicInfo.cshtml", model);
+            }
 
             return View("~/Plugins/Widgets.NivoSlider/Views/PublicInfo.cshtml", model);
         }

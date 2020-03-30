@@ -13,10 +13,13 @@
                         Adresa: Șoseaua Banatului 81, Chitila 077045
                     </p>
                     <p>
-                        Email: contact@protectkronos.ro
+                        Email: <a href="mailto:contact@protectkronos.ro" target="_top">contact@protectkronos.ro</a>
                     </p>
                     <p>
-                        Telefon: +40 722 223 166
+                        <a href="mailto:contact@protectkronos.ro" target="_top">comenzi-online@protectkronos.ro</a>
+                    </p>
+                    <p>
+                        Telefon: <a href="tel:+40722223166">+40 722 223 166</a>
                     </p>
                 </div>
             </div>
@@ -35,10 +38,10 @@
                         {
                             <li><a href="@Url.RouteUrl("Topic", new { SeName = topic.SeName })">@topic.Name</a></li>
                         }
-                        @*@if (Model.DisplayContactUsFooterItem)
+                        @if (Model.DisplayContactUsFooterItem)
                         {
                             <li><a href="@Url.RouteUrl("ContactUs")">@T("ContactUs")</a></li>
-                        }*@
+                        }
                     </ul>
                 </div>
             </div>

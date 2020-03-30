@@ -1410,7 +1410,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .header_area .navbar .nav .nav-item:hover .nav-link, .header_area .navbar .nav .nav-item.active .nav-link {
-  color: #ffba00;
+  color: #007bff /*#ffba00*/;
 }
 
 .header_area .navbar .nav .nav-item.submenu {
@@ -1474,7 +1474,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
   .header_area .navbar .nav .nav-item.submenu ul .nav-item.active {
-    background: #ffba00;
+    background: #007bff /*#ffba00*/;
   }
 
     .header_area .navbar .nav .nav-item.submenu ul .nav-item.active .nav-link {
@@ -1497,7 +1497,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .header_area .navbar .nav .nav-item.submenu ul .nav-item:hover .nav-link {
-    background: #ffba00;
+    background: #007bff /*#ffba00*/;
     color: #fff;
   }
 
@@ -8183,6 +8183,26 @@ label {
   font-weight: 300;
 }
 
+.single-footer-widget a {
+  /* Microsoft Edge */
+  color: #fff;
+}
+
+.single-footer-widget a:hover {
+  /* Microsoft Edge */
+  color: #007bff;
+}
+
+.footer-block a {
+  /* Microsoft Edge */
+  color: #fff;
+}
+
+.footer-block a:hover {
+  /* Microsoft Edge */
+  color: #007bff;
+}
+
 .single-footer-widget ::-ms-input-placeholder {
   /* Microsoft Edge */
   color: #777777;
@@ -8266,4 +8286,12 @@ label {
 
 .admin-header-links .impersonate a:hover {
   background-color: #666;
+}
+
+.img-fit {
+    height: fit-content;
+}
+
+.h-95 {
+    height: 95%;
 }

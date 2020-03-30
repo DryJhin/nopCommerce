@@ -6,38 +6,26 @@
 }
 @if (Model.Enabled)
 {
-    <div class="breadcrumb">
-            <ul itemscope itemtype="http://schema.org/BreadcrumbList">
-                @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.ProductBreadcrumbBefore, additionalData = Model })
-                <li>
-                    <span>
-                        <a href="@Url.RouteUrl("Homepage")">
-                            <span>@T("Products.Breadcrumb.Top")</span>
-                        </a>
-                    </span>
-                    <span class="delimiter">@breadcrumbDelimiter</span>
-                </li>
-                @{ int position = 1; }
-                @foreach (var category in Model.CategoryBreadcrumb)
-                {
-                    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                        <a href="@Url.RouteUrl("Category", new { SeName = category.SeName })" itemprop="item">
-                            <span itemprop="name">@category.Name</span>
-                        </a>
-                        <span class="delimiter">@breadcrumbDelimiter</span>
-                        <meta itemprop="position" content="@position" />
-                    </li>
-                    position++;
-                }
-                
-                <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                    <strong class="current-item" itemprop="name">@Model.ProductName</strong>
-                    <span itemprop="item" itemscope itemtype="http://schema.org/Thing" 
-                          id="@Url.RouteUrl("Product", new { SeName = Model.ProductSeName })">
-                    </span>
-                    <meta itemprop="position" content="@position" />
-                    @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.ProductBreadcrumbAfter, additionalData = Model })
-                </li>
-            </ul>
-    </div>
+    @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.ProductBreadcrumbBefore, additionalData = Model })
+    <h1 itemprop="name">@Model.ProductName</h1>
+    <nav class="d-flex align-items-center" itemscope itemtype="http://schema.org/BreadcrumbList">
+        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.ProductBreadcrumbBefore, additionalData = Model })
+        <a href="@Url.RouteUrl("Homepage")" title="@T("Categories.Breadcrumb.Top")">@T("Categories.Breadcrumb.Top")<span class="lnr lnr-arrow-right"></span></a>
+        @{ int position = 1; }
+        @foreach (var category in Model.CategoryBreadcrumb)
+        {
+            <a href="@Url.RouteUrl("Category", new { SeName = category.SeName })" itemscope itemprop="item">
+                <span itemprop="name">@category.Name</span><span class="lnr lnr-arrow-right"></span>
+            </a>
+            <meta itemprop="position" content="@position" />
+            position++;
+        }
+        <a href="@Url.RouteUrl("Product", new { SeName = Model.ProductSeName })">
+            <span itemprop="item" itemscope itemtype="http://schema.org/Thing" id="@Url.RouteUrl("Product", new { SeName = Model.ProductSeName })">
+                @Model.ProductName
+            </span>
+        </a>
+        <meta itemprop="position" content="@position" />
+        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.ProductBreadcrumbAfter, additionalData = Model })
+    </nav>
 }

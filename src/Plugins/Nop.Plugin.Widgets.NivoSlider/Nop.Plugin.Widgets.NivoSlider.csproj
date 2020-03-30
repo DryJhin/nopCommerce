@@ -50,6 +50,7 @@
     <None Remove="Views\PublicInfo.cshtml" />
     <None Remove="Views\_PublicInfo.SliderLine.cshtml" />
     <None Remove="Views\_ViewImports.cshtml" />
+    <None Remove="Views\Karma\Nop.Plugin.Widgets.NivoSlider.Views.WidgetsNivoSlider.PublicInfo.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -147,6 +148,16 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Views\_ViewImports.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Karma\PublicInfo.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Karma\_PublicInfo.SliderLine.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

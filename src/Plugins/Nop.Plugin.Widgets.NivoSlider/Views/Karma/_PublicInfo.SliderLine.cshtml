@@ -1,0 +1,31 @@
+﻿@model Nop.Plugin.Widgets.NivoSlider.Models.PublicInfoModel
+
+@{
+    var pictureUrl = ViewData["pictureUrl"]?.ToString() ?? "";
+    var link = ViewData["link"]?.ToString() ?? "";
+    var dataTransition = ViewData["dataTransition"]?.ToString() ?? "";
+    var text = ViewData["text"]?.ToString() ?? "";
+    var alttext = ViewData["alttext"]?.ToString() ?? "";
+
+    if (!string.IsNullOrEmpty(pictureUrl))
+    {
+        <div class="row single-slide align-items-center d-flex">
+            <div class="col-lg-5 col-md-6">
+                <div class="banner-content">
+                    @Html.Raw(@text)
+                    @if (!string.IsNullOrEmpty(link))
+                    {
+                        <div class="add-bag d-flex align-items-center">
+                            <button class="primary-btn" onclick="window.location.href='@link'"><span class="text-uppercase">Vezi detalii</span></button>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <div class="banner-img">
+                    <img class="img-fluid" src="@pictureUrl" data-thumb="@pictureUrl" data-transition="@dataTransition" alt="@alttext" title="@text">
+                </div>
+            </div>
+        </div>
+    }
+}

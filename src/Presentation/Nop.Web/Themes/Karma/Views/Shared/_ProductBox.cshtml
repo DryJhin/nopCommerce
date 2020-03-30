@@ -22,89 +22,70 @@
     var addtowishlistlink = Url.RouteUrl("AddProductToCart-Catalog", new { productId = Model.Id, shoppingCartTypeId = (int)ShoppingCartType.Wishlist, quantity = quantity });
     var addtocomparelink = Url.RouteUrl("AddProductToCompare", new { productId = Model.Id });
 }
-<div class="product-item" data-productid="@Model.Id">
-    <div class="picture">
-        <a href="@Url.RouteUrl("Product", new { SeName = Model.SeName })" title="@Model.DefaultPictureModel.Title">
-            <img alt="@Model.DefaultPictureModel.AlternateText" src="@Model.DefaultPictureModel.ImageUrl" title="@Model.DefaultPictureModel.Title" />
-        </a>
-    </div>
-    <div class="details">
-        <h2 class="product-title">
-            <a href="@Url.RouteUrl("Product", new {SeName = Model.SeName})">@Model.Name</a>
-        </h2>
-        @if (catalogSettings.ShowSkuOnCatalogPages && !string.IsNullOrEmpty(Model.Sku))
-        {
-            <div class="sku">
-                @Model.Sku
-            </div>
-        }
-        @if (Model.ReviewOverviewModel.AllowCustomerReviews)
-        {
-            var ratingPercent = 0;
-            if (Model.ReviewOverviewModel.TotalReviews != 0)
-            {
-                ratingPercent = ((Model.ReviewOverviewModel.RatingSum*100)/Model.ReviewOverviewModel.TotalReviews)/5;
-            }
-            <div class="product-rating-box" title="@string.Format(T("Reviews.TotalReviews").Text, Model.ReviewOverviewModel.TotalReviews)">
-                <div class="rating">
-                    <div style="width: @(ratingPercent)%">
-                    </div>
-                </div>
-            </div>
-        }
-        <div class="description">
-            @Html.Raw(Model.ShortDescription)
-        </div>
-        <div class="add-info">
-            @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.ProductBoxAddinfoBefore, additionalData = Model })
-            <div class="prices">
+<div class="col-lg-3 col-md-6">
+    <div class="single-product" data-productid="@Model.Id">
+        <img class="img-fluid" alt="@Model.DefaultPictureModel.AlternateText" src="@Model.DefaultPictureModel.ImageUrl" title="@Model.DefaultPictureModel.Title">
+        <div class="product-details">
+            <h6>
+                @Model.Name
+            </h6>
+            <div class="price">
+                <h6>@Model.ProductPrice.Price</h6>
                 @if (!string.IsNullOrEmpty(Model.ProductPrice.OldPrice))
                 {
-                    <span class="price old-price">@Model.ProductPrice.OldPrice</span>
+                    <h6 class="l-through">@Model.ProductPrice.OldPrice</h6>
                 }
-                <span class="price actual-price">@Model.ProductPrice.Price</span>
-                @if (Model.ProductPrice.DisplayTaxShippingInfo)
+            </div>
+            @if (Model.ReviewOverviewModel.AllowCustomerReviews)
+            {
+                var ratingPercent = 0;
+                if (Model.ReviewOverviewModel.TotalReviews != 0)
                 {
-                    var inclTax = workContext.TaxDisplayType == TaxDisplayType.IncludingTax;
-                    //tax info is already included in the price (incl/excl tax). that's why we display only shipping info here
-                    //of course, you can modify appropriate locales to include VAT info there
-                    <span class="tax-shipping-info">
-                        @T(inclTax ? "Products.Price.TaxShipping.InclTax" : "Products.Price.TaxShipping.ExclTax", Url.RouteUrl("Topic", new { SeName = Html.GetTopicSeName("shippinginfo") }))
-                    </span>
+                    ratingPercent = ((Model.ReviewOverviewModel.RatingSum * 100) / Model.ReviewOverviewModel.TotalReviews) / 5;
                 }
-                @if (!string.IsNullOrEmpty(Model.ProductPrice.BasePricePAngV))
-                {
-                    <div class="base-price-pangv">
-                        @Model.ProductPrice.BasePricePAngV
+                <div class="product-rating-box" title="@string.Format(T("Reviews.TotalReviews").Text, Model.ReviewOverviewModel.TotalReviews)">
+                    <div class="rating">
+                        <div style="width: @(ratingPercent)%">
+                        </div>
                     </div>
-                }
-            </div>
-            @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.ProductBoxAddinfoMiddle, additionalData = Model })
-            <div class="buttons">
-                @*<input type="button" value="@T("Products.Details")" class="button-1 product-box-detail-button" onclick="setLocation('@Url.RouteUrl("Product", new { SeName = Model.SeName })')" />*@
-                @if (!Model.ProductPrice.DisableBuyButton)
+                </div>
+            }
+        <div class="prd-bottom">
+            @if (!Model.ProductPrice.DisableBuyButton)
+            {
+                var addToCartText = T("ShoppingCart.AddToCart").Text;
+                if (Model.ProductPrice.IsRental)
                 {
-                    var addToCartText = T("ShoppingCart.AddToCart").Text;
-                    if (Model.ProductPrice.IsRental)
-                    {
-                        addToCartText = T("ShoppingCart.Rent").Text;
-                    }
-                    if (Model.ProductPrice.AvailableForPreOrder)
-                    {
-                        addToCartText = T("ShoppingCart.PreOrder").Text;
-                    }
-                    <input type="button" value="@(addToCartText)" class="button-2 product-box-add-to-cart-button" onclick="AjaxCart.addproducttocart_catalog('@addtocartlink');return false;" />
+                    addToCartText = T("ShoppingCart.Rent").Text;
                 }
-                @if (!Model.ProductPrice.DisableAddToCompareListButton)
+                if (Model.ProductPrice.AvailableForPreOrder)
                 {
-                    <input type="button" value="@T("ShoppingCart.AddToCompareList")" title="@T("ShoppingCart.AddToCompareList")" class="button-2 add-to-compare-list-button" onclick="AjaxCart.addproducttocomparelist('@addtocomparelink');return false;" />
+                    addToCartText = T("ShoppingCart.PreOrder").Text;
                 }
-                @if (!Model.ProductPrice.DisableWishlistButton)
-                {
-                    <input type="button" value="@T("ShoppingCart.AddToWishlist")" title="@T("ShoppingCart.AddToWishlist")" class="button-2 add-to-wishlist-button" onclick="AjaxCart.addproducttocart_catalog('@addtowishlistlink');return false;" />
-                }
-            </div>
-            @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.ProductBoxAddinfoAfter, additionalData = Model })
+                <a href="" onclick="event.preventDefault();AjaxCart.addproducttocart_catalog('@addtocartlink');return false;" class="social-info">
+                    <span class="ti-bag"></span>
+                    <p class="hover-text">@(addToCartText)</p>
+                </a>
+            }
+            @if (!Model.ProductPrice.DisableWishlistButton)
+            {
+                <a href="" class="social-info" onclick="event.preventDefault();AjaxCart.addproducttocart_catalog('@addtowishlistlink'); return false;">
+                    <span class="lnr lnr-heart"></span>
+                    <p class="hover-text">@T("ShoppingCart.AddToWishlist")</p>
+                </a>
+            }
+            @if (!Model.ProductPrice.DisableAddToCompareListButton)
+            {
+                <a href="" class="social-info" onclick="event.preventDefault();AjaxCart.addproducttocomparelist('@addtocomparelink');return false;">
+                    <span class="lnr lnr-sync"></span>
+                    <p class="hover-text">@T("ShoppingCart.AddToCompareList")</p>
+                </a>
+            }
+            <a href="@Url.RouteUrl("Product", new {SeName = Model.SeName})" class="social-info">
+                <span class="lnr lnr-move"></span>
+                <p class="hover-text">view more</p>
+            </a>
+        </div>
         </div>
     </div>
 </div>
