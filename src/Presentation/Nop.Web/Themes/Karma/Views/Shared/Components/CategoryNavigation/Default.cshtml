@@ -1,22 +1,18 @@
 ﻿@model CategoryNavigationModel
 @if (Model.Categories.Count > 0)
 {
-    <div class="block block-category-navigation">
-        <div class="title">
-            <strong>@T("Categories")</strong>
-        </div>
-        <div class="listbox">
-            <ul class="list">
-                @foreach (var category in Model.Categories)
+    <div class="sidebar-categories">
+        <div class="head">@T("Categories")</div>
+        <ul class="main-categories">
+            @foreach (var category in Model.Categories)
+            {
+                var categoryLineModel = new CategoryNavigationModel.CategoryLineModel
                 {
-                    var categoryLineModel = new CategoryNavigationModel.CategoryLineModel
-                    {
-                        CurrentCategoryId = Model.CurrentCategoryId,
-                        Category = category
-                    };
-                    @await Html.PartialAsync("_CategoryLine.Navigation", categoryLineModel)
-                }
-            </ul>
-        </div>
+                    CurrentCategoryId = Model.CurrentCategoryId,
+                    Category = category
+                };
+                @await Html.PartialAsync("_CategoryLine.Navigation", categoryLineModel)
+            }
+        </ul>
     </div>
 }

@@ -56,11 +56,9 @@
         @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.CategoryDetailsAfterBreadcrumb, additionalData = Model })
     }
 }
-<div class="page category-page">
-    <div class="page-title">
-        <h1>@Model.Name</h1>
-    </div>
-    <div class="page-body">
+<!-- Start Best Seller -->
+<section class="lattest-product-area pb-40 category-list">
+    <div class="row">
         @*description*@
         @if (!string.IsNullOrWhiteSpace(Model.Description))
         {
@@ -156,4 +154,10 @@
         }
         @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.CategoryDetailsBottom, additionalData = Model })
     </div>
-</div>
+</section>
+
+<script asp-location="Footer">
+    $(document).ready(function () {
+        $('body').attr('id', 'category');
+    });
+</script>

@@ -22,38 +22,52 @@
 }
 @{
     var active = Model.Category.Id == Model.CurrentCategoryId || Model.Category.SubCategories.Count(BreadCrumbContainsCurrentCategoryId) > 0;
-    var last = Model.Category.Id == Model.CurrentCategoryId;
-    var liClass = active ? "active" : "inactive";
-    if (last)
-    {
-        liClass += " last";
-    }
+    var anchorClass = active ? "active" : "inactive";
+    var hasChild = Model.Category.SubCategories.Count > 0;
+    var colapseId = Model.Category.Name + Model.Category.Id;
+    var anchorLink = hasChild ? "#" + colapseId : Url.RouteUrl("Category", new { SeName = Model.Category.SeName });
+    var liClass = Model.Category.IsSubCategory ? "child" : "";
 }
-<li class="@liClass">
-    <a href="@Url.RouteUrl("Category", new { SeName = Model.Category.SeName })">@Model.Category.Name
-        @if (Model.Category.NumberOfProducts.HasValue)
-        {
-            <text> </text>@T("Categories.TotalProducts", Model.Category.NumberOfProducts.Value)
-        }
-    </a>
+<li class="main-nav-list @liClass">
     @{
-        if (Model.Category.Id == Model.CurrentCategoryId ||
-            Model.Category.SubCategories.Count(BreadCrumbContainsCurrentCategoryId) > 0)
+        if (hasChild)
         {
-            if (Model.Category.SubCategories.Count > 0)
-            {
-                <ul class="sublist">
-                    @foreach (var subCategory in Model.Category.SubCategories)
+            <a data-toggle="collapse" href="@anchorLink" aria-expanded="false" aria-controls="@colapseId" class="collapsed @anchorClass">
+                <span class="lnr lnr-arrow-right"></span>
+                @Model.Category.Name
+                @if (Model.Category.NumberOfProducts.HasValue)
+                {
+                    <span class="number">
+                        (@Model.Category.NumberOfProducts.Value)
+                    </span>
+                }
+            </a>
+            <ul class="collapse" id="@colapseId">
+                @foreach (var subCategory in Model.Category.SubCategories)
+                {
+                    subCategory.IsSubCategory = true;
+
+                    var categoryLineModel = new CategoryNavigationModel.CategoryLineModel
                     {
-                        var categoryLineModel = new CategoryNavigationModel.CategoryLineModel
-                        {
-                            CurrentCategoryId = Model.CurrentCategoryId,
-                            Category = subCategory
-                        };
-                        @await Html.PartialAsync("_CategoryLine.Navigation", categoryLineModel)
-                    }
-                </ul>
-            }
+                        CurrentCategoryId = Model.CurrentCategoryId,
+                        Category = subCategory
+                    };
+                    @await Html.PartialAsync("_CategoryLine.Navigation", categoryLineModel)
+                }
+            </ul>
+        }
+        else
+        {
+            <a href="@anchorLink" class="@anchorClass">
+                <span class="lnr lnr-arrow-right"></span>
+                @Model.Category.Name
+                @if (Model.Category.NumberOfProducts.HasValue)
+                {
+                    <span class="number">
+                        (@Model.Category.NumberOfProducts.Value)
+                    </span>
+                }
+            </a>
         }
     }
 </li>

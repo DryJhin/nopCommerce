@@ -23,5 +23,7 @@ namespace Nop.Web.Models.Catalog
         public bool HaveSubCategories { get; set; }
 
         public string Route { get; set; }
+
+        public bool IsSubCategory { get; set; }
     }
 }
