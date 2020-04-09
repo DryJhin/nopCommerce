@@ -7,40 +7,51 @@
     //page class
     Html.AppendPageCssClassParts("html-sitemap-page");
 }
-<div class="page sitemap-page">
-    <div class="page-title">
-        <h1>@T("Sitemap")</h1>
-    </div>
-    <div class="page-body">
-        <div class="description">
-            @T("Sitemap.Description")
-        </div>
-        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.SitemapBefore })
-        @foreach (var itemGroup in Model.Items.GroupBy(itemGroup => itemGroup.GroupTitle))
-        {
-            <div class="entity">
-                <div class="entity-title">
-                    <h2>@itemGroup.Key</h2>
-                </div>
-                <div class="entity-body">
-                    <ul>
-                        @foreach (var item in itemGroup.ToList())
-                        {
-                            <li><a href="@item.Url">@item.Name</a></li>
-                        }
-                    </ul>
+<!--product breadcrumb-->
+@section Breadcrumb
+{
+    @Html.BuildBreadcrumbNavigation();
+}
+
+
+<div class="section-top-border section_gap">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 text-center">
+                <div class="section-title">
+                    <h1>@T("Sitemap")</h1>
+                    <p>
+                        @T("Sitemap.Description")
+                    </p>
                 </div>
             </div>
-        }
-        @{
-            var pager = Html.Pager(Model.PageModel).QueryParam("pagenumber");
-            if (!pager.IsEmpty())
+        </div>
+        <div class="row">
+            @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.SitemapBefore })
+            @foreach (var itemGroup in Model.Items.GroupBy(itemGroup => itemGroup.GroupTitle))
             {
-                <div class="pager">
-                    @pager
+                <div class="col-lg-4 col-md-4 col-sm-6 mb-20">
+                    <h3 class="mb-20">@itemGroup.Key</h3>
+                    <div class="">
+                        <ul class="unordered-list">
+                            @foreach (var item in itemGroup.ToList())
+                            {
+                                <li><a href="@item.Url">@item.Name</a></li>
+                            }
+                        </ul>
+                    </div>
                 </div>
             }
-        }
-        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.SitemapAfter })
+            @{
+                var pager = Html.Pager(Model.PageModel).QueryParam("pagenumber");
+                if (!pager.IsEmpty())
+                {
+                    <div class="pager">
+                        @pager
+                    </div>
+                }
+            }
+            @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.SitemapAfter })
+        </div>
     </div>
 </div>

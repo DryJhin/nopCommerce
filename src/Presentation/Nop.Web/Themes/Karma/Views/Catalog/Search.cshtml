@@ -7,6 +7,11 @@
     //page class
     Html.AppendPageCssClassParts("html-search-page");
 }
+<!--product breadcrumb-->
+@section Breadcrumb
+{
+    @Html.BuildBreadcrumbNavigation();
+}
 <script asp-location="Footer">
     $(document).ready(function () {
         $("#@Html.IdFor(model => model.adv)").on('click', toggleAdvancedSearch);
@@ -23,9 +28,6 @@
     }
 </script>
 <div class="page search-page">
-    <div class="page-title">
-        <h1>@T("Search")</h1>
-    </div>
     <div class="page-body">
         <div class="search-input">
             <form asp-route="ProductSearch" method="get">
