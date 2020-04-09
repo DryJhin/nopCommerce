@@ -35,7 +35,7 @@
     }
 }
 
-<div class="container">
+<div class="container pb-5">
     <div class="row">
         <div class="col-xl-3 col-lg-4 col-md-5">
             @if (IsSectionDefined("left"))
@@ -49,11 +49,11 @@
                 @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.LeftSideColumnBefore })
                 @await Component.InvokeAsync("CategoryNavigation", new { currentCategoryId = currentCategoryId, currentProductId = currentProductId })
                 @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.LeftSideColumnAfterCategoryNavigation })
-                @await Component.InvokeAsync("ManufacturerNavigation", new { currentManufacturerId = currentManufacturerId })
-                @await Component.InvokeAsync("VendorNavigation")
-                @await Component.InvokeAsync("RecentlyViewedProductsBlock", new { productThumbPictureSize = 64 })
-                @await Component.InvokeAsync("PopularProductTags")
-                @await Component.InvokeAsync("PollBlock", new { systemKeyword = "LeftColumnPoll" })
+                @*@await Component.InvokeAsync("ManufacturerNavigation", new { currentManufacturerId = currentManufacturerId })
+                    @await Component.InvokeAsync("VendorNavigation")
+                    @await Component.InvokeAsync("RecentlyViewedProductsBlock", new { productThumbPictureSize = 64 })
+                    @await Component.InvokeAsync("PopularProductTags")
+                    @await Component.InvokeAsync("PollBlock", new { systemKeyword = "LeftColumnPoll" })*@
                 @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.LeftSideColumnAfter })
             }
         </div>

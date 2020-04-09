@@ -12,6 +12,8 @@
     //meta
     Html.AddMetaDescriptionParts(Model.MetaDescription);
     Html.AddMetaKeywordParts(Model.MetaKeywords);
+    //page class
+    Html.AppendPageCssClassParts("html-category-page");
 
     if (seoSettings.CanonicalUrlsEnabled)
     {
@@ -26,39 +28,46 @@
     {
     @if (Model.DisplayCategoryBreadcrumb)
     {
-        <h1>Shop Category page</h1>
-        <nav class="d-flex align-items-center">
-            <a href="@Url.RouteUrl("Homepage")" title="@T("Categories.Breadcrumb.Top")">@T("Categories.Breadcrumb.Top")<span class="lnr lnr-arrow-right"></span></a>
-            @{ int position = 1; }
-            @foreach (var cat in Model.CategoryBreadcrumb)
-            {
-                var isLastCategory = cat.Id == Model.Id;
-
-                @if (isLastCategory)
+        <div class="breadcrumb">
+            <ul itemscope itemtype="http://schema.org/BreadcrumbList">
+                <li>
+                    <a href="@Url.RouteUrl("Homepage")" title="@T("Categories.Breadcrumb.Top")">@T("Categories.Breadcrumb.Top")</a>
+                    <span class="delimiter">@breadcrumbDelimiter</span>
+                </li>
+                @{ int position = 1; }
+                @foreach (var cat in Model.CategoryBreadcrumb)
                 {
-                    <a href="@Url.RouteUrl("Category", new {SeName = cat.SeName})" title="@T("Categories.Breadcrumb.Top")" itemscope itemprop="item">
-                        <span itemprop="item" itemscope itemtype="http://schema.org/Thing" id="@Url.RouteUrl("Category", new {SeName = cat.SeName})">
-                            @cat.Name
-                        </span>
-                    </a>
+                    var isLastCategory = cat.Id == Model.Id;
+                    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                        @if (isLastCategory)
+                        {
+                            <strong class="current-item" itemprop="name">@cat.Name</strong>
+                            <span itemprop="item" itemscope itemtype="http://schema.org/Thing"
+                                  id="@Url.RouteUrl("Category", new {SeName = cat.SeName})">
+                            </span>
+                        }
+                        else
+                        {
+                            <a href="@Url.RouteUrl("Category", new { SeName = cat.SeName })" title="@cat.Name" itemprop="item">
+                                <span itemprop="name">@cat.Name</span>
+                            </a>
+                            <span class="delimiter">@breadcrumbDelimiter</span>
+                        }
+                        <meta itemprop="position" content="@position" />
+                    </li>
+                    position++;
                 }
-                else
-                {
-                    <a href="@Url.RouteUrl("Category", new { SeName = cat.SeName })" itemprop="item" itemscope itemtype="http://schema.org/Thing">
-                        <span itemprop="name">@cat.Name</span>
-                        <span class="lnr lnr-arrow-right"></span>
-                    </a>
-                }
-                <meta itemprop="position" content="@position" />
-                position++;
-            }
-        </nav>
+            </ul>
+        </div>
         @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.CategoryDetailsAfterBreadcrumb, additionalData = Model })
     }
 }
-<!-- Start Best Seller -->
-<section class="lattest-product-area pb-40 category-list">
-    <div class="row">
+<div class="page category-page">
+    <div class="page-title">
+        <h1>@Model.Name</h1>
+    </div>
+    <div class="page-body">
+        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.CategoryDetailsTop, additionalData = Model })
         @*description*@
         @if (!string.IsNullOrWhiteSpace(Model.Description))
         {
@@ -154,10 +163,4 @@
         }
         @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.CategoryDetailsBottom, additionalData = Model })
     </div>
-</section>
-
-<script asp-location="Footer">
-    $(document).ready(function () {
-        $('body').attr('id', 'category');
-    });
-</script>
+</div>

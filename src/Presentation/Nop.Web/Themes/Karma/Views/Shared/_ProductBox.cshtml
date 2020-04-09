@@ -22,34 +22,33 @@
     var addtowishlistlink = Url.RouteUrl("AddProductToCart-Catalog", new { productId = Model.Id, shoppingCartTypeId = (int)ShoppingCartType.Wishlist, quantity = quantity });
     var addtocomparelink = Url.RouteUrl("AddProductToCompare", new { productId = Model.Id });
 }
-<div class="col-lg-3 col-md-6">
-    <div class="single-product" data-productid="@Model.Id">
-        <img class="img-fluid" alt="@Model.DefaultPictureModel.AlternateText" src="@Model.DefaultPictureModel.ImageUrl" title="@Model.DefaultPictureModel.Title">
-        <div class="product-details">
-            <h6>
-                @Model.Name
-            </h6>
-            <div class="price">
-                <h6>@Model.ProductPrice.Price</h6>
-                @if (!string.IsNullOrEmpty(Model.ProductPrice.OldPrice))
-                {
-                    <h6 class="l-through">@Model.ProductPrice.OldPrice</h6>
-                }
-            </div>
-            @if (Model.ReviewOverviewModel.AllowCustomerReviews)
+<div class="single-product" data-productid="@Model.Id">
+    <img class="img-fluid" alt="@Model.DefaultPictureModel.AlternateText" src="@Model.DefaultPictureModel.ImageUrl" title="@Model.DefaultPictureModel.Title">
+    <div class="product-details">
+        <h6>
+            @Model.Name
+        </h6>
+        <div class="price">
+            <h6>@Model.ProductPrice.Price</h6>
+            @if (!string.IsNullOrEmpty(Model.ProductPrice.OldPrice))
             {
-                var ratingPercent = 0;
-                if (Model.ReviewOverviewModel.TotalReviews != 0)
-                {
-                    ratingPercent = ((Model.ReviewOverviewModel.RatingSum * 100) / Model.ReviewOverviewModel.TotalReviews) / 5;
-                }
-                <div class="product-rating-box" title="@string.Format(T("Reviews.TotalReviews").Text, Model.ReviewOverviewModel.TotalReviews)">
-                    <div class="rating">
-                        <div style="width: @(ratingPercent)%">
-                        </div>
+                <h6 class="l-through">@Model.ProductPrice.OldPrice</h6>
+            }
+        </div>
+        @if (Model.ReviewOverviewModel.AllowCustomerReviews)
+        {
+            var ratingPercent = 0;
+            if (Model.ReviewOverviewModel.TotalReviews != 0)
+            {
+                ratingPercent = ((Model.ReviewOverviewModel.RatingSum * 100) / Model.ReviewOverviewModel.TotalReviews) / 5;
+            }
+            <div class="product-rating-box" title="@string.Format(T("Reviews.TotalReviews").Text, Model.ReviewOverviewModel.TotalReviews)">
+                <div class="rating">
+                    <div style="width: @(ratingPercent)%">
                     </div>
                 </div>
-            }
+            </div>
+        }
         <div class="prd-bottom">
             @if (!Model.ProductPrice.DisableBuyButton)
             {
@@ -85,7 +84,6 @@
                 <span class="lnr lnr-move"></span>
                 <p class="hover-text">view more</p>
             </a>
-        </div>
         </div>
     </div>
 </div>

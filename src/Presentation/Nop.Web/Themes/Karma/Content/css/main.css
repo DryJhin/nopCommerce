@@ -88,6 +88,10 @@
   background: linear-gradient(90deg, #ffba00 0%, #ff6c00 100%);
 }
 
+.disableClick {
+  pointer-events: none !important;
+}
+
 .gradient-bg-reverse, #search_input_box {
   background: -webkit-linear-gradient(270deg, #ffba00 0%, #ff6c00 100%);
   background: -moz-linear-gradient(270deg, #ffba00 0%, #ff6c00 100%);
@@ -8188,20 +8192,20 @@ label {
   color: #fff;
 }
 
-.single-footer-widget a:hover {
-  /* Microsoft Edge */
-  color: #007bff;
-}
+  .single-footer-widget a:hover {
+    /* Microsoft Edge */
+    color: #007bff;
+  }
 
 .footer-block a {
   /* Microsoft Edge */
   color: #fff;
 }
 
-.footer-block a:hover {
-  /* Microsoft Edge */
-  color: #007bff;
-}
+  .footer-block a:hover {
+    /* Microsoft Edge */
+    color: #007bff;
+  }
 
 .single-footer-widget ::-ms-input-placeholder {
   /* Microsoft Edge */
@@ -8267,31 +8271,43 @@ label {
   color: #eee;
 }
 
-.admin-header-links * {
-  display: inline-block;
-  margin: 0 10px;
-  line-height: 35px;
-  font-size: 12px;
-  font-weight: bold;
-}
+  .admin-header-links * {
+    display: inline-block;
+    margin: 0 10px;
+    line-height: 35px;
+    font-size: 12px;
+    font-weight: bold;
+  }
 
-.admin-header-links .impersonate {
-  display: inline-block;
-}
+  .admin-header-links .impersonate {
+    display: inline-block;
+  }
 
-.admin-header-links .impersonate a {
-  background-color: #fff;
-  padding: 0 15px;
-}
+    .admin-header-links .impersonate a {
+      background-color: #fff;
+      padding: 0 15px;
+    }
 
-.admin-header-links .impersonate a:hover {
-  background-color: #666;
-}
+      .admin-header-links .impersonate a:hover {
+        background-color: #666;
+      }
 
 .img-fit {
-    height: fit-content;
+  height: fit-content;
 }
 
 .h-95 {
-    height: 95%;
+  height: 95%;
+}
+
+
+.message-error,
+.field-validation-error,
+.username-not-available-status,
+.poll-vote-error, .password-error {
+  display: block;
+  text-align: center;
+  font-size: 13px;
+  color: #e4434b;
+  margin-top: 5px;
 }

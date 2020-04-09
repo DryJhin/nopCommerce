@@ -1,6 +1,6 @@
 ﻿@model ProductDetailsModel
 @using Nop.Core.Domain.Seo;
-@inject Nop.Core.IWebHelper webHelper 
+@inject Nop.Core.IWebHelper webHelper
 @inject SeoSettings seoSettings
 @{
     Layout = "_ColumnsOne";
@@ -147,10 +147,11 @@
                     @await Html.PartialAsync("_ProductSpecifications", Model.ProductSpecifications)
                     @await Html.PartialAsync("_ProductTags", Model.ProductTags)
                 </div>
-                @await Component.InvokeAsync("ProductsAlsoPurchased", new { productId = Model.Id })
-                @await Component.InvokeAsync("RelatedProducts", new { productId = Model.Id })
             </div>
         </form>
         @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.ProductDetailsBottom, additionalData = Model })
     </div>
 </div>
+
+@await Component.InvokeAsync("ProductsAlsoPurchased", new { productId = Model.Id })
+@await Component.InvokeAsync("RelatedProducts", new { productId = Model.Id })

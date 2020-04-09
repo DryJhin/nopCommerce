@@ -1,4 +1,4 @@
-//Contributor : MVCContrib
+﻿//Contributor : MVCContrib
 
 using System;
 using System.Collections.Generic;
@@ -29,13 +29,13 @@ namespace Nop.Web.Framework.UI.Paging
         /// ViewContext
         /// </summary>
         protected readonly ViewContext viewContext;
-	    /// <summary>
-	    /// Page query string prameter name
-	    /// </summary>
+        /// <summary>
+        /// Page query string prameter name
+        /// </summary>
         protected string pageQueryName = "page";
-	    /// <summary>
-	    /// A value indicating whether to show Total summary
-	    /// </summary>
+        /// <summary>
+        /// A value indicating whether to show Total summary
+        /// </summary>
         protected bool showTotalSummary;
         /// <summary>
         /// A value indicating whether to show pager items
@@ -73,26 +73,26 @@ namespace Nop.Web.Framework.UI.Paging
         /// Boolean parameter names
         /// </summary>
         protected IList<string> booleanParameterNames;
-		/// <summary>
-		/// First page css class name
-		/// </summary>
-		protected string firstPageCssClass = "first-page";
-		/// <summary>
-		/// Previous page css class name
-		/// </summary>
-		protected string previousPageCssClass = "previous-page";
+        /// <summary>
+        /// First page css class name
+        /// </summary>
+        protected string firstPageCssClass = "first-page";
+        /// <summary>
+        /// Previous page css class name
+        /// </summary>
+        protected string previousPageCssClass = "prev-arrow";
         /// <summary>
 		/// Current page css class name
 		/// </summary>
-        protected string currentPageCssClass = "current-page";
-		/// <summary>
-		/// Individual page css class name
-		/// </summary>
-        protected string individualPageCssClass = "individual-page";
+        protected string currentPageCssClass = "active";
+        /// <summary>
+        /// Individual page css class name
+        /// </summary>
+        protected string individualPageCssClass = "";
         /// <summary>
 		/// Next page css class name
 		/// </summary>
-        protected string nextPageCssClass = "next-page";
+        protected string nextPageCssClass = "next-arrow";
         /// <summary>
 		/// Last page css class name
 		/// </summary>
@@ -101,7 +101,14 @@ namespace Nop.Web.Framework.UI.Paging
 		/// Main ul css class name
 		/// </summary>
         protected string mainUlCssClass = "";
-
+        /// <summary>
+		/// 
+		/// </summary>
+        protected string cssArrowLeft = "fa fa-long-arrow-left";
+        /// <summary>
+		/// 
+		/// </summary>
+        protected string cssArrowRight = "fa fa-long-arrow-right";
 
         /// <summary>
         /// Ctor
@@ -109,19 +116,19 @@ namespace Nop.Web.Framework.UI.Paging
         /// <param name="model">Model</param>
         /// <param name="context">ViewContext</param>
 		public Pager(IPageableModel model, ViewContext context)
-		{
+        {
             this.model = model;
             viewContext = context;
             booleanParameterNames = new List<string>();
-		}
+        }
 
         /// <summary>
         /// ViewContext
         /// </summary>
-		protected ViewContext ViewContext 
-		{
-			get { return viewContext; }
-		}
+		protected ViewContext ViewContext
+        {
+            get { return viewContext; }
+        }
 
         /// <summary>
         /// Set 
@@ -129,9 +136,9 @@ namespace Nop.Web.Framework.UI.Paging
         /// <param name="value">Value</param>
         /// <returns>Pager</returns>
         public Pager QueryParam(string value)
-		{
+        {
             pageQueryName = value;
-			return this;
+            return this;
         }
         /// <summary>
         /// Set a value indicating whether to show Total summary
@@ -239,7 +246,8 @@ namespace Nop.Web.Framework.UI.Paging
         /// </summary>
         /// <param name="value">Value</param>
         /// <returns>Pager</returns>
-        public Pager FirstPageCssClass(string value) {
+        public Pager FirstPageCssClass(string value)
+        {
             firstPageCssClass = value;
             return this;
         }
@@ -248,7 +256,8 @@ namespace Nop.Web.Framework.UI.Paging
         /// </summary>
         /// <param name="value">Value</param>
         /// <returns>Pager</returns>
-        public Pager PreviousPageCssClass(string value) {
+        public Pager PreviousPageCssClass(string value)
+        {
             previousPageCssClass = value;
             return this;
         }
@@ -257,7 +266,8 @@ namespace Nop.Web.Framework.UI.Paging
         /// </summary>
         /// <param name="value">Value</param>
         /// <returns>Pager</returns>
-        public Pager CurrentPageCssClass(string value) {
+        public Pager CurrentPageCssClass(string value)
+        {
             currentPageCssClass = value;
             return this;
         }
@@ -266,7 +276,8 @@ namespace Nop.Web.Framework.UI.Paging
         /// </summary>
         /// <param name="value">Value</param>
         /// <returns>Pager</returns>
-        public Pager IndividualPageCssClass(string value) {
+        public Pager IndividualPageCssClass(string value)
+        {
             individualPageCssClass = value;
             return this;
         }
@@ -275,7 +286,8 @@ namespace Nop.Web.Framework.UI.Paging
         /// </summary>
         /// <param name="value">Value</param>
         /// <returns>Pager</returns>
-        public Pager NextPageCssClass(string value) {
+        public Pager NextPageCssClass(string value)
+        {
             nextPageCssClass = value;
             return this;
         }
@@ -284,7 +296,8 @@ namespace Nop.Web.Framework.UI.Paging
         /// </summary>
         /// <param name="value">Value</param>
         /// <returns>Pager</returns>
-        public Pager LastPageCssClass(string value) {
+        public Pager LastPageCssClass(string value)
+        {
             lastPageCssClass = value;
             return this;
         }
@@ -293,7 +306,8 @@ namespace Nop.Web.Framework.UI.Paging
         /// </summary>
         /// <param name="value">Value</param>
         /// <returns>Pager</returns>
-        public Pager MainUlCssClass(string value) {
+        public Pager MainUlCssClass(string value)
+        {
             mainUlCssClass = value;
             return this;
         }
@@ -304,35 +318,35 @@ namespace Nop.Web.Framework.UI.Paging
         /// <param name="writer">Writer</param>
         /// <param name="encoder">Encoder</param>
 	    public void WriteTo(TextWriter writer, HtmlEncoder encoder)
-	    {
+        {
             var htmlString = GenerateHtmlString();
-	        writer.Write(htmlString);
-	    }
+            writer.Write(htmlString);
+        }
         /// <summary>
         /// Generate HTML control
         /// </summary>
         /// <returns>HTML control</returns>
 	    public override string ToString()
-	    {
-	        return GenerateHtmlString();
-	    }
+        {
+            return GenerateHtmlString();
+        }
         /// <summary>
         /// Generate HTML control
         /// </summary>
         /// <returns>HTML control</returns>
         public virtual string GenerateHtmlString()
-		{
-            if (model.TotalItems == 0) 
-				return null;
+        {
+            if (model.TotalItems == 0)
+                return null;
             var localizationService = EngineContext.Current.Resolve<ILocalizationService>();
 
             var links = new StringBuilder();
-            if (showTotalSummary && (model.TotalPages > 0))
-            {
-                links.Append("<li class=\"total-summary\">");
-                links.Append(string.Format(localizationService.GetResource("Pager.CurrentPage"), model.PageIndex + 1, model.TotalPages, model.TotalItems));
-                links.Append("</li>");
-            }
+            //if (showTotalSummary && (model.TotalPages > 0))
+            //{
+            //    links.Append("<li class=\"total-summary\">");
+            //    links.Append(string.Format(localizationService.GetResource("Pager.CurrentPage"), model.PageIndex + 1, model.TotalPages, model.TotalItems));
+            //    links.Append("</li>");
+            //}
             if (showPagerItems && (model.TotalPages > 1))
             {
                 if (showFirst)
@@ -348,7 +362,7 @@ namespace Nop.Web.Framework.UI.Paging
                     //previous page
                     if (model.PageIndex > 0)
                     {
-                        links.Append(CreatePageLink(model.PageIndex, localizationService.GetResource("Pager.Previous"), previousPageCssClass));
+                        links.Append(CreatePageILink(model.PageIndex, previousPageCssClass, cssArrowLeft));
                     }
                 }
                 if (showIndividualPages)
@@ -360,7 +374,7 @@ namespace Nop.Web.Framework.UI.Paging
                     {
                         if (model.PageIndex == i)
                         {
-                            links.AppendFormat("<li class=\"" + currentPageCssClass + "\"><span>{0}</span></li>", (i + 1));
+                            links.AppendFormat("<a href='#' class=\"" + currentPageCssClass + " disableClick\">{0}</a>", (i + 1));
                         }
                         else
                         {
@@ -373,7 +387,7 @@ namespace Nop.Web.Framework.UI.Paging
                     //next page
                     if ((model.PageIndex + 1) < model.TotalPages)
                     {
-                        links.Append(CreatePageLink(model.PageIndex + 2, localizationService.GetResource("Pager.Next"), nextPageCssClass));
+                        links.Append(CreatePageILink(model.PageIndex + 2, nextPageCssClass, cssArrowRight));
                     }
                 }
                 if (showLast)
@@ -387,22 +401,22 @@ namespace Nop.Web.Framework.UI.Paging
             }
 
             var result = links.ToString();
-            if (!string.IsNullOrEmpty(result))
-            {
-                
-                result = string.Format("<ul{0}>", string.IsNullOrEmpty(mainUlCssClass) ? "" : " class=\"" + mainUlCssClass + "\"") + result + "</ul>";
-            }
+            //if (!string.IsNullOrEmpty(result))
+            //{
+
+            //    result = string.Format("<ul{0}>", string.IsNullOrEmpty(mainUlCssClass) ? "" : " class=\"" + mainUlCssClass + "\"") + result + "</ul>";
+            //}
             return result;
-		}
+        }
         /// <summary>
         /// Is pager empty (only one page)?
         /// </summary>
         /// <returns>Result</returns>
 	    public virtual bool IsEmpty()
-	    {
+        {
             var html = GenerateHtmlString();
-	        return string.IsNullOrEmpty(html);
-	    }
+            return string.IsNullOrEmpty(html);
+        }
 
         /// <summary>
         /// Get first individual page index
@@ -451,39 +465,61 @@ namespace Nop.Web.Framework.UI.Paging
         /// <param name="cssClass">CSS class</param>
         /// <returns>Link</returns>
 		protected virtual string CreatePageLink(int pageNumber, string text, string cssClass)
-		{
-            var liBuilder = new TagBuilder("li");
-            if (!string.IsNullOrWhiteSpace(cssClass))
-                liBuilder.AddCssClass(cssClass);
-
+        {
             var aBuilder = new TagBuilder("a");
+            if (!string.IsNullOrWhiteSpace(cssClass))
+                aBuilder.AddCssClass(cssClass);
             aBuilder.InnerHtml.AppendHtml(text);
             aBuilder.MergeAttribute("href", CreateDefaultUrl(pageNumber));
 
-            liBuilder.InnerHtml.AppendHtml(aBuilder);
-		    return liBuilder.RenderHtmlContent();
-		}
+            return aBuilder.RenderHtmlContent();
+        }
+
+        /// <summary>
+        /// Create page link
+        /// </summary>
+        /// <param name="pageNumber">Page number</param>
+        /// <param name="text">Text</param>
+        /// <param name="cssClass">CSS class</param>
+        /// <returns>Link</returns>
+        protected virtual string CreatePageILink(int pageNumber, string cssClass, string iClass)
+        {
+
+            var aBuilder = new TagBuilder("a");
+            if (!string.IsNullOrWhiteSpace(cssClass))
+                aBuilder.AddCssClass(cssClass);
+
+            aBuilder.MergeAttribute("href", CreateDefaultUrl(pageNumber));
+
+            var iBuilder = new TagBuilder("i");
+            iBuilder.AddCssClass(iClass);
+            iBuilder.MergeAttribute("aria-hidden", "true");
+
+            aBuilder.InnerHtml.AppendHtml(iBuilder);
+            return aBuilder.RenderHtmlContent();
+        }
+
         /// <summary>
         /// Create default URL
         /// </summary>
         /// <param name="pageNumber">Page number</param>
         /// <returns>URL</returns>
         protected virtual string CreateDefaultUrl(int pageNumber)
-		{
+        {
             var routeValues = new RouteValueDictionary();
 
             var parametersWithEmptyValues = new List<string>();
-			foreach (var key in viewContext.HttpContext.Request.Query.Keys.Where(key => key != null))
-			{
-			    //TODO test new implementation (QueryString, keys). And ensure no null exception is thrown when invoking ToString(). Is "StringValues.IsNullOrEmpty" required?
+            foreach (var key in viewContext.HttpContext.Request.Query.Keys.Where(key => key != null))
+            {
+                //TODO test new implementation (QueryString, keys). And ensure no null exception is thrown when invoking ToString(). Is "StringValues.IsNullOrEmpty" required?
                 var value = viewContext.HttpContext.Request.Query[key].ToString();
                 if (renderEmptyParameters && string.IsNullOrEmpty(value))
-			    {
+                {
                     //we store query string parameters with empty values separately
                     //we need to do it because they are not properly processed in the UrlHelper.GenerateUrl method (dropped for some reasons)
                     parametersWithEmptyValues.Add(key);
-			    }
-			    else
+                }
+                else
                 {
                     if (booleanParameterNames.Contains(key, StringComparer.InvariantCultureIgnoreCase))
                     {
@@ -495,8 +531,8 @@ namespace Nop.Web.Framework.UI.Paging
                         }
                     }
                     routeValues[key] = value;
-			    }
-			}
+                }
+            }
 
             if (pageNumber > 1)
             {
@@ -511,12 +547,12 @@ namespace Nop.Web.Framework.UI.Paging
                 }
             }
 
-		    var webHelper = EngineContext.Current.Resolve<IWebHelper>();
-		    var url = webHelper.GetThisPageUrl(false);
-		    foreach (var routeValue in routeValues)
-		    {
-		        url = webHelper.ModifyQueryString(url, routeValue.Key, routeValue.Value?.ToString());
-		    }
+            var webHelper = EngineContext.Current.Resolve<IWebHelper>();
+            var url = webHelper.GetThisPageUrl(false);
+            foreach (var routeValue in routeValues)
+            {
+                url = webHelper.ModifyQueryString(url, routeValue.Key, routeValue.Value?.ToString());
+            }
             if (renderEmptyParameters && parametersWithEmptyValues.Any())
             {
                 foreach (var key in parametersWithEmptyValues)
@@ -524,8 +560,8 @@ namespace Nop.Web.Framework.UI.Paging
                     url = webHelper.ModifyQueryString(url, key);
                 }
             }
-			return url;
-		}
+            return url;
+        }
 
     }
 }
