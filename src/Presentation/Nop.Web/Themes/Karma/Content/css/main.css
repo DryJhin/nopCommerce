@@ -4463,7 +4463,7 @@ label {
 
 .pagination {
   margin-top: 10px;
-  border-left: 1px solid #eee;
+  /*border-left: 1px solid #eee;*/
   border-radius: 0px;
 }
 
@@ -8311,3 +8311,12 @@ label {
   color: #e4434b;
   margin-top: 5px;
 }
+
+
+.nice-select {
+  float: unset !important;
+}
+
+  .nice-select.open .list {
+    width: -webkit-fill-available;
+  }

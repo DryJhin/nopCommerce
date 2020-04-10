@@ -12,10 +12,12 @@
 {
     @Html.BuildBreadcrumbNavigation();
 }
+
 <script asp-location="Footer">
     $(document).ready(function () {
         $("#@Html.IdFor(model => model.adv)").on('click', toggleAdvancedSearch);
         toggleAdvancedSearch();
+        $('body').attr('id', 'category');
     });
 
     function toggleAdvancedSearch() {
@@ -27,113 +29,132 @@
         }
     }
 </script>
-<div class="page search-page">
-    <div class="page-body">
-        <div class="search-input">
-            <form asp-route="ProductSearch" method="get">
-                <div class="fieldset">
-                    <div class="form-fields">
-                        <div class="basic-search">
-                            <div class="inputs">
-                                <label asp-for="q">@T("Search.SearchTerm"):</label>
-                                <input asp-for="q" class="search-text" />
-                            </div>
-                            @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.ProductSearchPageBasic })
-                            <div class="inputs reversed">
-                                <input asp-for="adv" />
-                                <label asp-for="adv">@T("Search.AdvancedSearch")</label>
-                            </div>
-                        </div>
-                        <div class="advanced-search" id="advanced-search-block">
-                            @if (Model.AvailableCategories.Count > 0)
-                            {
-                                <div class="inputs">
-                                    <label asp-for="cid">@T("Search.Category"):</label>
-                                    <select asp-for="cid" asp-items="Model.AvailableCategories"></select>
-                                </div>
-                                <div class="inputs reversed">
-                                    <input asp-for="isc" />
-                                    <label asp-for="isc">@T("Search.IncludeSubCategories")</label>
-                                </div>
-                            }
-                            @if (Model.AvailableManufacturers.Count > 0)
-                            {
-                                <div class="inputs">
-                                    <label asp-for="mid">@T("Search.Manufacturer"):</label>
-                                    <select asp-for="mid" asp-items="Model.AvailableManufacturers"></select>
-                                </div>
-                            }
-                            @if (Model.asv && Model.AvailableVendors.Count > 0)
-                            {
-                                <div class="inputs">
-                                    <label asp-for="vid">@T("Search.Vendor"):</label>
-                                    <select asp-for="vid" asp-items="Model.AvailableVendors"></select>
-                                </div>
-                            }
-                            <div class="inputs">
-                                <label for="price-range">@T("Search.PriceRange"):</label>
-                                <span id="price-range" class="price-range">
-                                    @T("Search.PriceRange.From")
-                                    <input asp-for="pf" class="price-from" aria-label="@T("Search.PriceRange.From")" />
-                                    @T("Search.PriceRange.To")
-                                    <input asp-for="pt" class="price-to" aria-label="@T("Search.PriceRange.To")" />
-                                </span>
-                            </div>
-                            <div class="inputs reversed">
-                                <input asp-for="sid" />
-                                <label asp-for="sid">@T("Search.SearchInDescriptions")</label>
-                            </div>
-                            @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.ProductSearchPageAdvanced })
+
+<!-- Start Filter Bar -->
+<div class="filter-bar d-flex flex-wrap align-items-center">
+    <form asp-route="ProductSearch" method="get" class="filter-bar d-flex flex-wrap align-items-center" style="width: 100%;">
+        <div class="row mt-3" style="width: 100%;">
+            <div class="col-lg-3">
+                <div class="single-element-widget">
+                    <div class="switch-wrap d-flex justify-content-between align-items-center">
+                        <p style="color: white;margin-top: 14px !important">@T("Search.AdvancedSearch")</p>
+                        <div class="primary-switch">
+                            <input asp-for="adv" />
+                            <label asp-for="adv" style="font-size: 0;"></label>
                         </div>
                     </div>
                 </div>
-                <div class="buttons">
-                    <input type="submit" class="button-1 search-button" value="@T("Search.Button")" />
-                </div>
-            </form>
+            </div>
+            <div class="col-lg-6">
+                <input asp-for="q" placeholder="@T("Search.SearchTerm")" onfocus="this.placeholder = ''" onblur="this.placeholder = '@T("Search.SearchTerm")'" class="single-input" />
+                @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.ProductSearchPageBasic })
+            </div>
+            <div class="col-lg-3">
+                <input type="submit" class="genric-btn primary circle" value="@T("Search.Button")" />
+            </div>
         </div>
+        <div class="advanced-search" id="advanced-search-block" style="width: 100%;">
+            <div class="row">
+                @if (Model.AvailableCategories.Count > 0)
+                {
+                    <div class="col-lg-4 col-sm-12">
+                        <label asp-for="cid" style="color:white">@T("Search.Category"):</label>
+                        <select asp-for="cid" asp-items="Model.AvailableCategories"></select>
+                    </div>
+                }
+                @if (Model.AvailableManufacturers.Count > 0)
+                {
+                    <div class="col-lg-4 col-sm-12">
+                        <label asp-for="mid" style="color:white">@T("Search.Manufacturer"):</label>
+                        <select asp-for="mid" asp-items="Model.AvailableManufacturers"></select>
+                    </div>
+                }
+                @if (Model.asv && Model.AvailableVendors.Count > 0)
+                {
+                    <div class="col-lg-4 col-sm-12">
+                        <label asp-for="vid" style="color:white">@T("Search.Vendor"):</label>
+                        <select asp-for="vid" asp-items="Model.AvailableVendors"></select>
+                    </div>
+                }
+            </div>
+            @*<div class="row">
+                    <label for="price-range">@T("Search.PriceRange"):</label>
+                    <span id="price-range" class="price-range">
+                        @T("Search.PriceRange.From")
+                        <input asp-for="pf" class="price-from" aria-label="@T("Search.PriceRange.From")" />
+                        @T("Search.PriceRange.To")
+                        <input asp-for="pt" class="price-to" aria-label="@T("Search.PriceRange.To")" />
+                    </span>
+                </div>*@
+            <div class="row">
+                @if (Model.AvailableManufacturers.Count > 0)
+                {
+                    <div class="col-lg-6 col-sm-12">
+                        <div class="single-element-widget">
+                            <div class="switch-wrap d-flex justify-content-between align-items-center">
+                                <p style="color:white;margin-top:14px!important">@T("Search.IncludeSubCategories")</p>
+                                <div class="primary-switch">
+                                    <input asp-for="isc" />
+                                    <label asp-for="isc" style="font-size: 0;"></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                <div class="col-lg-6 col-sm-12">
+                    <div class="single-element-widget">
+                        <div class="switch-wrap d-flex justify-content-between align-items-center">
+                            <p style="color:white;margin-top:14px!important">@T("Search.SearchInDescriptions")</p>
+                            <div class="primary-switch">
+                                <input asp-for="sid" />
+                                <label asp-for="sid" style="font-size: 0;"></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.ProductSearchPageAdvanced })
+    </form>
+</div>
+
+@if (Model.Products.Count > 0)
+{
+    <!-- Start Filter Bar -->
+    <div class="filter-bar d-flex flex-wrap align-items-center">
+        @await Html.PartialAsync("_CatalogSelectors", Model.PagingFilteringContext)
+    </div>
+}
+
+<section class="lattest-product-area pb-40 category-list">
+    <div class="row">
+        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.ProductSearchPageBeforeResults })
+
+        @if (!string.IsNullOrEmpty(Model.Warning))
+        {
+            <div class="warning">
+                @Model.Warning
+            </div>
+        }
+
+        @if (Model.NoResults)
+        {
+            <div class="no-result">
+                @T("Search.NoResultsText")
+            </div>
+        }
+
         @if (Model.Products.Count > 0)
         {
-            @await Html.PartialAsync("_CatalogSelectors", Model.PagingFilteringContext)
-        }
-        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.ProductSearchPageBeforeResults })
-        <div class="search-results">
-            @if (!string.IsNullOrEmpty(Model.Warning))
+
+            @foreach (var product in Model.Products)
             {
-                <div class="warning">
-                    @Model.Warning
-                </div>
-            }
-            @if (Model.NoResults)
-            {
-                <div class="no-result">
-                    @T("Search.NoResultsText")
+                <div class="col-lg-4 col-md-6">
+                    @await Html.PartialAsync("_ProductBox", product)
                 </div>
             }
 
-            @if (Model.Products.Count > 0)
-            {
-                <div class="@(Model.PagingFilteringContext.ViewMode == "list" ? "product-list" : "product-grid")">
-                    <div class="item-grid">
-                        @foreach (var product in Model.Products)
-                        {
-                            <div class="item-box">
-                                @await Html.PartialAsync("_ProductBox", product)
-                            </div>
-                        }
-                    </div>
-                </div>
-            }
-            @{
-                var pager = Html.Pager(Model.PagingFilteringContext).QueryParam("pagenumber").BooleanParameterName("adv").BooleanParameterName("isc").BooleanParameterName("sid").RenderEmptyParameters(true);
-            }
-            @if (!pager.IsEmpty())
-            {
-                <div class="pager">
-                    @pager
-                </div>
-            }
-        </div>
+        }
+
         @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.ProductSearchPageAfterResults })
     </div>
-</div>
+</section>

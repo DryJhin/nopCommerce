@@ -17,6 +17,7 @@
 {
     @Html.BuildBreadcrumbNavigation();
 }
+
 <!--================Login Box Area =================-->
 <section class="login_box_area section_gap">
     <div class="container">
@@ -48,7 +49,7 @@
                 </div>
             </div>
             <div class="col-lg-6">
-                <div class="login_form_inner">               
+                <div class="login_form_inner">
                     <form asp-route="Login" asp-route-returnurl="@Context.Request.Query["ReturnUrl"]" method="post" class="row login_form">
                         <div asp-validation-summary="ModelOnly" class="message-error">@T("Account.Login.Unsuccessful")</div>
                         <h3>@T("Account.Login.ReturningCustomer")</h3>

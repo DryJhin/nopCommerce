@@ -16,10 +16,13 @@
     @await Component.InvokeAsync("CustomerNavigation", new { selectedTabId = CustomerNavigationEnum.Info })
 }
 
-<div class="page account-page customer-info-page">
-    <div class="page-title">
-        <h1>@T("Account.MyAccount") - @T("Account.CustomerInfo")</h1>
-    </div>
+<!--product breadcrumb-->
+@section Breadcrumb
+{
+    @Html.BuildBreadcrumbNavigation();
+}
+
+<div class="page account-page customer-info-page section_gap">
     <div class="page-body">
         <form asp-route="CustomerInfo" method="post">
             <div asp-validation-summary="ModelOnly" class="message-error"></div>
@@ -152,11 +155,11 @@
                 </div>
             }
             @if (Model.StreetAddressEnabled ||
-        Model.StreetAddress2Enabled ||
-        Model.ZipPostalCodeEnabled ||
-        Model.CityEnabled ||
-        Model.CountyEnabled ||
-        Model.CountryEnabled)
+      Model.StreetAddress2Enabled ||
+      Model.ZipPostalCodeEnabled ||
+      Model.CityEnabled ||
+      Model.CountyEnabled ||
+      Model.CountryEnabled)
             {
                 <div class="fieldset">
                     <div class="title">
