@@ -28,6 +28,13 @@
         currentProductId = Convert.ToInt32(Url.ActionContext.RouteData.Values["productId"].ToString());
     }
 }
+
+<script asp-location="Footer">
+    $(document).ready(function () {
+        $('body').attr('id', 'category');
+    });
+</script>
+
 @if (IsSectionDefined("Breadcrumb"))
 {
     @section Breadcrumb {

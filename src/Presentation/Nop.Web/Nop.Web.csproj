@@ -64,8 +64,6 @@
     <None Include="Themes\Karma\Views\Customer\Addresses.cshtml" />
     <None Include="Themes\Karma\Views\Customer\Avatar.cshtml" />
     <None Include="Themes\Karma\Views\Customer\ChangePassword.cshtml" />
-    <None Include="Themes\Karma\Views\Customer\CheckGiftCardBalance.cshtml" />
-    <None Include="Themes\Karma\Views\Customer\DownloadableProducts.cshtml" />
     <None Include="Themes\Karma\Views\Customer\EmailRevalidation.cshtml" />
     <None Include="Themes\Karma\Views\Customer\GdprTools.cshtml" />
     <None Include="Themes\Karma\Views\Customer\Info.cshtml" />
@@ -74,7 +72,6 @@
     <None Include="Themes\Karma\Views\Customer\PasswordRecoveryConfirm.cshtml" />
     <None Include="Themes\Karma\Views\Customer\Register.cshtml" />
     <None Include="Themes\Karma\Views\Customer\RegisterResult.cshtml" />
-    <None Include="Themes\Karma\Views\Customer\UserAgreement.cshtml" />
     <None Include="Themes\Karma\Views\Customer\_CheckUsernameAvailability.cshtml" />
     <None Include="Themes\Karma\Views\Customer\_CustomerAttributes.cshtml" />
     <None Include="Themes\Karma\Views\Customer\_ExternalAuthentication.Errors.cshtml" />

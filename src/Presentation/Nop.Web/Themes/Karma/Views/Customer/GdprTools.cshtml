@@ -12,39 +12,44 @@
     @await Component.InvokeAsync("CustomerNavigation", new { selectedTabId = CustomerNavigationEnum.GdprTools })
 }
 
-<div class="page account-page gdpr-tools-page">
-    <div class="page-title">
-        <h1>@T("Account.MyAccount") - @T("Account.Gdpr")</h1>
-    </div>
-    <div class="page-body">
-        @if (!string.IsNullOrEmpty(Model.Result))
-        {
-            <div class="result">
-                @Model.Result
+<!--product breadcrumb-->
+@section Breadcrumb
+{
+    @Html.BuildBreadcrumbNavigation();
+}
+
+<section class="d-flex align-content-center justify-content-center pl-5">
+    <div class="row">
+        <form asp-route="GdprTools" method="post" class="login_form">
+            <div asp-validation-summary="ModelOnly" class="message-error"></div>
+            <h3 class="text-center">@T("Account.Gdpr")</h3>
+            @if (!string.IsNullOrEmpty(Model.Result))
+            {
+                <h5>
+                    @Model.Result
+                </h5>
+            }
+            <div class="row mt-3">
+                <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                    <h5>
+                        <strong>@T("Account.Gdpr.Export")</strong>
+                    </h5>
+                    <p>@T("Account.Gdpr.Export.Hint")</p>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 form-group align-self-center">
+                    <input type="submit" name="export-data" class="primary-btn" value="@T("Account.Gdpr.Export.Button")" />
+                </div>
             </div>
-        }
-        <form asp-route="GdprTools" method="post">
-            <div class="fieldset">
-                <div class="title">
-                    <strong>@T("Account.Gdpr.Export")</strong>
+            <div class="row mt-3">
+                <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                    <h5>
+                        <strong>@T("Account.Gdpr.Delete")</strong>
+                    </h5>
+                    <p>@T("Account.Gdpr.Delete.Hint")</p>
                 </div>
-                <div class="form-fields">
-                    @T("Account.Gdpr.Export.Hint")
-                </div>
-                <div class="buttons">
-                    <input type="submit" name="export-data" class="button-1 gdpr-export-data-button" value="@T("Account.Gdpr.Export.Button")" />
-                </div>
-            </div>
-            <div class="fieldset">
-                <div class="title">
-                    <strong>@T("Account.Gdpr.Delete")</strong>
-                </div>
-                <div class="form-fields">
-                    @T("Account.Gdpr.Delete.Hint")
-                </div>
-                <div class="buttons">
-                    <input type="submit" id="delete-account" name="delete-account" class="button-1 gdpr-delete-account-button" value="@T("Account.Gdpr.Delete.Button")" />
-                    
+                <div class="col-lg-6 col-md-6 col-sm-12 form-group align-self-center">
+                    <input type="submit" id="delete-account" name="delete-account" class="primary-btn" value="@T("Account.Gdpr.Delete.Button")" />
+
                     <script asp-location="Footer">
                         $(document).ready(function() {
                             $('#delete-account').on('click', function() {
@@ -54,6 +59,11 @@
                     </script>
                 </div>
             </div>
+            <div class="row mt-3 text">
+                <div class="col-md-12 form-group">
+                    <button type="submit" class="primary-btn">@T("Account.ChangePassword.Button")</button>
+                </div>
+            </div>
         </form>
     </div>
-</div>
+</section>

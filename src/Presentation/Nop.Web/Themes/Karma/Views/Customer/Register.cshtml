@@ -21,11 +21,11 @@
             <h3 class="text-center">@T("Account.YourPersonalDetails")</h3>
             <div class="row mt-3">
                 <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-                    <input asp-for="FirstName" class="form-control" placeholder="FirstName *" onfocus="this.placeholder = ''" onblur="this.placeholder = 'FirstName *'" />
+                    <input asp-for="FirstName" class="form-control" placeholder="First Name *" onfocus="this.placeholder = ''" onblur="this.placeholder = 'First Name *'" />
                     <span asp-validation-for="FirstName"></span>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-                    <input asp-for="LastName" class="form-control" placeholder="LastName *" onfocus="this.placeholder = ''" onblur="this.placeholder = 'LastName *'" />
+                    <input asp-for="LastName" class="form-control" placeholder="Last Name *" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Last Name *'" />
                     <span asp-validation-for="LastName"></span>
                 </div>
                 @if (Model.GenderEnabled)
@@ -79,7 +79,7 @@
                         <span asp-validation-for="Email"></span>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-                        <input asp-for="ConfirmEmail" class="form-control" placeholder="ConfirmEmail *" onfocus="this.placeholder = ''" onblur="this.placeholder = 'ConfirmEmail *'" />
+                        <input asp-for="ConfirmEmail" class="form-control" placeholder="Confirm Email *" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Confirm Email *'" />
                         <span asp-validation-for="ConfirmEmail"></span>
                     </div>
                 }
@@ -126,7 +126,7 @@
                     @if (Model.DisplayVatNumber)
                     {
                         <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-                            <input asp-for="VatNumber" class="form-control" placeholder="VatNumber" onfocus="this.placeholder = ''" onblur="this.placeholder = 'VatNumber'" />
+                            <input asp-for="VatNumber" class="form-control" placeholder="Vat Number" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Vat Number'" />
                             <span asp-validation-for="VatNumber"></span>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-12 form-group">
@@ -147,14 +147,14 @@ Model.CountryEnabled)
                     @if (Model.StreetAddressEnabled)
                     {
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group">
-                            <input asp-for="StreetAddress" class="form-control" placeholder="StreetAddress" onfocus="this.placeholder = ''" onblur="this.placeholder = 'StreetAddress'" />
+                            <input asp-for="StreetAddress" class="form-control" placeholder="Street Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Street Address'" />
                             <span asp-validation-for="StreetAddress"></span>
                         </div>
                     }
                     @if (Model.StreetAddress2Enabled)
                     {
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group">
-                            <input asp-for="StreetAddress2" class="form-control" placeholder="StreetAddress" onfocus="this.placeholder = ''" onblur="this.placeholder = 'StreetAddress2'" />
+                            <input asp-for="StreetAddress2" class="form-control" placeholder="Street Address 2" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Street Address 2'" />
                             <span asp-validation-for="StreetAddress2"></span>
                         </div>
                     }
@@ -194,7 +194,7 @@ Model.CountryEnabled)
                     @if (Model.ZipPostalCodeEnabled)
                     {
                         <div class="col-lg-6 col-md-6 col-sm-12 form-group" style="width: 100%;">
-                            <input asp-for="ZipPostalCode" class="form-control" placeholder="ZipPostalCode" onfocus="this.placeholder = ''" onblur="this.placeholder = 'ZipPostalCode'" />
+                            <input asp-for="ZipPostalCode" class="form-control" placeholder="Zip Postal Code" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Zip Postal Code'" />
                             <span asp-validation-for="ZipPostalCode"></span>
                         </div>
                     }
@@ -232,12 +232,12 @@ Model.CountryEnabled)
                 @if (Model.FaxEnabled)
                 {
                     <div class="col-lg-6 col-md-6 col-sm-12 form-group" style="width: 100%;">
-                        <input asp-for="ConfirmPassword" class="form-control" placeholder="ConfirmPassword" onfocus="this.placeholder = ''" onblur="this.placeholder = 'ConfirmPassword'" />
+                        <input asp-for="ConfirmPassword" class="form-control" placeholder="ConfirmPassword" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Confirm Password'" />
                         <span asp-validation-for="ConfirmPassword"></span>
                     </div>
                 }
             </div>
-            @if (Model.NewsletterEnabled || Model.CustomerAttributes.Count > 0)
+            @if (Model.NewsletterEnabled || Model.CustomerAttributes.Count > 0 || Model.AllowCustomersToSetTimeZone)
             {
                 <h3 class="text-center">@T("Account.Options")</h3>
                 <div class="row mt-3">
@@ -267,11 +267,15 @@ Model.CountryEnabled)
                     {
                         @await Html.PartialAsync("_CustomerAttributes", Model.CustomerAttributes)
                     }
-                    @if (Model.AcceptPrivacyPolicyEnabled || Model.GdprConsents.Count > 0)
+                </div>
+            }
+            @if (Model.AcceptPrivacyPolicyEnabled || Model.GdprConsents.Count > 0)
+            {
+                <h3 class="text-center">@T("Account.UserAgreement")</h3>
+                <div class="row mt-3">
+                    @if (Model.AcceptPrivacyPolicyEnabled)
                     {
-                        @if (Model.AcceptPrivacyPolicyEnabled)
-                        {
-                            <script asp-location="Footer">
+                        <script asp-location="Footer">
                                 $(document).ready(function() {
                                     $('#register-button').on('click', function() {
                                         if ($('#accept-consent').is(':checked')) {
@@ -284,16 +288,16 @@ Model.CountryEnabled)
                                         }
                                     });
                                 });
-                            </script>
-                            <div class="col-lg-6 col-md-6 col-sm-12 form-group" style="width: 100%;">
-                                <div class="single-element-widget">
-                                    <div class="switch-wrap d-flex justify-content-between align-items-center">
-                                        <p style="margin-top:14px!important">
-                                            @T("Account.Fields.AcceptPrivacyPolicy")
-                                            @if (Model.AcceptPrivacyPolicyPopup)
-                                            {
-                                                <span class="read" id="read-privacyinfo">@T("Account.Fields.AcceptPrivacyPolicy.Read")</span>
-                                                <script asp-location="Footer">
+                        </script>
+                        <div class="col-lg-6 col-md-6 col-sm-12 form-group" style="width: 100%;">
+                            <div class="single-element-widget">
+                                <div class="switch-wrap d-flex justify-content-between align-items-center">
+                                    <p style="margin-top:14px!important">
+                                        @T("Account.Fields.AcceptPrivacyPolicy")
+                                        @if (Model.AcceptPrivacyPolicyPopup)
+                                        {
+                                            <span class="read" id="read-privacyinfo">@T("Account.Fields.AcceptPrivacyPolicy.Read")</span>
+                                            <script asp-location="Footer">
                                                     $(document).ready(function() {
                                                         $('#read-privacyinfo').on('click',
                                                             function(e) {
@@ -302,28 +306,28 @@ Model.CountryEnabled)
                                                                     '@T("Account.Fields.AcceptPrivacyPolicy")');
                                                             });
                                                     });
-                                                </script>
-                                            }
-                                            else
-                                            {
-                                                <a class="read" id="read-privacyinfo" href="@Url.RouteUrl("Topic", new {SeName = Html.GetTopicSeName("privacyinfo") })">@T("Account.Fields.AcceptPrivacyPolicy.Read")</a>
-                                            }
-                                        </p>
-                                        <div class="primary-switch">
-                                            <input id="accept-consent" type="checkbox" name="accept-consent" />
-                                            <label for="accept-consent" style="font-size: 0;"></label>
-                                        </div>
+                                            </script>
+                                        }
+                                        else
+                                        {
+                                            <a class="read" id="read-privacyinfo" href="@Url.RouteUrl("Topic", new {SeName = Html.GetTopicSeName("privacyinfo") })">@T("Account.Fields.AcceptPrivacyPolicy.Read")</a>
+                                        }
+                                    </p>
+                                    <div class="primary-switch">
+                                        <input id="accept-consent" type="checkbox" name="accept-consent" />
+                                        <label for="accept-consent" style="font-size: 0;"></label>
                                     </div>
                                 </div>
                             </div>
-                        }
-                        @if (Model.GdprConsents.Count > 0)
+                        </div>
+                    }
+                    @if (Model.GdprConsents.Count > 0)
+                    {
+                        foreach (var consent in Model.GdprConsents)
                         {
-                            foreach (var consent in Model.GdprConsents)
+                            if (consent.IsRequired)
                             {
-                                if (consent.IsRequired)
-                                {
-                                    <script asp-location="Footer">
+                                <script asp-location="Footer">
                                     $(document).ready(function() {
                                         $('#register-button').on('click', function() {
                                             if ($('#consent@(consent.Id)').is(':checked')) {
@@ -336,24 +340,23 @@ Model.CountryEnabled)
                                                 }
                                             });
                                     });
-                                    </script>
-                                }
-                                <div class="col-lg-6 col-md-6 col-sm-12 form-group" style="width: 100%;">
-                                    <div class="single-element-widget">
-                                        <div class="switch-wrap d-flex justify-content-between align-items-center">
-                                            <p style="margin-top:14px!important">
-                                                @consent.Message
-                                            </p>
-                                            <div class="primary-switch">
-                                                <input id="consent@(consent.Id)" type="checkbox" name="consent@(consent.Id)" checked="@consent.Accepted" />
-                                                <label For="consent@(consent.Id)" style="font-size: 0;"></label>
-                                            </div>
+                                </script>
+                            }
+                            <div class="col-lg-6 col-md-6 col-sm-12 form-group" style="width: 100%;">
+                                <div class="single-element-widget">
+                                    <div class="switch-wrap d-flex justify-content-between align-items-center">
+                                        <p style="margin-top:14px!important">
+                                            @consent.Message
+                                        </p>
+                                        <div class="primary-switch">
+                                            <input id="consent@(consent.Id)" type="checkbox" name="consent@(consent.Id)" checked="@consent.Accepted" />
+                                            <label For="consent@(consent.Id)" style="font-size: 0;"></label>
                                         </div>
                                     </div>
                                 </div>
-                            }
-
+                            </div>
                         }
+
                     }
                 </div>
             }

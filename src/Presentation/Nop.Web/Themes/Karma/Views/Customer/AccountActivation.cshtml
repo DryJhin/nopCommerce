@@ -7,13 +7,18 @@
     //page class
     Html.AppendPageCssClassParts("html-account-activation-page");
 }
-<div class="page account-activation-page">
-    <div class="page-title">
-        <h1>@T("Account.AccountActivation")</h1>
-    </div>
-    <div class="page-body">
-        <div class="result">
+
+<!--product breadcrumb-->
+@section Breadcrumb
+{
+    @Html.BuildBreadcrumbNavigation();
+}
+
+<section class="d-flex align-content-center justify-content-center pl-5">
+    <div class="row">
+        <h3 class="text-center">@T("Account.AccountActivation")</h3>
+        <h5>
             @Model.Result
-        </div>
+        </h5>
     </div>
-</div>
+</section>

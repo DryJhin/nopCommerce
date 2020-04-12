@@ -21,6 +21,7 @@
 
     var breadcrumbDelimiter = commonSettings.BreadcrumbDelimiter;
 }
+
 @*category breadcrumb*@
 @section Breadcrumb
     {
@@ -150,9 +151,3 @@
         @await Html.PartialAsync("_CatalogSelectors", Model.PagingFilteringContext)
     </div>
 }
-
-<script asp-location="Footer">
-    $(document).ready(function () {
-        $('body').attr('id', 'category');
-    });
-</script>

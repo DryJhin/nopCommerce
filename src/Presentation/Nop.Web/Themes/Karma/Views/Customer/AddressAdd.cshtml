@@ -12,21 +12,30 @@
 {
     @await Component.InvokeAsync("CustomerNavigation", new { selectedTabId = CustomerNavigationEnum.Addresses })
 }
-<form asp-route="CustomerAddressAdd" method="post">
-    <div class="page account-page address-edit-page">
-        <div class="page-title">
-            <h1>@T("Account.MyAccount") - @T("Account.CustomerAddresses.AddNew")</h1>
-        </div>
-        <div class="page-body">
+
+<!--product breadcrumb-->
+@section Breadcrumb
+{
+    @Html.BuildBreadcrumbNavigation();
+}
+
+<section class="d-flex align-content-center justify-content-center">
+    <div class="row">
+        <form asp-route="CustomerAddressAdd" method="post" class="login_form">
             <div asp-validation-summary="ModelOnly" class="message-error"></div>
-            @{
-                var dataDictAddress = new ViewDataDictionary(ViewData);
-                dataDictAddress.TemplateInfo.HtmlFieldPrefix = "Address";
-                @await Html.PartialAsync("_CreateOrUpdateAddress", Model.Address, dataDictAddress)
-            }
-            <div class="buttons">
-                <input type="submit" class="button-1 save-address-button" value="@T("Common.Save")" />
+            <h3 class="text-center">@T("Account.MyAccount") - @T("Account.CustomerAddresses.AddNew")</h3>
+            <div class="row mt-3">
+                @{
+                    var dataDictAddress = new ViewDataDictionary(ViewData);
+                    dataDictAddress.TemplateInfo.HtmlFieldPrefix = "Address";
+                    @await Html.PartialAsync("_CreateOrUpdateAddress", Model.Address, dataDictAddress)
+                }
             </div>
-        </div>
+            <div class="row mt-3">
+                <div class="col-md-12 form-group">
+                    <button type="submit" class="primary-btn">@T("Common.Save")</button>
+                </div>
+            </div>
+        </form>
     </div>
-</form>
+</section>
