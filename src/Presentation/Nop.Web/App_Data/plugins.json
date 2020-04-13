@@ -1,0 +1,12 @@
+﻿{
+  "InstalledPluginNames": [
+    "CurrencyExchange.ECB",
+    "Payments.CheckMoneyOrder",
+    "Shipping.FixedByWeightByTotal",
+    "Tax.FixedOrByCountryStateZip",
+    "Widgets.NivoSlider"
+  ],
+  "PluginNamesToUninstall": [],
+  "PluginNamesToDelete": [],
+  "PluginNamesToInstall": []
+}
