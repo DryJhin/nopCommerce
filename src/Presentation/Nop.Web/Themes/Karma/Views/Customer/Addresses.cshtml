@@ -79,9 +79,9 @@
                             </div>
                         }
                         @if (address.CityEnabled && !string.IsNullOrEmpty(address.City) ||
-           address.CountyEnabled && !string.IsNullOrEmpty(address.County) ||
-           address.StateProvinceEnabled && !string.IsNullOrEmpty(address.StateProvinceName) ||
-           address.ZipPostalCodeEnabled && !string.IsNullOrEmpty(address.ZipPostalCode))
+          address.CountyEnabled && !string.IsNullOrEmpty(address.County) ||
+          address.StateProvinceEnabled && !string.IsNullOrEmpty(address.StateProvinceName) ||
+          address.ZipPostalCodeEnabled && !string.IsNullOrEmpty(address.ZipPostalCode))
                         {
                             var addressLine = string.Empty;
                             if (address.CityEnabled && !string.IsNullOrEmpty(address.City))
@@ -146,7 +146,11 @@
             }
             else
             {
-                <h5 class="text-center">@T("Account.CustomerAddresses.NoAddresses")</h5>
+                <div class="row mt-5">
+                    <h5 class="text-center">
+                        @T("Account.CustomerAddresses.NoAddresses")
+                    </h5>
+                </div>
             }
             <div class="row mt-3 text">
                 <div class="col-md-12 form-group">

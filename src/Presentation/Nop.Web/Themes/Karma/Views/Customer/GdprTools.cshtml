@@ -25,9 +25,11 @@
             <h3 class="text-center">@T("Account.Gdpr")</h3>
             @if (!string.IsNullOrEmpty(Model.Result))
             {
-                <h5>
-                    @Model.Result
-                </h5>
+                <div class="row mt-5">
+                    <h5 class="text-center">
+                        @Model.Result
+                    </h5>
+                </div>
             }
             <div class="row mt-3">
                 <div class="col-lg-6 col-md-6 col-sm-12 form-group">
