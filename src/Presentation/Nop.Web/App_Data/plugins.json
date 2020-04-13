@@ -1,0 +1,15 @@
+﻿{
+  "InstalledPluginNames": [
+    "Catalog.SkipToProduct",
+    "Payments.CashOnDelivery",
+    "Payments.PurchaseOrder",
+    "CurrencyExchange.ECB",
+    "Widgets.NivoSlider",
+    "Shipping.FixedByWeightByTotal"
+  ],
+  "PluginNamesToUninstall": [],
+  "PluginNamesToDelete": [
+    "FoxNetSoft.AntiBot"
+  ],
+  "PluginNamesToInstall": []
+}
