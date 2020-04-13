@@ -15,19 +15,19 @@
         <div class="row mt-3">
             @if (!Model.SubscriptionAllowed)
             {
-                <h5>
+                <h5 class="text-center">
                     @T("BackInStockSubscriptions.NotAllowed")
                 </h5>
             }
             else if (!Model.IsCurrentCustomerRegistered)
             {
-                <h5>
+                <h5 class="text-center">
                     @T("BackInStockSubscriptions.OnlyRegistered")
                 </h5>
             }
             else if (!Model.AlreadySubscribed && Model.CurrentNumberOfBackInStockSubscriptions >= Model.MaximumBackInStockSubscriptions)
             {
-                <h5>
+                <h5 class="text-center">
                     @string.Format(T("BackInStockSubscriptions.MaxSubscriptions").Text, Model.MaximumBackInStockSubscriptions)
                 </h5>
             }
@@ -35,7 +35,7 @@
             {
                 if (!Model.AlreadySubscribed)
                 {
-                    <h5 class="tooltip">@T("BackInStockSubscriptions.Tooltip")</h5>
+                    <h5 class="tooltip text-center">@T("BackInStockSubscriptions.Tooltip")</h5>
                 }
                 <button type="submit" id="back-in-stock-notify-me" class="primary-btn">
                     @(Model.AlreadySubscribed ? @T("BackInStockSubscriptions.Unsubscribe").Text : @T("BackInStockSubscriptions.NotifyMe").Text)

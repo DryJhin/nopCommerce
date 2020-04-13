@@ -1,7 +1,30 @@
 ﻿@model EstimateShippingModel
-<div class="shipping">
-    <script asp-location="Footer">
-    
+<tr class="shipping_area">
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+        <h5>@T("ShoppingCart.EstimateShipping")</h5>
+    </td>
+    <td>
+        <div class="shipping_box">
+            <select asp-for="CountryId" asp-items="Model.AvailableCountries"
+                    class="country-input"
+                    data-trigger="country-select"
+                    data-url="@(Url.RouteUrl("GetStatesByCountryId"))"
+                    data-stateprovince="#@Html.IdFor(model => model.StateProvinceId)"
+                    data-loading="#estimate-shipping-loading-progress"></select>
+            <select asp-for="StateProvinceId" asp-items="Model.AvailableStates" class="state-input"></select>
+            <input asp-for="ZipPostalCode" class="zip-input" />
+            <input id="estimate-shipping-button" type="button" value="@T("ShoppingCart.EstimateShipping.Button")" class="gray_btn" />
+            <h6 class="estimate-shipping-result"></h6>
+        </div>
+    </td>
+</tr>
+
+<script asp-location="Footer">
+
         $(document).ready(function () {
             $('#estimate-shipping-button').on('click', function() {
                 displayAjaxLoading(true);
@@ -29,37 +52,4 @@
                 }
             });
         });
-    </script>
-    <div class="estimate-shipping">
-        <div class="title">
-            <strong>@T("ShoppingCart.EstimateShipping")</strong>
-        </div>
-        <div class="hint">@T("ShoppingCart.EstimateShipping.Tooltip")</div>
-        <div class="shipping-options">
-            <div class="inputs">
-                <label asp-for="CountryId" asp-postfix=":"></label>
-                <select asp-for="CountryId" asp-items="Model.AvailableCountries"
-                        class="country-input"
-                        data-trigger="country-select"
-                        data-url="@(Url.RouteUrl("GetStatesByCountryId"))"
-                        data-stateprovince="#@Html.IdFor(model => model.StateProvinceId)"
-                        data-loading="#estimate-shipping-loading-progress"></select>
-                <nop-required />
-            </div>
-            <div class="inputs">
-                <label asp-for="StateProvinceId" asp-postfix=":"></label>
-                <select asp-for="StateProvinceId" asp-items="Model.AvailableStates" class="state-input"></select>
-                <span id="estimate-shipping-loading-progress" style="display: none;" class="please-wait">@T("Common.Wait...")</span>
-            </div>
-            <div class="inputs">
-                <label asp-for="ZipPostalCode" asp-postfix=":"></label>
-                <input asp-for="ZipPostalCode" class="zip-input"/>
-                <nop-required />
-            </div>
-            <div class="buttons">
-                <input id="estimate-shipping-button" type="button" value="@T("ShoppingCart.EstimateShipping.Button")" class="button-2 estimate-shipping-button" />
-            </div>
-        </div>
-        <div class="estimate-shipping-result"></div>
-    </div>
-</div>
+</script>
