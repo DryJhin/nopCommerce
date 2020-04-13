@@ -4,9 +4,14 @@
     "Payments.CheckMoneyOrder",
     "Shipping.FixedByWeightByTotal",
     "Tax.FixedOrByCountryStateZip",
-    "Widgets.NivoSlider"
+    "Widgets.NivoSlider",
+    "FoxNetSoft.Plugin.Misc.SpeedFilters",
+    "Payments.CashOnDelivery",
+    "Payments.PurchaseOrder"
   ],
-  "PluginNamesToUninstall": [],
+  "PluginNamesToUninstall": [
+    "Payments.CheckMoneyOrder"
+  ],
   "PluginNamesToDelete": [],
   "PluginNamesToInstall": []
 }

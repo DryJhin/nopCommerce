@@ -47,7 +47,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Plugins\" />
+    <None Include="Plugins\FoxNetSoft.SpeedFilters\Views\SpeedFiltersSettings\Configure.cshtml" />
+    <None Include="Plugins\FoxNetSoft.SpeedFilters\Views\SpeedFiltersSettings\_ViewImports.cshtml" />
+    <None Include="Plugins\FoxNetSoft.SpeedFilters\Views\SpeedFilters\FilterBlocks.cshtml" />
+    <None Include="Plugins\FoxNetSoft.SpeedFilters\Views\SpeedFilters\Pager.cshtml" />
+    <None Include="Plugins\FoxNetSoft.SpeedFilters\Views\SpeedFilters\ProductSelectorsCategory.cshtml" />
+    <None Include="Plugins\FoxNetSoft.SpeedFilters\Views\SpeedFilters\ProductsInGridOrLines.cshtml" />
+    <None Include="Plugins\FoxNetSoft.SpeedFilters\Views\SpeedFilters\_ViewImports.cshtml" />
   </ItemGroup>
 
   <!-- This target execute after "Build" target.
