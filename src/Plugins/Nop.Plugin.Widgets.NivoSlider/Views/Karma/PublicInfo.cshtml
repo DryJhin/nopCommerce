@@ -1,0 +1,76 @@
+﻿@model Nop.Plugin.Widgets.NivoSlider.Models.PublicInfoModel
+@{
+    Layout = "";
+}
+
+<section class="banner-area">
+    <div class="container">
+        <div class="row fullscreen align-items-center justify-content-start">
+            <div class="col-lg-12">
+                <div class="active-banner-slider owl-carousel">
+                    <!-- single-slide -->
+                    @{
+                        var dataSlide1 = new ViewDataDictionary(ViewData)
+                                                                                                                        {
+                            {"pictureUrl", Model.Picture1Url},
+                            { "text", Model.Text1},
+                            { "link", Model.Link1},
+                            {"alttext", Model.AltText1 }
+                        };
+
+                        @await Html.PartialAsync("./_PublicInfo.SliderLine.cshtml", dataSlide1)
+                    }
+                    <!-- single-slide -->
+                    @{
+                        var dataSlide2 = new ViewDataDictionary(ViewData)
+                                                                                                {
+                            {"pictureUrl", Model.Picture2Url},
+                            { "text", Model.Text2},
+                            { "link", Model.Link2},
+                            {"alttext", Model.AltText2 }
+                        };
+
+                        @await Html.PartialAsync("./_PublicInfo.SliderLine.cshtml", dataSlide2)
+                    }
+                    <!-- single-slide -->
+                    @{
+                        var dataSlide3 = new ViewDataDictionary(ViewData)
+                                                                                    {
+                            {"pictureUrl", Model.Picture3Url},
+                            { "text", Model.Text3},
+                            { "link", Model.Link3},
+                            {"alttext", Model.AltText3 },
+                            { "dataTransition", "slideInLeft"}
+                        };
+
+                        @await Html.PartialAsync("./_PublicInfo.SliderLine.cshtml", dataSlide3)
+                    }
+                    <!-- single-slide -->
+                    @{
+                        var dataSlide4 = new ViewDataDictionary(ViewData)
+                                                            {
+                            {"pictureUrl", Model.Picture4Url},
+                            { "text", Model.Text4},
+                            { "link", Model.Link4},
+                            {"alttext", Model.AltText4 }
+                        };
+
+                        @await Html.PartialAsync("./_PublicInfo.SliderLine.cshtml", dataSlide4)
+                    }
+                    <!-- single-slide -->
+                    @{
+                        var dataSlide5 = new ViewDataDictionary(ViewData)
+                                                {
+                            {"pictureUrl", Model.Picture5Url},
+                            { "text", Model.Text5},
+                            { "link", Model.Link5},
+                            {"alttext", Model.AltText5 }
+                        };
+
+                        @await Html.PartialAsync("./_PublicInfo.SliderLine.cshtml", dataSlide5)
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

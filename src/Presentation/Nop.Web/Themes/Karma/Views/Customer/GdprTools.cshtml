@@ -1,0 +1,71 @@
+﻿@{
+    Layout = "_ColumnsTwo";
+
+    //title
+    Html.AddTitleParts(T("PageTitle.Account").Text);
+    //page class
+    Html.AppendPageCssClassParts("html-account-page");
+    Html.AppendPageCssClassParts("html-gdpt-tools-page");
+}
+@section left
+    {
+    @await Component.InvokeAsync("CustomerNavigation", new { selectedTabId = CustomerNavigationEnum.GdprTools })
+}
+
+<!--product breadcrumb-->
+@section Breadcrumb
+{
+    @Html.BuildBreadcrumbNavigation()
+}
+
+<section class="d-flex align-content-center justify-content-center pl-5">
+    <div class="row">
+        <form asp-route="GdprTools" method="post" class="login_form">
+            <div asp-validation-summary="ModelOnly" class="message-error"></div>
+            <h3 class="text-center">@T("Account.Gdpr")</h3>
+            @if (!string.IsNullOrEmpty(Model.Result))
+            {
+                <div class="row mt-5">
+                    <h5 class="text-center">
+                        @Model.Result
+                    </h5>
+                </div>
+            }
+            <div class="row mt-3">
+                <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                    <h5>
+                        <strong>@T("Account.Gdpr.Export")</strong>
+                    </h5>
+                    <p>@T("Account.Gdpr.Export.Hint")</p>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 form-group align-self-center">
+                    <input type="submit" name="export-data" class="primary-btn" value="@T("Account.Gdpr.Export.Button")" />
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                    <h5>
+                        <strong>@T("Account.Gdpr.Delete")</strong>
+                    </h5>
+                    <p>@T("Account.Gdpr.Delete.Hint")</p>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 form-group align-self-center">
+                    <input type="submit" id="delete-account" name="delete-account" class="primary-btn" value="@T("Account.Gdpr.Delete.Button")" />
+
+                    <script asp-location="Footer">
+                        $(document).ready(function() {
+                            $('#delete-account').on('click', function() {
+                                return confirm('@T("Common.AreYouSure")');
+                            });
+                        });
+                    </script>
+                </div>
+            </div>
+            <div class="row mt-3 text">
+                <div class="col-md-12 form-group">
+                    <button type="submit" class="primary-btn">@T("Account.ChangePassword.Button")</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>

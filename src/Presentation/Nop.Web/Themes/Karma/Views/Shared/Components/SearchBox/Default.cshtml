@@ -1,15 +1,13 @@
 ﻿@model SearchBoxModel
 
 <form asp-route="ProductSearch" method="get" id="small-search-box-form" class="d-flex justify-content-between">
-    @if (Model.ShowSearchBox)
+    <input type="text" class="form-control" id="small-searchterms" autocomplete="off" name="q" placeholder="@T("Search.SearchBox.Tooltip")" aria-label="@T("Search.SearchBox.Text.Label")" />
+    @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.SearchBoxBeforeSearchButton })
+    <button type="submit" class="primary-btn" style="line-height:0em;text-transform: none;line-height: 0em;text-transform: none;border: 0px;background: inherit;">@T("Search.Button")</button>
+    <span class="lnr lnr-cross" id="close_search" title="Close Search"></span>
+    @if (Model.SearchTermMinimumLength > 0)
     {
-        <input type="text" class="form-control" id="small-searchterms" autocomplete="off" name="q" placeholder="@T("Search.SearchBox.Tooltip")" aria-label="@T("Search.SearchBox.Text.Label")" />
-        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.SearchBoxBeforeSearchButton })
-        <button type="submit" class="primary-btn" style="line-height:0em;text-transform: none;line-height: 0em;text-transform: none;border: 0px;background: inherit;">@T("Search.Button")</button>
-        <span class="lnr lnr-cross" id="close_search" title="Close Search"></span>
-        @if (Model.SearchTermMinimumLength > 0)
-        {
-            <script asp-location="Footer">
+        <script asp-location="Footer">
                 $("#small-search-box-form").on("submit", function(event) {
                     if ($("#small-searchterms").val() == "") {
                         alert('@Html.Raw(JavaScriptEncoder.Default.Encode(T("Search.EnterSearchTerms").Text))');
@@ -17,12 +15,12 @@
                         event.preventDefault();
                     }
                 });
-            </script>
-        }
+        </script>
+    }
 
-        @if (Model.AutoCompleteEnabled)
-        {
-            <script asp-location="Footer">
+    @if (Model.AutoCompleteEnabled)
+    {
+        <script asp-location="Footer">
                 $(document).ready(function() {
                     var showLinkToResultSearch;
                     var searchText;
@@ -56,8 +54,7 @@
                             .appendTo(ul);
                     };
                 });
-            </script>
-        }
+        </script>
         @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.SearchBox })
     }
 </form>

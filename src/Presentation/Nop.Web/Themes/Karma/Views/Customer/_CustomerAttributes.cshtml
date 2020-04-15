@@ -1,0 +1,83 @@
+﻿@model IList<CustomerAttributeModel>
+@using Nop.Core.Domain.Catalog
+@using Nop.Web.Framework.Controllers;
+@foreach (var attribute in Model)
+{
+    var controlId = $"{NopAttributePrefixDefaults.Customer}{attribute.Id}";
+    var textPrompt = attribute.Name;
+
+    <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+        @switch (attribute.AttributeControlType)
+        {
+            case AttributeControlType.DropdownList:
+                {
+                    <select name="@(controlId)" id="@(controlId)">
+                        @if (!attribute.IsRequired)
+                        {
+                            <option value="0">---</option>
+                        }
+                        @foreach (var attributeValue in attribute.Values)
+                        {
+                            <option selected="@attributeValue.IsPreSelected" value="@attributeValue.Id">@attributeValue.Name</option>
+                        }
+                    </select>
+                }
+                break;
+            case AttributeControlType.RadioList:
+                {
+                    @foreach (var attributeValue in attribute.Values)
+                    {
+                        <div class="single-element-widget">
+                            <div class="switch-wrap d-flex justify-content-between align-items-center">
+                                <p style="margin-top:14px!important">
+                                    @attributeValue.Name
+                                </p>
+                                <div class="confirm-checkbox">
+                                    <input id="@(controlId)_@(attributeValue.Id)" type="checkbox" name="@(controlId)" value="@attributeValue.Id" checked="@attributeValue.IsPreSelected" />
+                                    <label for="@(controlId)_@(attributeValue.Id)" style="font-size: 0;"></label>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+                break;
+            case AttributeControlType.Checkboxes:
+            case AttributeControlType.ReadonlyCheckboxes:
+                {
+                    @foreach (var attributeValue in attribute.Values)
+                    {
+                        <div class="single-element-widget">
+                            <div class="switch-wrap d-flex justify-content-between align-items-center">
+                                <p style="margin-top:14px!important">
+                                    @attributeValue.Name
+                                </p>
+                                <div class="confirm-checkbox">
+                                    <input id="@(controlId)_@(attributeValue.Id)" type="checkbox" name="@(controlId)" value="@attributeValue.Id" checked="@attributeValue.IsPreSelected" @(attribute.AttributeControlType == AttributeControlType.ReadonlyCheckboxes ? Html.Raw(" disabled=\"disabled\"") : null) />
+                                    <label for="@(controlId)_@(attributeValue.Id)" style="font-size: 0;"></label>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+                break;
+            case AttributeControlType.TextBox:
+                {
+                    <input name="@(controlId)" class="form-control" type="text" id="@(controlId)" value="@attribute.DefaultValue" placeholder="@textPrompt" onfocus="this.placeholder = ''" onblur="this.placeholder = '@textPrompt'" />
+                }
+                break;
+            case AttributeControlType.MultilineTextbox:
+                {
+                    <textarea id="@(controlId)" class="single-textarea" name="@(controlId)">@attribute.DefaultValue</textarea>
+                }
+                break;
+            case AttributeControlType.Datepicker:
+            case AttributeControlType.FileUpload:
+            case AttributeControlType.ColorSquares:
+            case AttributeControlType.ImageSquares:
+                {
+                    //not support attribute type
+                }
+                break;
+        }
+    </div>
+}

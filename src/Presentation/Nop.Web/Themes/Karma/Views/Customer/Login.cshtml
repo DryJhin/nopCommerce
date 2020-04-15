@@ -1,0 +1,94 @@
+﻿@model LoginModel
+@using Nop.Core
+@using Nop.Core.Domain.Customers
+
+@inject IWebHelper webHelper
+@{
+    Layout = "_Root";
+
+    //title
+    Html.AddTitleParts(T("PageTitle.Login").Text);
+
+    //register URL with return URL (if specified)
+    var registerUrl = Url.RouteUrl("Register", new { returnUrl = this.Context.Request.Query["returnUrl"] }, webHelper.CurrentRequestProtocol);
+}
+<!--product breadcrumb-->
+@section Breadcrumb
+{
+    @Html.BuildBreadcrumbNavigation()
+}
+
+<!--================Login Box Area =================-->
+<section class="login_box_area section_gap">
+    <div class="container">
+        @await Html.PartialAsync("_ExternalAuthentication.Errors")
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="login_box_img">
+                    <img class="img-fluid" src="img/login.jpg" alt="">
+                    <div class="hover">
+                        @if (Model.RegistrationType == UserRegistrationType.Disabled)
+                        {
+                            <h4>@T("Account.Register")</h4>
+                            <p>@T("Account.Register.Result.Disabled")</p>
+                        }
+                        else if (Model.CheckoutAsGuest)
+                        {
+                            <h4>@T("Account.Login.CheckoutAsGuestOrRegister")</h4>
+                            <p>@await Component.InvokeAsync("TopicBlock", new { systemName = "CheckoutAsGuestOrRegister" })</p>
+                            <a class="primary-btn" href='@Url.RouteUrl("Checkout")'>@T("Account.Login.CheckoutAsGuest")</a>
+                            <a class="primary-btn" href='@registerUrl'>@T("Account.Register")</a>
+                        }
+                        else
+                        {
+                            <h4>@T("Account.Register")</h4>
+                            <p>@T("Account.Login.NewCustomerText")</p>
+                            <a class="primary-btn" href='@registerUrl'>@T("Account.Register")</a>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="login_form_inner">
+                    <form asp-route="Login" asp-route-returnurl="@Context.Request.Query["ReturnUrl"]" method="post" class="row login_form">
+                        <div asp-validation-summary="ModelOnly" class="message-error">@T("Account.Login.Unsuccessful")</div>
+                        <h3>@T("Account.Login.ReturningCustomer")</h3>
+                        <div class="col-md-12 form-group">
+                            @if (Model.UsernamesEnabled)
+                            {
+                                <input asp-for="Username" class="form-control" placeholder="Username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'" autofocus="autofocus" />
+                                <span asp-validation-for="Username"></span>
+                            }
+                            else
+                            {
+                                <input asp-for="Email" class="form-control" placeholder="Username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'" autofocus="autofocus" />
+                                <span asp-validation-for="Email"></span>
+                            }
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <input asp-for="Password" class="form-control" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'" />
+                            <span asp-validation-for="Password"></span>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            @if (Model.DisplayCaptcha)
+                            {
+                                <div class="captcha-box">
+                                    <nop-captcha />
+                                </div>
+                            }
+                            <div class="creat_account">
+                                <input asp-for="RememberMe" />
+                                <label asp-for="RememberMe"></label>
+                            </div>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <button type="submit" class="primary-btn">@T("Account.Login.LoginButton")</button>
+                            <a asp-route="PasswordRecovery">@T("Account.Login.ForgotPassword")</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================End Login Box Area =================-->
