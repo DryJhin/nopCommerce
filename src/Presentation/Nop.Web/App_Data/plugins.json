@@ -1,17 +1,29 @@
 ﻿{
   "InstalledPluginNames": [
     "CurrencyExchange.ECB",
-    "Payments.CheckMoneyOrder",
     "Shipping.FixedByWeightByTotal",
     "Tax.FixedOrByCountryStateZip",
     "Widgets.NivoSlider",
-    "FoxNetSoft.Plugin.Misc.SpeedFilters",
     "Payments.CashOnDelivery",
-    "Payments.PurchaseOrder"
+    "Payments.PurchaseOrder",
+    "FoxNetSoft.AntiBot",
+    "FoxNetSoft.HistoryofChanges",
+    "FoxNetSoft.AutomaticRelatedProducts",
+    "FoxNetSoft.AutomaticUpdates",
+    "FoxNetSoft.Plugin.Misc.AutoRegisterGuest",
+    "FoxNetSoft.CheckOrderStatus",
+    "FoxNetSoft.LoginWithEmail",
+    "FoxNetSoft.PriceManager",
+    "FoxNetSoft.SearchSpellingCorrector",
+    "FoxNetSoft.SpeedTab",
+    "FoxNetSoft.CustomerRequests",
+    "FoxNetSoft.Plugin.Misc.ContentManager",
+    "FoxNetSoft.Plugin.Misc.CustomerInterests",
+    "FoxNetSoft.Plugin.Misc.IPFilter",
+    "FoxNetSoft.ImportManager",
+    "FoxNetSoft.Plugin.Misc.SpeedFilters"
   ],
-  "PluginNamesToUninstall": [
-    "Payments.CheckMoneyOrder"
-  ],
+  "PluginNamesToUninstall": [],
   "PluginNamesToDelete": [],
   "PluginNamesToInstall": []
 }
