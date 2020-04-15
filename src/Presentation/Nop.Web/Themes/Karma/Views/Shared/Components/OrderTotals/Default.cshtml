@@ -1,0 +1,114 @@
+﻿@model OrderTotalsModel
+<tr>
+    <td>
+        @if (!string.IsNullOrEmpty(Model.SubTotalDiscount))
+        {
+            @T("ShoppingCart.Totals.SubTotalDiscount")
+        }
+    </td>
+    <td>
+        @if (!string.IsNullOrEmpty(Model.SubTotalDiscount))
+        {
+            <h5>@Model.SubTotalDiscount</h5>
+        }
+    </td>
+    <td>
+        <h5>@T("ShoppingCart.Totals.SubTotal")</h5>
+    </td>
+    <td>
+        <h5>@Model.SubTotal</h5>
+    </td>
+</tr>
+<tr>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+        @if (!Model.HideShippingTotal)
+        {
+            <h5>@T("ShoppingCart.Totals.Shipping")</h5>
+        }
+    </td>
+    <td>
+        @if (!Model.HideShippingTotal)
+        {
+            @if (Model.RequiresShipping)
+            {
+                if (!string.IsNullOrEmpty(Model.Shipping))
+                {
+                    <h5>@Model.Shipping</h5>
+                }
+                else
+                {
+                    <h5>@T("ShoppingCart.Totals.CalculatedDuringCheckout")</h5>
+                }
+            }
+            else
+            {
+                <h5>@T("ShoppingCart.Totals.Shipping.NotRequired")</h5>
+            }
+        }
+    </td>
+</tr>
+<tr>
+    <td>
+        @if (!string.IsNullOrEmpty(Model.PaymentMethodAdditionalFee))
+        {
+            <h5>
+                @T("ShoppingCart.Totals.PaymentMethodAdditionalFee")
+                @if (Model.RequiresShipping && !string.IsNullOrEmpty(Model.SelectedShippingMethod))
+                {
+                    var type = "(" + T("ShoppingCart.Totals.Shipping.Method", Model.SelectedShippingMethod) + ")";
+                    @type
+                }
+            </h5>
+        }
+    </td>
+    <td>
+        @if (Model.DisplayTax)
+        {
+            <h5>@Model.PaymentMethodAdditionalFee</h5>
+        }
+    </td>
+    <td>
+        @if (Model.DisplayTax)
+        {
+            <h5>@T("ShoppingCart.Totals.Tax")</h5>
+        }
+    </td>
+    <td>
+        @if (Model.DisplayTax)
+        {
+            <h5>@Model.Tax</h5>
+        }
+    </td>
+</tr>
+<tr>
+    <td>
+        @if (!string.IsNullOrEmpty(Model.OrderTotalDiscount))
+        {
+        <h5>@T("ShoppingCart.Totals.OrderTotalDiscount")</h5>            
+        }
+    </td>
+    <td>
+        @if (!string.IsNullOrEmpty(Model.OrderTotalDiscount))
+        {
+            <h5>@Model.OrderTotalDiscount</h5>
+        }
+    </td>
+    <td>
+        <h5>@T("ShoppingCart.Totals.OrderTotal")</h5>
+    </td>
+    <td>
+
+        @if (!string.IsNullOrEmpty(Model.OrderTotal))
+        {
+            <h5>@Model.OrderTotal</h5>
+        }
+        else
+        {
+            <h5>@T("ShoppingCart.Totals.CalculatedDuringCheckout")</h5>
+        }
+    </td>
+</tr>

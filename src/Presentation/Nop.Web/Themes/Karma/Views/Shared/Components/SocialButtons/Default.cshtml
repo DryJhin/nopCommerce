@@ -1,0 +1,15 @@
+﻿@model SocialModel
+<div class="footer-social d-flex align-items-center">
+	@if (!string.IsNullOrEmpty(Model.FacebookLink))
+	{
+		<a href="@Model.FacebookLink" target="_blank"><i class="fa fa-facebook"></i></a>
+	}
+	@if (!string.IsNullOrEmpty(Model.TwitterLink))
+	{
+		<a href="@Model.TwitterLink" target="_blank"><i class="fa fa-twitter"></i></a>
+	}
+	@if (!string.IsNullOrEmpty(Model.YoutubeLink))
+	{
+		<a href="@Model.YoutubeLink" target="_blank"><i class="fa fa-youtube"></i></a>
+	}
+</div>

@@ -1,0 +1,55 @@
+﻿@model EstimateShippingModel
+<tr class="shipping_area">
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+        <h5>@T("ShoppingCart.EstimateShipping")</h5>
+    </td>
+    <td>
+        <div class="shipping_box">
+            <select asp-for="CountryId" asp-items="Model.AvailableCountries"
+                    class="country-input"
+                    data-trigger="country-select"
+                    data-url="@(Url.RouteUrl("GetStatesByCountryId"))"
+                    data-stateprovince="#@Html.IdFor(model => model.StateProvinceId)"
+                    data-loading="#estimate-shipping-loading-progress"></select>
+            <select asp-for="StateProvinceId" asp-items="Model.AvailableStates" class="state-input"></select>
+            <input asp-for="ZipPostalCode" class="zip-input" />
+            <input id="estimate-shipping-button" type="button" value="@T("ShoppingCart.EstimateShipping.Button")" class="gray_btn" />
+            <h6 class="estimate-shipping-result"></h6>
+        </div>
+    </td>
+</tr>
+
+<script asp-location="Footer">
+
+        $(document).ready(function () {
+            $('#estimate-shipping-button').on('click', function() {
+                displayAjaxLoading(true);
+                $.ajax({
+                    cache: false,
+                    type: "POST",
+                    url: "@(Url.RouteUrl("EstimateShipping"))",
+                    data: $("#shopping-cart-form").serialize(),
+                    success: function (data, textStatus, jqXHR) {
+                        $('.estimate-shipping-result').html(data);
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        alert('Failed to retrieve estimate shipping.');
+                    },
+                    complete: function (jqXHR, textStatus) {
+                        displayAjaxLoading();
+                    }
+                });
+            });
+
+            $("#@Html.IdFor(model => model.ZipPostalCode)").on("keydown", function (event) {
+                if (event.keyCode == 13) {
+                    $("#estimate-shipping-button").trigger("click");
+                    return false;
+                }
+            });
+        });
+</script>

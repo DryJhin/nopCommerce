@@ -1,0 +1,8 @@
+﻿
+@inject IThemeContext themeContext
+
+@{
+    var themeName = themeContext.WorkingThemeName;
+}
+
+@await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HomepageTop })

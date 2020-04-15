@@ -1,0 +1,93 @@
+﻿@model ContactUsModel
+@{
+    Layout = "_ColumnsOne";
+
+    //title
+    Html.AddTitleParts(T("PageTitle.ContactUs").Text);
+    //page class
+    Html.AppendPageCssClassParts("html-contact-page");
+}
+<!--product breadcrumb-->
+@section Breadcrumb
+{
+    @Html.BuildBreadcrumbNavigation()
+}
+
+<!--================Contact Area =================-->
+<section class="contact_area section_gap_bottom">
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-lg-3">
+                <div class="contact_info">
+                    <div class="info_item">
+                        <i class="lnr lnr-home"></i>
+                        <h6>Chitila , Ilfov, Romania</h6>
+                        <p>Șoseaua Banatului 81</p>
+                    </div>
+                    <div class="info_item">
+                        <i class="lnr lnr-phone-handset"></i>
+                        <h6><a href="tel:+40722223166">+40722223166</a></h6>
+                        <p>Mon to Fri 9am to 6 pm</p>
+                    </div>
+                    <div class="info_item">
+                        <i class="lnr lnr-envelope"></i>
+                        <h6><a href="mailto:contact@protectkronos.ro">contact@protectkronos.ro</a></h6>
+                        <p>Contact us any time!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.ContactUsTop })
+                @if (Model.SuccessfullySent)
+                {
+                    <div class="result">
+                        @Model.Result
+                    </div>
+                }
+                else
+                {
+                    <form class="row contact_form" asp-route="ContactUs" method="post">
+                        <div asp-validation-summary="ModelOnly" class="message-error"></div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input asp-for="FullName" placeholder="@T("ContactUs.FullName.Hint")" class="form-control" onfocus="this.placeholder = ''" onblur="this.placeholder = '@T("ContactUs.FullName.Hint")'" />
+                                <span asp-validation-for="FullName"></span>
+                            </div>
+                            <div class="form-group">
+                                <input asp-for="Email" placeholder="@T("ContactUs.Email.Hint")" class="form-control" onfocus="this.placeholder = ''" onblur="this.placeholder = '@T("ContactUs.Email.Hint")'" />
+                                <span asp-validation-for="Email"></span>
+                            </div>
+                            @if (Model.SubjectEnabled)
+                            {
+                                <div class="form-group">
+                                    <input asp-for="Subject" placeholder="@T("ContactUs.Subject.Hint")" class="form-control" onfocus="this.placeholder = ''" onblur="this.placeholder = '@T("ContactUs.Subject.Hint")'" />
+                                    <span asp-validation-for="Subject"></span>
+                                </div>
+                            }
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <textarea asp-for="Enquiry" placeholder="@T("ContactUs.Enquiry.Hint")" rows="1" class="form-control" onfocus="this.placeholder = ''" onblur="this.placeholder = '@T("ContactUs.Enquiry.Hint")'"></textarea>
+                                <span asp-validation-for="Enquiry"></span>
+                            </div>
+                            @if (Model.DisplayCaptcha)
+                            {
+                                <div class="captcha-box">
+                                    <nop-captcha />
+                                </div>
+                            }
+                        </div>
+                        <div class="col-md-12 text-right">
+                            <input type="submit" name="send-email" class="primary-btn" value="@T("ContactUs.Button")" />
+                        </div>
+                    </form>
+                }
+                @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.ContactUsBottom })
+            </div>
+        </div>
+        <div id="mapBox" class="mapbox" data-lat="40.701083" data-lon="-74.1522848" data-zoom="13" data-info="PO Box CT16122 Collins Street West, Victoria 8007, Australia."
+             data-mlat="40.701083" data-mlon="-74.1522848">
+        </div>
+    </div>
+</section>
+<!--================Contact Area =================-->

@@ -1,0 +1,34 @@
+﻿<header class="header_area sticky-header" style="width: 1903px; position: fixed; top: 0px;">
+    <div class="main_menu">
+        <nav class="navbar navbar-expand-lg navbar-light main_box">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                @await Component.InvokeAsync("Logo")
+                @*<div class="navbar-brand">
+                    <a href="tel:+40722223166">+40 722 223 166</a>
+
+                </div>
+                <div class="navbar-brand">
+                    <a href="mailto:comenzi-online@protectkronos.ro" target="_top">comenzi-online@protectkronos.ro</a>
+                </div>*@
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+                    @await Component.InvokeAsync("LanguageSelector")
+                    @await Component.InvokeAsync("HeaderLinks")
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="search_input" id="search_input_box">
+        <div class="container">
+            @await Component.InvokeAsync("SearchBox")
+        </div>
+    </div>
+</header>

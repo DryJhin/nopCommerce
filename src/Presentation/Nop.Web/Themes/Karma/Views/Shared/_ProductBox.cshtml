@@ -1,0 +1,89 @@
+﻿@model ProductOverviewModel
+@using Nop.Core
+@using Nop.Core.Domain.Catalog
+@using Nop.Core.Domain.Orders
+@using Nop.Core.Domain.Tax
+@inject CatalogSettings catalogSettings
+@inject IWorkContext workContext
+@{
+    //prepare "Add to cart" AJAX link
+    var addtocartlink = "";
+    var shoppingCartTypeId = (int)ShoppingCartType.ShoppingCart;
+    var quantity = 1;
+    if (Model.ProductPrice.ForceRedirectionAfterAddingToCart)
+    {
+        addtocartlink = Url.RouteUrl("AddProductToCart-Catalog", new { productId = Model.Id, shoppingCartTypeId = shoppingCartTypeId, quantity = quantity, forceredirection = Model.ProductPrice.ForceRedirectionAfterAddingToCart });
+    }
+    else
+    {
+        addtocartlink = Url.RouteUrl("AddProductToCart-Catalog", new { productId = Model.Id, shoppingCartTypeId = shoppingCartTypeId, quantity = quantity });
+    }
+
+    var addtowishlistlink = Url.RouteUrl("AddProductToCart-Catalog", new { productId = Model.Id, shoppingCartTypeId = (int)ShoppingCartType.Wishlist, quantity = quantity });
+    var addtocomparelink = Url.RouteUrl("AddProductToCompare", new { productId = Model.Id });
+}
+<div class="single-product" data-productid="@Model.Id">
+    <img class="img-fluid" alt="@Model.DefaultPictureModel.AlternateText" src="@Model.DefaultPictureModel.ImageUrl" title="@Model.DefaultPictureModel.Title">
+    <div class="product-details">
+        <h6>
+            @Model.Name
+        </h6>
+        <div class="price">
+            <h6>@Model.ProductPrice.Price</h6>
+            @if (!string.IsNullOrEmpty(Model.ProductPrice.OldPrice))
+            {
+                <h6 class="l-through">@Model.ProductPrice.OldPrice</h6>
+            }
+        </div>
+        @if (Model.ReviewOverviewModel.AllowCustomerReviews)
+        {
+            var ratingPercent = 0;
+            if (Model.ReviewOverviewModel.TotalReviews != 0)
+            {
+                ratingPercent = ((Model.ReviewOverviewModel.RatingSum * 100) / Model.ReviewOverviewModel.TotalReviews) / 5;
+            }
+            <div class="product-rating-box" title="@string.Format(T("Reviews.TotalReviews").Text, Model.ReviewOverviewModel.TotalReviews)">
+                <div class="rating">
+                    <div style="width: @(ratingPercent)%">
+                    </div>
+                </div>
+            </div>
+        }
+        <div class="prd-bottom">
+            @if (!Model.ProductPrice.DisableBuyButton)
+            {
+                var addToCartText = T("ShoppingCart.AddToCart").Text;
+                if (Model.ProductPrice.IsRental)
+                {
+                    addToCartText = T("ShoppingCart.Rent").Text;
+                }
+                if (Model.ProductPrice.AvailableForPreOrder)
+                {
+                    addToCartText = T("ShoppingCart.PreOrder").Text;
+                }
+                <a href="" onclick="event.preventDefault();AjaxCart.addproducttocart_catalog('@addtocartlink');return false;" class="social-info">
+                    <span class="ti-bag"></span>
+                    <p class="hover-text">@(addToCartText)</p>
+                </a>
+            }
+            @if (!Model.ProductPrice.DisableWishlistButton)
+            {
+                <a href="" class="social-info" onclick="event.preventDefault();AjaxCart.addproducttocart_catalog('@addtowishlistlink'); return false;">
+                    <span class="lnr lnr-heart"></span>
+                    <p class="hover-text">@T("ShoppingCart.AddToWishlist")</p>
+                </a>
+            }
+            @if (!Model.ProductPrice.DisableAddToCompareListButton)
+            {
+                <a href="" class="social-info" onclick="event.preventDefault();AjaxCart.addproducttocomparelist('@addtocomparelink');return false;">
+                    <span class="lnr lnr-sync"></span>
+                    <p class="hover-text">@T("ShoppingCart.AddToCompareList")</p>
+                </a>
+            }
+            <a href="@Url.RouteUrl("Product", new {SeName = Model.SeName})" class="social-info">
+                <span class="lnr lnr-move"></span>
+                <p class="hover-text">view more</p>
+            </a>
+        </div>
+    </div>
+</div>

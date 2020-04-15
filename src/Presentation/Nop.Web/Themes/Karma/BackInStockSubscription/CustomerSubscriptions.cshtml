@@ -1,0 +1,104 @@
+﻿@model CustomerBackInStockSubscriptionsModel
+@{
+    Layout = "_ColumnsTwo";
+
+    //title
+    Html.AddTitleParts(T("PageTitle.BackInStockSubscriptions").Text);
+    //page class
+    Html.AppendPageCssClassParts("html-account-page");
+    Html.AppendPageCssClassParts("html-back-in-stock-subscription-list-page");
+}
+@section left
+{
+    @await Component.InvokeAsync("CustomerNavigation", new { selectedTabId = CustomerNavigationEnum.BackInStockSubscriptions })
+}
+
+<!--product breadcrumb-->
+@section Breadcrumb
+{
+    @Html.BuildBreadcrumbNavigation()
+}
+
+<section class="d-flex align-content-center justify-content-center pl-3">
+    <div class="row">
+        <h3 class="text-center">@T("Account.BackInStockSubscriptions")</h3>
+        @if (Model.Subscriptions.Count > 0)
+        {
+            <div class="row mt-3">
+                <div class=col-sm-12 form-group">
+                    <p>@T("Account.BackInStockSubscriptions.Description")</p>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <form asp-route="CustomerBackInStockSubscriptions" method="post">
+                    <div class="progress-table-wrap">
+                        <div class="progress-table">
+                            <div class="table-head">
+                                <div class="select-boxes">
+                                    <input type="checkbox" id="selectall" />
+                                </div>
+                                <div class="product">
+                                    @T("Account.BackInStockSubscriptions.ProductColumn")
+                                </div>
+                            </div>
+                            <div class="table-row">
+                                @for (var i = 0; i < Model.Subscriptions.Count; i++)
+                                {
+                                    var item = Model.Subscriptions[i];
+                                    <div class="select-boxes">
+                                        <input type="checkbox" name="biss@(item.Id)" class="rowcheckbox" />
+                                    </div>
+                                    <div class="product">
+                                        @Html.RouteLink(item.ProductName, "Product", new { SeName = item.SeName })
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        }
+        else
+        {
+            <div class="row mt-5">
+                <h5 class="text-center">
+                    @T("Account.BackInStockSubscriptions.NoSubscriptions")
+                </h5>
+            </div>
+        }
+    </div>
+</section>
+
+@if (Model.Subscriptions.Count > 0)
+{
+    <!-- Start Filter Bar -->
+    <div class="filter-bar d-flex flex-wrap align-items-center">
+        <div class="sorting">
+            <button type="submit" class="primary-btn">@T("Account.BackInStockSubscriptions.DeleteSelected")</button>
+        </div>
+        @{
+            var pager = Html.Pager(Model.PagerModel);
+        }
+        @if (!string.IsNullOrEmpty(pager.ToHtmlString()))
+        {
+            <div class="pager">
+                @pager
+            </div>
+        }
+    </div>
+}
+
+
+<script asp-location="Footer">
+    $(document).ready(function () {
+        $('#selectall').on('click', function () {
+            $('.subscription-list .rowcheckbox').prop('checked', $(this).is(':checked')).trigger('change');
+        });
+
+        $('.subscription-list .rowcheckbox').on('change', function (e) {
+            var numChkBoxes = $('.subscription-list .rowcheckbox').length;
+            var numChkBoxesChecked = $('.subscription-list .rowcheckbox:checked').length;
+            $('#selectall').prop('checked', numChkBoxes == numChkBoxesChecked && numChkBoxes > 0);
+        });
+    });
+</script>

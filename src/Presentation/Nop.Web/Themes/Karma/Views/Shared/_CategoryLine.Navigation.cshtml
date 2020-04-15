@@ -1,0 +1,73 @@
+﻿@model CategoryNavigationModel.CategoryLineModel
+
+@functions{
+    public bool BreadCrumbContainsCurrentCategoryId(CategorySimpleModel category)
+    {
+        if (Model.CurrentCategoryId == 0)
+            return false;
+
+        if (category.Id == Model.CurrentCategoryId)
+            return true;
+
+        foreach (var subCategory in category.SubCategories)
+        {
+            if (BreadCrumbContainsCurrentCategoryId(subCategory))
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+}
+@{
+    var active = Model.Category.Id == Model.CurrentCategoryId || Model.Category.SubCategories.Count(BreadCrumbContainsCurrentCategoryId) > 0;
+    var anchorClass = active ? "active" : "inactive";
+    var hasChild = Model.Category.SubCategories.Count > 0;
+    var colapseId = Model.Category.Name + Model.Category.Id;
+    var anchorLink = hasChild ? "#" + colapseId : Url.RouteUrl("Category", new { SeName = Model.Category.SeName });
+    var liClass = Model.Category.IsSubCategory ? "child" : "";
+}
+<li class="main-nav-list @liClass">
+    @{
+        if (hasChild)
+        {
+            <a data-toggle="collapse" href="@anchorLink" aria-expanded="false" aria-controls="@colapseId" class="collapsed @anchorClass">
+                <span class="lnr lnr-arrow-right"></span>
+                @Model.Category.Name
+                @if (Model.Category.NumberOfProducts.HasValue)
+                {
+                    <span class="number">
+                        (@Model.Category.NumberOfProducts.Value)
+                    </span>
+                }
+            </a>
+            <ul class="collapse" id="@colapseId">
+                @foreach (var subCategory in Model.Category.SubCategories)
+                {
+                    subCategory.IsSubCategory = true;
+
+                    var categoryLineModel = new CategoryNavigationModel.CategoryLineModel
+                    {
+                        CurrentCategoryId = Model.CurrentCategoryId,
+                        Category = subCategory
+                    };
+                    @await Html.PartialAsync("_CategoryLine.Navigation", categoryLineModel)
+                }
+            </ul>
+        }
+        else
+        {
+            <a href="@anchorLink" class="@anchorClass">
+                <span class="lnr lnr-arrow-right"></span>
+                @Model.Category.Name
+                @if (Model.Category.NumberOfProducts.HasValue)
+                {
+                    <span class="number">
+                        (@Model.Category.NumberOfProducts.Value)
+                    </span>
+                }
+            </a>
+        }
+    }
+</li>

@@ -40,6 +40,7 @@
 
     <!-- We copy the \Logs directory -->
     <Content Include="Logs\**" CopyToPublishDirectory="PreserveNewest" />
+    <None Remove="Themes\Karma\preview.jpg" />
 
     <None Update="Areas\Admin\sitemap.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -79,6 +80,80 @@
     <None Include="Plugins\FoxNetSoft.SpeedTab\Views\SpeedTab\ProductReviews.cshtml" />
     <None Include="Plugins\FoxNetSoft.SpeedTab\Views\SpeedTab\Tab_Widget.cshtml" />
     <None Include="Plugins\FoxNetSoft.SpeedTab\Views\SpeedTab\_ViewImports.cshtml" />
+    <None Include="Themes\Karma\BackInStockSubscription\CustomerSubscriptions.cshtml" />
+    <None Include="Themes\Karma\BackInStockSubscription\SubscribePopup.cshtml" />
+    <None Include="Themes\Karma\Common\ContactUs.cshtml" />
+    <None Include="Themes\Karma\Common\ContactVendor.cshtml" />
+    <None Include="Themes\Karma\Common\PageNotFound.cshtml" />
+    <None Include="Themes\Karma\Common\Sitemap.cshtml" />
+    <None Include="Themes\Karma\Common\StoreClosed.cshtml" />
+    <None Include="Themes\Karma\Topic\TopicDetails.cshtml" />
+    <None Include="Themes\Karma\Views\Home\Index.cshtml" />
+    <None Include="Themes\Karma\Views\Shared\Components\AdminHeaderLinks\Default.cshtml" />
+    <None Include="Themes\Karma\Views\Shared\Components\BlogRssHeaderLink\Default.cshtml" />
+    <None Include="Themes\Karma\Views\Shared\Components\CategoryNavigation\Default.cshtml" />
+    <None Include="Themes\Karma\Views\Shared\Components\CheckoutProgress\Default.cshtml" />
+    <None Include="Themes\Karma\Views\Shared\Components\CrossSellProducts\Default.cshtml" />
+    <None Include="Themes\Karma\Views\Shared\Components\CurrencySelector\Default.cshtml" />
+    <None Include="Themes\Karma\Views\Shared\Components\CustomerNavigation\Default.cshtml" />
+    <None Include="Themes\Karma\Views\Shared\Components\EstimateShipping\Default.cshtml" />
+    <None Include="Themes\Karma\Views\Shared\Components\EuCookieLaw\Default.cshtml" />
+    <None Include="Themes\Karma\Views\Shared\Components\ExternalMethods\Default.cshtml" />
+    <None Include="Themes\Karma\Views\Shared\Components\Favicon\Default.cshtml" />
+    <None Include="Themes\Karma\Views\Shared\Components\FlyoutShoppingCart\Default.cshtml" />
+    <None Include="Themes\Karma\Views\Shared\Components\Footer\Default.cshtml" />
+    <None Include="Themes\Karma\Views\Shared\Components\HeaderLinks\Default.cshtml" />
+    <None Include="Themes\Karma\Views\Shared\Components\HomepageBestSellers\Default.cshtml" />
+    <None Include="Themes\Karma\Views\Shared\Components\HomepageCategories\Default.cshtml" />
+    <None Include="Themes\Karma\Views\Shared\Components\HomepageNews\Default.cshtml" />
+    <None Include="Themes\Karma\Views\Shared\Components\HomepagePolls\Default.cshtml" />
+    <None Include="Themes\Karma\Views\Shared\Components\HomepageProducts\Default.cshtml" />
+    <None Include="Themes\Karma\Views\Shared\Components\LanguageSelector\Default.cshtml" />
+    <None Include="Themes\Karma\Views\Shared\Components\Logo\Default.cshtml" />
+    <None Include="Themes\Karma\Views\Shared\Components\ManufacturerNavigation\Default.cshtml" />
+    <None Include="Themes\Karma\Views\Shared\Components\NewsletterBox\Default.cshtml" />
+    <None Include="Themes\Karma\Views\Shared\Components\NewsRssHeaderLink\Default.cshtml" />
+    <None Include="Themes\Karma\Views\Shared\Components\OrderSummary\Default.cshtml" />
+    <None Include="Themes\Karma\Views\Shared\Components\OrderTotals\Default.cshtml" />
+    <None Include="Themes\Karma\Views\Shared\Components\PollBlock\Default.cshtml" />
+    <None Include="Themes\Karma\Views\Shared\Components\PopularProductTags\Default.cshtml" />
+    <None Include="Themes\Karma\Views\Shared\Components\PrivateMessagesInbox\Default.cshtml" />
+    <None Include="Themes\Karma\Views\Shared\Components\PrivateMessagesSentItems\Default.cshtml" />
+    <None Include="Themes\Karma\Views\Shared\Components\ProductsAlsoPurchased\Default.cshtml" />
+    <None Include="Themes\Karma\Views\Shared\Components\RecentlyViewedProductsBlock\Default.cshtml" />
+    <None Include="Themes\Karma\Views\Shared\Components\RelatedProducts\Default.cshtml" />
+    <None Include="Themes\Karma\Views\Shared\Components\SearchBox\Default.cshtml" />
+    <None Include="Themes\Karma\Views\Shared\Components\SelectedCheckoutAttributes\Default.cshtml" />
+    <None Include="Themes\Karma\Views\Shared\Components\SocialButtons\Default.cshtml" />
+    <None Include="Themes\Karma\Views\Shared\Components\StoreThemeSelector\Default.cshtml" />
+    <None Include="Themes\Karma\Views\Shared\Components\TaxTypeSelector\Default.cshtml" />
+    <None Include="Themes\Karma\Views\Shared\Components\TopicBlock\Default.cshtml" />
+    <None Include="Themes\Karma\Views\Shared\Components\TopMenu\Default.cshtml" />
+    <None Include="Themes\Karma\Views\Shared\Components\VendorNavigation\Default.cshtml" />
+    <None Include="Themes\Karma\Views\Shared\Components\Widget\Default.cshtml" />
+    <None Include="Themes\Karma\Views\Shared\Head.cshtml" />
+    <None Include="Themes\Karma\Views\Shared\_AddressAttributes.cshtml" />
+    <None Include="Themes\Karma\Views\Shared\_Banner.cshtml" />
+    <None Include="Themes\Karma\Views\Shared\_CategoryLine.Navigation.cshtml" />
+    <None Include="Themes\Karma\Views\Shared\_CategoryLine.TopMenu.cshtml" />
+    <None Include="Themes\Karma\Views\Shared\_CheckoutAttributes.cshtml" />
+    <None Include="Themes\Karma\Views\Shared\_ColumnsOne.cshtml" />
+    <None Include="Themes\Karma\Views\Shared\_ColumnsTwo.cshtml" />
+    <None Include="Themes\Karma\Views\Shared\_CreateOrUpdateAddress.cshtml" />
+    <None Include="Themes\Karma\Views\Shared\_DiscountBox.cshtml" />
+    <None Include="Themes\Karma\Views\Shared\_Header.cshtml" />
+    <None Include="Themes\Karma\Views\Shared\_JavaScriptDisabledWarning.cshtml" />
+    <None Include="Themes\Karma\Views\Shared\_Notifications.cshtml" />
+    <None Include="Themes\Karma\Views\Shared\_OldInternetExplorerWarning.cshtml" />
+    <None Include="Themes\Karma\Views\Shared\_OrderReviewData.cshtml" />
+    <None Include="Themes\Karma\Views\Shared\_Poll.cshtml" />
+    <None Include="Themes\Karma\Views\Shared\_Print.cshtml" />
+    <None Include="Themes\Karma\Views\Shared\_ProductBox.cshtml" />
+    <None Include="Themes\Karma\Views\Shared\_Root.cshtml" />
+    <None Include="Themes\Karma\Views\Shared\_Root.Head.cshtml" />
+    <None Include="wwwroot\js\karma\vendor\bootstrap.min.js" />
+    <None Include="wwwroot\js\karma\vendor\jquery-2.2.4.min.js" />
+    <None Include="wwwroot\js\karma\vendor\popper.js" />
   </ItemGroup>
 
   <!-- This target execute after "Build" target.

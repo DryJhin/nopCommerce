@@ -1,0 +1,110 @@
+﻿@model AddressModel
+
+<input asp-for="Id" type="hidden" />
+
+@if (Model.CompanyEnabled)
+{
+    <div class="col-lg-4 col-md-6 col-sm-6 form-group">
+        <input asp-for="FirstName" class="form-control" placeholder="First Name *" onfocus="this.placeholder = ''" onblur="this.placeholder = 'First Name *'" />
+        <span asp-validation-for="FirstName"></span>
+    </div>
+    <div class="col-lg-4 col-md-6 col-sm-6 form-group">
+        <input asp-for="LastName" class="form-control" placeholder="Last Name *" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Last Name *'" />
+        <span asp-validation-for="LastName"></span>
+    </div>
+    <div class="col-lg-4 col-md-6 col-sm-6 form-group">
+        <input asp-for="Company" class="form-control" placeholder="Company *" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Company *'" />
+        <span asp-validation-for="Company"></span>
+    </div>
+}
+else
+{
+    <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+        <input asp-for="FirstName" class="form-control" placeholder="First Name *" onfocus="this.placeholder = ''" onblur="this.placeholder = 'First Name *'" />
+        <span asp-validation-for="FirstName"></span>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+        <input asp-for="LastName" class="form-control" placeholder="Last Name *" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Last Name *'" />
+        <span asp-validation-for="LastName"></span>
+    </div>
+}
+
+<div class="col-lg-4 col-md-6 col-sm-6 form-group">
+    <input asp-for="Email" class="form-control" placeholder="Email *" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email *'" />
+    <span asp-validation-for="Email"></span>
+</div>
+@if (Model.PhoneEnabled)
+{
+    <div class="col-lg-4 col-md-6 col-sm-6 form-group">
+        <input asp-for="PhoneNumber" class="form-control" placeholder="Phone Number *" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Phone Number *'" />
+        <span asp-validation-for="PhoneNumber"></span>
+    </div>
+}
+@if (Model.FaxEnabled)
+{
+    <div class="col-lg-4 col-md-6 col-sm-6 form-group">
+        <input asp-for="FaxNumber" class="form-control" placeholder="Fax Number *" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Fax Number *'" />
+        <span asp-validation-for="FaxNumber"></span>
+    </div>
+}
+
+@if (Model.CountryEnabled)
+{
+    <div class="col-lg-4 col-md-6 col-sm-6 form-group" style="width: 100%;">
+        <select asp-for="CountryId" asp-items="Model.AvailableCountries"
+                data-trigger="country-select"
+                data-url="@(Url.RouteUrl("GetStatesByCountryId"))"
+                data-stateprovince="#@Html.IdFor(model => model.StateProvinceId)"
+                data-loading="#states-loading-progress"></select>
+        <span asp-validation-for="CountryId"></span>
+    </div>
+}
+@if (Model.CountryEnabled && Model.StateProvinceEnabled)
+{
+    <div class="col-lg-4 col-md-6 col-sm-6 form-group" style="width: 100%;">
+        <select asp-for="StateProvinceId" asp-items="Model.AvailableStates"></select>
+        <span id="states-loading-progress" style="display: none;" class="please-wait">@T("Common.Wait...")</span>
+        <span asp-validation-for="StateProvinceId"></span>
+    </div>
+}
+@if (Model.CountyEnabled)
+{
+    <div class="col-lg-4 col-md-6 col-sm-6 form-group" style="width: 100%;">
+        <input asp-for="County" class="form-control" placeholder="County" onfocus="this.placeholder = ''" onblur="this.placeholder = 'County'" />
+        <span asp-validation-for="County"></span>
+    </div>
+}
+@if (Model.CityEnabled)
+{
+    <div class="col-lg-4 col-md-6 col-sm-6 form-group" style="width: 100%;">
+        <input asp-for="City" class="form-control" placeholder="City" onfocus="this.placeholder = ''" onblur="this.placeholder = 'City'" />
+        <span asp-validation-for="City"></span>
+    </div>
+}
+@if (Model.ZipPostalCodeEnabled)
+{
+    <div class="col-lg-4 col-md-6 col-sm-6 form-group" style="width: 100%;">
+        <input asp-for="ZipPostalCode" class="form-control" placeholder="Zip Postal Code" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Zip Postal Code'" />
+        <span asp-validation-for="ZipPostalCode"></span>
+    </div>
+}
+@if (Model.StreetAddressEnabled)
+{
+    <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+        <input asp-for="Address1" class="form-control" placeholder="Street Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Street Address'" />
+        <span asp-validation-for="Address1"></span>
+    </div>
+}
+@if (Model.StreetAddress2Enabled)
+{
+    <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+        <input asp-for="Address2" class="form-control" placeholder="Street Address 2" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Street Address 2'" />
+        <span asp-validation-for="Address2"></span>
+    </div>
+}
+
+@if (Model.CustomAddressAttributes.Count > 0)
+{
+    @await Html.PartialAsync("_AddressAttributes", Model.CustomAddressAttributes)
+}
+

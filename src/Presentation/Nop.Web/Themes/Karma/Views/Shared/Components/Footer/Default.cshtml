@@ -1,0 +1,70 @@
+﻿@model FooterModel
+@using Nop.Core
+@using Nop.Core.Domain.Tax
+@inject IWorkContext workContext;
+	<!-- start footer Area -->
+<footer class="footer-area section_gap">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3  col-md-6 col-sm-6">
+                <div class="single-footer-widget">
+                    <h6>About Us</h6>
+                    <p>
+                        Adresa: Șoseaua Banatului 81, Chitila 077045
+                    </p>
+                    <p>
+                        Email: <a href="mailto:contact@protectkronos.ro" target="_top">contact@protectkronos.ro</a>
+                    </p>
+                    <p>
+                        <a href="mailto:contact@protectkronos.ro" target="_top">comenzi-online@protectkronos.ro</a>
+                    </p>
+                    <p>
+                        Telefon: <a href="tel:+40722223166">+40 722 223 166</a>
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4  col-md-6 col-sm-6">
+                @await Component.InvokeAsync("NewsletterBox")
+            </div>
+            <div class="col-lg-3  col-md-6 col-sm-6">
+                <div class="footer-block information">
+                    <h6 class="mb-20">@T("Footer.Information")</h6>
+                    <ul class="list">
+                        @if (Model.SitemapEnabled && Model.DisplaySitemapFooterItem)
+                        {
+                            <li><a href="@Url.RouteUrl("Sitemap")">@T("Sitemap")</a></li>
+                        }
+                        @foreach (var topic in Model.Topics.Where(x => x.IncludeInFooterColumn1).ToList())
+                        {
+                            <li><a href="@Url.RouteUrl("Topic", new { SeName = topic.SeName })">@topic.Name</a></li>
+                        }
+                        @if (Model.DisplayContactUsFooterItem)
+                        {
+                            <li><a href="@Url.RouteUrl("ContactUs")">@T("ContactUs")</a></li>
+                        }
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-6 col-sm-6">
+                <div class="single-footer-widget">
+                    <h6>@T("Footer.FollowUs")</h6>
+                    @await Component.InvokeAsync("SocialButtons")
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom d-flex justify-content-center align-items-center flex-wrap">
+            <p class="footer-text m-0">
+                @T("Content.CopyrightNotice", DateTime.Now.Year, Model.StoreName)
+            </p>
+            @if (!Model.HidePoweredByNopCommerce)
+            {
+                <p class="footer-text m-0">
+                    @*Would you like to remove the "Powered by nopCommerce" link in the bottom of the footer?
+                Please find more info at https://www.nopcommerce.com/nopcommerce-copyright-removal-key*@
+                    Powered by <a href="https://www.nopcommerce.com/">nopCommerce</a>
+                </p>
+            }
+        </div>
+    </div>
+</footer>
+<!-- End footer Area -->

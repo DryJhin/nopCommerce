@@ -1,0 +1,65 @@
+﻿@{
+    Layout = "_Root";
+
+    //page class
+    Html.AppendPageCssClassParts("html-home-page");
+}
+<div class="page home-page">
+    <div class="page-body">
+        <!-- start features Area -->
+        <section class="features-area section_gap">
+            <div class="container">
+                <div class="row features-inner">
+                    <!-- single features -->
+                    <div class="col-lg-4 col-md-12 col-sm-12">
+                        <div class="single-features">
+                            <div class="f-icon">
+                                <img src="https://img.icons8.com/ios/50/000000/globe.png">
+                            </div>
+                            <h6>Certificat</h6>
+                            <p>Firma de incredere</p>
+                        </div>
+                    </div>
+                    <!-- single features -->
+                    <div class="col-lg-4 col-md-12 col-sm-12">
+                        <div class="single-features">
+                            <div class="f-icon">
+                                <img src="img/features/f-icon4.png" alt="">
+                            </div>
+                            <h6>Activitate</h6>
+                            <p>Din anul 1992</p>
+                        </div>
+                    </div>
+                    <!-- single features -->
+                    <div class="col-lg-4 col-md-12 col-sm-12">
+                        <div class="single-features">
+                            <div class="f-icon">
+                                <img src="https://img.icons8.com/ios/50/000000/globe.png">
+                            </div>
+                            <h6>Premiu</h6>
+                            <p>Diploma Excelenta 2019</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end features Area -->
+        <!-- Start category Area -->
+        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HomepageBeforeCategories })
+        @await Component.InvokeAsync("HomepageCategories")
+        <!-- End category Area -->
+        <!-- start product Area -->
+        <section class="owl-carousel active-product-area section_gap">
+            <!-- single product slide -->
+            @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HomepageBeforeProducts })
+            @await Component.InvokeAsync("HomepageProducts")
+            <!-- single product slide -->
+            @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HomepageBeforeBestSellers })
+            @await Component.InvokeAsync("HomepageBestSellers")
+        </section>
+        <!-- end product Area -->
+        <!--================Blog Categorie Area =================-->
+
+        <!--================Blog Categorie Area =================-->
+    </div>
+</div>

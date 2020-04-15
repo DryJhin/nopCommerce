@@ -1,0 +1,90 @@
+﻿@model HeaderLinksModel
+@inject Nop.Core.IWebHelper webHelper
+
+<ul class="nav navbar-nav menu_nav ml-auto">
+    @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HeaderLinksBefore })
+    @await Component.InvokeAsync("TopMenu")
+    @if (Model.IsAuthenticated)
+    {
+        <li class="nav-item">
+            <a class="nav-link dropdown-toggle" href="@Url.RouteUrl("CustomerInfo")">@T("Account.MyAccount")@*@Model.CustomerName*@</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link dropdown-toggle" href="@Url.RouteUrl("Logout")">@T("Account.Logout")</a>
+        </li>
+    }
+    else
+    {
+        var returnUrl = this.Context.Request.Query["returnUrl"];
+
+        <li class="nav-item">
+            <a href="@Url.RouteUrl("Register", new { returnUrl })" class="nav-link dropdown-toggle">@T("Account.Register")</a>
+        </li>
+        <li class="nav-item">
+            <a href="@Url.RouteUrl("Login", new { returnUrl })" class="nav-link dropdown-toggle">@T("Account.Login")</a>
+        </li>
+    }
+    @if (Model.AllowPrivateMessages)
+    {
+        <li class="nav-item">
+            <a href="@Url.RouteUrl("PrivateMessages", new { tab = "" })" class="ico-inbox">
+                <span class="inbox-label">@T("PrivateMessages.Inbox")</span>
+                <span class="inbox-unread">@Model.UnreadPrivateMessages</span>
+            </a>
+        </li>
+    }
+    @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HeaderLinksAfter })
+</ul>
+<ul class="nav navbar-nav navbar-right">
+    @if (Model.WishlistEnabled)
+    {
+        <li class="nav-item">
+            <a href="@Url.RouteUrl("Wishlist")" @*class="ico-wishlist"*@>
+                <span class="lnr lnr-heart">@*@T("Wishlist")*@</span>
+                <span class="wishlist-qty">@T("Wishlist.HeaderQuantity", Model.WishlistItems)</span>
+            </a>
+        </li>
+    }
+    @if (Model.ShoppingCartEnabled)
+    {
+        <li id="topcartlink" class="nav-item">
+            <a href="@Url.RouteUrl("ShoppingCart")" class="cart">
+                <span class="ti-bag"></span>
+                @*<span class="cart-label">@T("ShoppingCart")</span>*@
+                <span class="cart-qty">@T("ShoppingCart.HeaderQuantity", Model.ShoppingCartItems)</span>
+            </a>
+            @*@await Component.InvokeAsync("FlyoutShoppingCart")*@
+        </li>
+    }
+    <li class="nav-item">
+        <button class="search"><span class="lnr lnr-magnifier" id="search"></span></button>
+    </li>
+</ul>
+@if (Model.AllowPrivateMessages && !string.IsNullOrEmpty(Model.AlertMessage))
+{
+    //new private message notification
+    <script asp-location="Footer">
+            $(document).ready(function () {
+                displayPopupNotification('@Html.Raw(JavaScriptEncoder.Default.Encode(Model.AlertMessage))', 'success', false);
+            });
+    </script>
+}
+@if (Model.ShoppingCartEnabled)
+{
+    <script asp-location="Footer">
+        $(document).ready(function () {
+            $('.header_area').on('mouseenter', '#topcartlink', function () {
+                $('#flyout-cart').addClass('active');
+            });
+            $('.header_area').on('mouseleave', '#topcartlink', function () {
+                $('#flyout-cart').removeClass('active');
+            });
+            $('.header_area').on('mouseenter', '#flyout-cart', function () {
+                $('#flyout-cart').addClass('active');
+            });
+            $('.header_area').on('mouseleave', '#flyout-cart', function () {
+                $('#flyout-cart').removeClass('active');
+            });
+        });
+    </script>
+}
