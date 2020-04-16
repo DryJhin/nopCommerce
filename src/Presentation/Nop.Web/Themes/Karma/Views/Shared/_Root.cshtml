@@ -34,6 +34,11 @@ else
 {
     @await Html.PartialAsync("_Banner")
 }
+
+@if (IsSectionDefined("Description"))
+{
+    @RenderSection("Description")
+}
 <!-- End banner Area -->
 @*<div class="header-menu">
         @await Component.InvokeAsync("TopMenu")

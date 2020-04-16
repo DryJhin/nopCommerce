@@ -5817,7 +5817,7 @@ namespace Nop.Services.Installation
                     IncludeInFooterColumn1 = true,
                     DisplayOrder = 20,
                     Published = true,
-                    Title = "About us",
+                    Title = string.Empty,
                     Body =
                         "<p>Put your &quot;About Us&quot; information here. You can edit this in the admin site.</p>",
                     TopicTemplateId = defaultTopicTemplate.Id
@@ -5924,7 +5924,7 @@ namespace Nop.Services.Installation
                     IncludeInFooterColumn1 = true,
                     DisplayOrder = 5,
                     Published = true,
-                    Title = "Shipping & returns",
+                    Title = string.Empty,
                     Body =
                         "<p>Put your shipping &amp; returns information here. You can edit this in the admin site.</p>",
                     TopicTemplateId = defaultTopicTemplate.Id

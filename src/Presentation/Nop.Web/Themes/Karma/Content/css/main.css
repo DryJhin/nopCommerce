@@ -1917,6 +1917,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
   .single-deal .overlay {
+    opacity: .5;
+    visibility: visible;
     position: absolute;
     left: 0;
     top: 0;
@@ -1924,8 +1926,8 @@ h1, h2, h3, h4, h5, h6 {
     width: 100%;
     content: "";
     background: #000;
-    opacity: 0;
-    visibility: hidden;
+    /*opacity: 0;
+    visibility: hidden;*/
     -webkit-transition: all 0.3s ease 0s;
     -moz-transition: all 0.3s ease 0s;
     -o-transition: all 0.3s ease 0s;
@@ -1935,7 +1937,8 @@ h1, h2, h3, h4, h5, h6 {
   .single-deal .deal-details {
     position: absolute;
     left: 50%;
-    top: 115%;
+    top: 50%;
+    /*top: 115%;*/
     display: inline-block;
     text-align: center;
     -webkit-transform: translate(-50%, -50%);
@@ -1943,8 +1946,10 @@ h1, h2, h3, h4, h5, h6 {
     -ms-transform: translate(-50%, -50%);
     -o-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    opacity: 0;
-    visibility: hidden;
+    opacity: 1;
+    visibility: visible;
+    /*opacity: 0;
+    visibility: hidden;*/
     -webkit-transition: all 0.3s ease 0s;
     -moz-transition: all 0.3s ease 0s;
     -o-transition: all 0.3s ease 0s;
@@ -8415,3 +8420,40 @@ span.grid-report-item {
   color: #ffca08;
 }
 /* Set yellow color when star hover */
+
+.module .collapse, .module .collapsing {
+  height: 3rem; /* [NUM_OF_LINES] x [LINE_HEIGHT] */
+}
+
+.module .collapse {
+  position: relative; /* For ...'s content absolute positioning */
+  display: block;
+  overflow: hidden;
+}
+
+  .module .collapse:before {
+    content: ' ...';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+
+  .module .collapse.show {
+    height: auto; /* You need to reset the height when not collapsed */
+  }
+
+    .module .collapse.show:before {
+      display: none; /* Of course you don't want to display ... */
+    }
+
+.module a.collapsed:after {
+  content: '\25bc';
+  font-family: FontAwesome;
+  color: #ffba00;
+}
+
+.module a:not(.collapsed):after {
+  content: '\25B2';
+  font-family: FontAwesome;
+  color: #ffba00;
+}

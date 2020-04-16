@@ -10,8 +10,7 @@
 @if (!Model.UseAjaxMenu)
 {
     <li class="nav-item submenu dropdown">
-        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-           aria-expanded="false">Categori</a>
+        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@T("Menu.Shop")</a>
         <ul class="dropdown-menu">
             @{var rootCategories = Model.Categories.Where(x => x.IncludeInTopMenu).ToList();}
             @foreach (var category in rootCategories)
