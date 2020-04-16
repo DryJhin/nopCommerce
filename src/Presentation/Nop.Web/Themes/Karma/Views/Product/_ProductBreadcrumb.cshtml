@@ -7,7 +7,7 @@
 @if (Model.Enabled)
 {
     @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.ProductBreadcrumbBefore, additionalData = Model })
-    <h1 itemprop="name">@Model.ProductName</h1>
+    <h1 class='text-center' itemprop="name">@Model.ProductName</h1>
     <nav class="d-flex align-items-center" itemscope itemtype="http://schema.org/BreadcrumbList">
         @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.ProductBreadcrumbBefore, additionalData = Model })
         <a href="@Url.RouteUrl("Homepage")" title="@T("Categories.Breadcrumb.Top")">@T("Categories.Breadcrumb.Top")<span class="lnr lnr-arrow-right"></span></a>

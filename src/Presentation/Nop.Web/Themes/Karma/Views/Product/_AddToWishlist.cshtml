@@ -1,5 +1,6 @@
 ﻿@model ProductDetailsModel.AddToCartModel
 @using Nop.Core.Domain.Orders
+
 @if (!Model.DisableWishlistButton)
 {
     var addToWishlistText = "";
@@ -11,7 +12,5 @@
     {
         addToWishlistText = T("Products.Wishlist.AddToWishlist").Text;
     }
-    <div class="add-to-wishlist">
-        <input type="button" id="add-to-wishlist-button-@Model.ProductId" class="button-2 add-to-wishlist-button" value="@addToWishlistText" data-productid="@Model.ProductId" onclick="AjaxCart.addproducttocart_details('@Url.RouteUrl("AddProductToCart-Details", new {productId = Model.ProductId, shoppingCartTypeId = (int) ShoppingCartType.Wishlist})', '#product-details-form');return false;"/>
-    </div>
+    <a class="icon_btn" href="" data-productid="@Model.ProductId" onclick="event.preventDefault();AjaxCart.addproducttocart_details('@Url.RouteUrl("AddProductToCart-Details", new {productId = Model.ProductId, shoppingCartTypeId = (int) ShoppingCartType.Wishlist})', '#product-details-form');return false;"><i class="lnr lnr lnr-heart"></i></a>
 }

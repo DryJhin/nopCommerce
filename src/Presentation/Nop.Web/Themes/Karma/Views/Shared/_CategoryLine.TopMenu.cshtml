@@ -1,7 +1,6 @@
 ﻿@model TopMenuModel.CategoryLineModel
     <li class="nav-item submenu dropdown">
-        <a href="@Url.RouteUrl("Category", new { SeName = Model.Category.SeName })" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-           aria-expanded="false">
+        <a href="@Url.RouteUrl("Category", new { SeName = Model.Category.SeName })" class="nav-link dropdown-toggle">
             @Model.Category.Name
             @if (Model.Category.NumberOfProducts.HasValue)
             {

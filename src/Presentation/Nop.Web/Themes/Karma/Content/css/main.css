@@ -1,6 +1,7 @@
 /*--------------------------- Color variations ----------------------*/
 /*--------------------------- Fonts ----------------------*/
 @import url("https://fonts.googleapis.com/css?family=Poppins:500,700|Roboto:400,500");
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
 /* Medium Layout: 1280px */
 /* Tablet Layout: 768px */
 /* Mobile Layout: 320px */
@@ -5603,7 +5604,6 @@ label {
   }
 
   .product_count input {
-    width: 76px;
     border: 1px solid #eeeeee;
     border-radius: 3px;
     padding-left: 10px;
@@ -8384,3 +8384,34 @@ span.grid-report-item {
   font-size: 13px;
   color: #e4434b;
 }
+
+
+.eu-cookie-bar-notification {
+  background: #fff;
+}
+
+.starrating > input {
+  display: none;
+}
+/* Remove radio buttons */
+
+.starrating > label:before {
+  content: "\f005"; /* Star */
+  margin: 2px;
+  font-family: FontAwesome;
+  display: inline-block;
+}
+
+.starrating > label {
+  color: #222222; /* Start color when not clicked */
+}
+
+.starrating > input:checked ~ label {
+  color: #ffca08;
+}
+/* Set yellow color when star checked */
+
+.starrating > input:hover ~ label {
+  color: #ffca08;
+}
+/* Set yellow color when star hover */

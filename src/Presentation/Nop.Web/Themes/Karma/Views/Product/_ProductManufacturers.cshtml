@@ -1,7 +1,7 @@
 ﻿@model IList<ManufacturerBriefInfoModel>
 @if (Model.Count > 0)
 {
-    <div class="manufacturers">
+    <li>
         @if (Model.Count == 1)
         {
             <span class="label">@T("Products.Manufacturer"):</span>
@@ -10,16 +10,15 @@
         {
             <span class="label">@T("Products.Manufacturers"):</span>
         }
-        <span class="value">
-            @for (var i = 0; i < Model.Count; i++)
+        :
+        @for (var i = 0; i < Model.Count; i++)
+        {
+            var item = Model[i];
+            <a href="@Url.RouteUrl("Manufacturer", new { SeName = item.SeName })" class="active">@item.Name</a>
+            if (i != Model.Count - 1)
             {
-                var item = Model[i];
-                <a href="@Url.RouteUrl("Manufacturer", new { SeName = item.SeName })">@item.Name</a>
-                if (i != Model.Count - 1)
-                {
                 <span class="separator">,</span>
-                }
             }
-        </span>
-    </div>
+        }
+    </li>
 }

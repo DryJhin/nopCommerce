@@ -295,7 +295,7 @@ namespace Nop.Web.Framework.Extensions
             string actionName = helper.ViewContext.RouteData.Values["action"].ToString();
 
             var breadcrumb = new HtmlContentBuilder()
-                                .AppendHtml("<h1>{0}</h1>".FormatWith(isAction ? actionName.Titleize() : controllerName.Titleize()))
+                                .AppendHtml("<h1 class='text-center'>{0}</h1>".FormatWith(isAction ? actionName.Titleize() : controllerName.Titleize()))
                                 .AppendHtml("<nav class='d-flex align-items-center'>")
                                 .AppendHtml(helper.ActionLink(holder, "Index", "Home"));
 
