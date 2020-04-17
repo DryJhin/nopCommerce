@@ -159,17 +159,19 @@
                             </td>
                             <td>
                                 <h5>@item.SubTotal</h5>
-                            </td>
-                            @if (!string.IsNullOrEmpty(item.Discount))
-                            {
-                                <td>
-                                    <h5>@T("ShoppingCart.ItemYouSave", item.Discount)</h5>
-                                    @if (item.MaximumDiscountedQty.HasValue)
+                                @if (!string.IsNullOrEmpty(item.Discount))
+                                {
+                                    <h5 class="discount">
+                                        @T("ShoppingCart.ItemYouSave", item.Discount)
+                                    </h5>
+                                    if (item.MaximumDiscountedQty.HasValue)
                                     {
-                                        <p>@T("ShoppingCart.MaximumDiscountedQty", item.MaximumDiscountedQty.Value)</p>
+                                        <h5 class="discount-additional-info">
+                                            @T("ShoppingCart.MaximumDiscountedQty", item.MaximumDiscountedQty.Value)
+                                        </h5>
                                     }
-                                </td>
-                            }
+                                }
+                            </td>
                         </tr>
                     }
                     <tr class="bottom_button">
