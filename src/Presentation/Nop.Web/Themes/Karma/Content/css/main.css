@@ -8457,3 +8457,13 @@ span.grid-report-item {
   font-family: FontAwesome;
   color: #ffba00;
 }
+
+.nice-select {
+  border-radius: 0px;
+}
+
+.nice-select .list {
+  border-radius: 0px;
+  height: 200px;
+  overflow-y: auto;
+}

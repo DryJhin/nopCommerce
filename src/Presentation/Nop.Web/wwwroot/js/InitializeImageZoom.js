@@ -4,5 +4,5 @@
   inlineOffsetY: -85,
   containInline: true,
   hoverBoundingBox: true,
-  zoomFactor: 4,
+  zoomFactor: 3,
 });

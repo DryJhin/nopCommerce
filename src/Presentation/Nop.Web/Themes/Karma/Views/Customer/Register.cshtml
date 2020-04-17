@@ -18,8 +18,8 @@
     <div class="row">
         <form asp-route="Register" asp-route-returnurl="@Context.Request.Query["ReturnUrl"]" method="post" class="login_form">
             <div asp-validation-summary="ModelOnly" class="message-error"></div>
-            <h3 class="text-center">@T("Account.YourPersonalDetails")</h3>
-            <div class="row mt-3">
+            <h3 class="text-center mb-4">@T("Account.YourPersonalDetails")</h3>
+            <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-12 form-group">
                     <input asp-for="FirstName" class="form-control" placeholder="First Name *" onfocus="this.placeholder = ''" onblur="this.placeholder = 'First Name *'" />
                     <span asp-validation-for="FirstName"></span>
@@ -111,39 +111,43 @@
                     }
 
                 }
+                <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                    <input asp-for="Password" class="form-control" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'" />
+                    <span asp-validation-for="Password"></span>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                    <input asp-for="ConfirmPassword" class="form-control" placeholder="ConfirmPassword" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Confirm Password'" />
+                    <span asp-validation-for="ConfirmPassword"></span>
+                </div>
             </div>
-            @if (Model.CompanyEnabled || Model.DisplayVatNumber)
+            @if (Model.PhoneEnabled || Model.FaxEnabled)
             {
-                <h3 class="text-center">@T("Account.CompanyDetails")</h3>
                 <div class="row mt-3">
-                    @if (Model.CompanyEnabled)
+                    @if (Model.PhoneEnabled)
                     {
-                        <div class="col-lg-12 col-md-12 col-sm-12 form-group">
-                            <input asp-for="Company" class="form-control" placeholder="Company" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Company'" />
-                            <span asp-validation-for="Company"></span>
+                        <div class="col-lg-6 col-md-6 col-sm-12 form-group" style="width: 100%;">
+                            <input asp-for="Phone" class="form-control" placeholder="Phone" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Phone'" />
+                            <span asp-validation-for="Phone"></span>
                         </div>
                     }
-                    @if (Model.DisplayVatNumber)
+                    @if (Model.FaxEnabled)
                     {
-                        <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-                            <input asp-for="VatNumber" class="form-control" placeholder="Vat Number" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Vat Number'" />
-                            <span asp-validation-for="VatNumber"></span>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-                            <span class="vat-note"><em>@T("Account.Fields.VatNumber.Note")</em></span>
+                        <div class="col-lg-6 col-md-6 col-sm-12 form-group" style="width: 100%;">
+                            <input asp-for="Fax" class="form-control" placeholder="Fax" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Fax'" />
+                            <span asp-validation-for="Fax"></span>
                         </div>
                     }
                 </div>
             }
             @if (Model.StreetAddressEnabled ||
-Model.StreetAddress2Enabled ||
-Model.ZipPostalCodeEnabled ||
-Model.CityEnabled ||
-Model.CountyEnabled ||
-Model.CountryEnabled)
+      Model.StreetAddress2Enabled ||
+      Model.ZipPostalCodeEnabled ||
+      Model.CityEnabled ||
+      Model.CountyEnabled ||
+      Model.CountryEnabled)
             {
-                <h3 class="text-center">@T("Account.YourAddress")</h3>
-                <div class="row mt-3">
+                <h3 class="text-center mt-5 mb-4">@T("Account.YourAddress")</h3>
+                <div class="row">
                     @if (Model.StreetAddressEnabled)
                     {
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group">
@@ -200,50 +204,36 @@ Model.CountryEnabled)
                     }
                 </div>
             }
-            @if (Model.PhoneEnabled || Model.FaxEnabled)
+            @if (Model.CompanyEnabled || Model.DisplayVatNumber)
             {
-                <h3 class="text-center">@T("Account.YourContactInformation")</h3>
-                <div class="row mt-3">
-                    @if (Model.PhoneEnabled)
+                <h3 class="text-center mt-5 mb-4">@T("Account.CompanyDetails")</h3>
+                <div class="row">
+                    @if (Model.CompanyEnabled)
                     {
-                        <div class="col-lg-6 col-md-6 col-sm-12 form-group" style="width: 100%;">
-                            <input asp-for="Phone" class="form-control" placeholder="Phone" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Phone'" />
-                            <span asp-validation-for="Phone"></span>
+                        <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                            <input asp-for="Company" class="form-control" placeholder="Company" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Company'" />
+                            <span asp-validation-for="Company"></span>
                         </div>
                     }
-                    @if (Model.FaxEnabled)
+                    @if (Model.DisplayVatNumber)
                     {
-                        <div class="col-lg-6 col-md-6 col-sm-12 form-group" style="width: 100%;">
-                            <input asp-for="Fax" class="form-control" placeholder="Fax" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Fax'" />
-                            <span asp-validation-for="Fax"></span>
+                        <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                            <input asp-for="VatNumber" class="form-control" placeholder="Vat Number" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Vat Number'" />
+                            <span asp-validation-for="VatNumber"></span>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                            <span class="vat-note"><em>@T("Account.Fields.VatNumber.Note")</em></span>
                         </div>
                     }
                 </div>
             }
-            <h3 class="text-center">@T("Account.YourPassword")</h3>
-            <div class="row mt-3">
-                @if (Model.PhoneEnabled)
-                {
-                    <div class="col-lg-6 col-md-6 col-sm-12 form-group" style="width: 100%;">
-                        <input asp-for="Password" class="form-control" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'" />
-                        <span asp-validation-for="Password"></span>
-                    </div>
-                }
-                @if (Model.FaxEnabled)
-                {
-                    <div class="col-lg-6 col-md-6 col-sm-12 form-group" style="width: 100%;">
-                        <input asp-for="ConfirmPassword" class="form-control" placeholder="ConfirmPassword" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Confirm Password'" />
-                        <span asp-validation-for="ConfirmPassword"></span>
-                    </div>
-                }
-            </div>
             @if (Model.NewsletterEnabled || Model.CustomerAttributes.Count > 0 || Model.AllowCustomersToSetTimeZone)
             {
-                <h3 class="text-center">@T("Account.Options")</h3>
-                <div class="row mt-3">
+                <h3 class="text-center mt-5 mb-4">@T("Account.Options")</h3>
+                <div class="row">
                     @if (Model.NewsletterEnabled)
                     {
-                        <div class="col-lg-6 col-md-6 col-sm-12 form-group" style="width: 100%;">
+                        <div class="col-lg-4 col-md-4 col-sm-6 form-group" style="width: 100%;">
                             <div class="single-element-widget">
                                 <div class="switch-wrap d-flex justify-content-between align-items-center">
                                     <p style="margin-top:14px!important">@T("Account.Fields.Newsletter")</p>
@@ -258,7 +248,7 @@ Model.CountryEnabled)
                     }
                     @if (Model.AllowCustomersToSetTimeZone)
                     {
-                        <div class="col-lg-6 col-md-6 col-sm-12 form-group" style="width: 100%;">
+                        <div class="col-lg-4 col-md-4 col-sm-6 form-group" style="width: 100%;">
                             <select asp-for="TimeZoneId" asp-items="Model.AvailableTimeZones"></select>
                             <span asp-validation-for="TimeZoneId"></span>
                         </div>
@@ -271,8 +261,8 @@ Model.CountryEnabled)
             }
             @if (Model.AcceptPrivacyPolicyEnabled || Model.GdprConsents.Count > 0)
             {
-                <h3 class="text-center">@T("Account.UserAgreement")</h3>
-                <div class="row mt-3">
+                <h3 class="text-center mt-5 mb-4">@T("Account.UserAgreement")</h3>
+                <div class="row">
                     @if (Model.AcceptPrivacyPolicyEnabled)
                     {
                         <script asp-location="Footer">

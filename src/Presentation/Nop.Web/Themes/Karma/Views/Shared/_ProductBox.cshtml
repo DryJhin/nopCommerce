@@ -31,7 +31,7 @@
             @Model.Name
         </h6>
         <div class="price">
-            <h6>@Model.ProductPrice.Price</h6>
+            <h6><b>@Model.ProductPrice.Price</b></h6>
             @if (!string.IsNullOrEmpty(Model.ProductPrice.OldPrice))
             {
                 <h6 class="l-through">@Model.ProductPrice.OldPrice</h6>

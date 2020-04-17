@@ -8,56 +8,61 @@
     Html.AddTitleParts(T("PageTitle.ProductEmailAFriend").Text);
     Html.AppendPageCssClassParts("html-email-a-friend-page");
 }
-<div class="page email-a-friend-page">
-    <div class="page-title">
-        <h1>@T("Products.EmailAFriend.Title")</h1>
-    </div>
-    <div class="page-body">
-        <div class="title">
-            <h2><a href="@Url.RouteUrl("Product", new { SeName = Model.ProductSeName })" class="product">@Model.ProductName</a></h2>
-        </div>
-        @if (Model.SuccessfullySent)
-        {
-            <div class="result">
-                @Model.Result
-            </div>
-        }
-        else
-        {
-            <form asp-route="ProductEmailAFriend" method="post">
-                <div asp-validation-summary="ModelOnly" class="message-error"></div>
-                <div class="fieldset">
-                    <div class="form-fields">
-                        <div class="inputs">
-                            <label asp-for="FriendEmail" asp-postfix=":"></label>
-                            <input asp-for="FriendEmail" class="friend-email" placeholder="@T("Products.EmailAFriend.FriendEmail.Hint")"/>
-                            <nop-required />
+
+<!--product breadcrumb-->
+@section Breadcrumb
+{
+    @Html.BuildBreadcrumbNavigation()
+}
+
+<div class="contact_area section_gap_bottom">
+    <div class="container">
+        <h3 class="mt-5 text-center"><a href="@Url.RouteUrl("Product", new { SeName = Model.ProductSeName })" class="product"><b>@Model.ProductName</b></a></h3>
+        <div class="row justify-content-center align-content-center">
+            @if (Model.SuccessfullySent)
+            {
+                <div class="result">
+                    @Model.Result
+                </div>
+            }
+            else
+            {
+                <form class="contact_form row" asp-route="ProductEmailAFriend" method="post">
+                    <div asp-validation-summary="ModelOnly" class="message-error"></div>
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <input asp-for="FriendEmail" placeholder="@T("Products.EmailAFriend.FriendEmail.Hint")" class="form-control"
+                                   onfocus="this.placeholder = ''" onblur="this.placeholder = '@T("Products.EmailAFriend.FriendEmail.Hint")'" />
                             <span asp-validation-for="FriendEmail"></span>
                         </div>
-                        <div class="inputs">
-                            <label asp-for="YourEmailAddress" asp-postfix=":"></label>
-                            <input asp-for="YourEmailAddress" class="your-email" placeholder="@T("Products.EmailAFriend.YourEmailAddress.Hint")"/>
-                            <nop-required />
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <input asp-for="YourEmailAddress" placeholder="@T("Products.EmailAFriend.YourEmailAddress.Hint")" class="form-control"
+                                   onfocus="this.placeholder = ''" onblur="this.placeholder = '@T("Products.EmailAFriend.YourEmailAddress.Hint")'" />
                             <span asp-validation-for="YourEmailAddress"></span>
                         </div>
-                        <div class="inputs">
-                            <label asp-for="PersonalMessage" asp-postfix=":"></label>
-                            <textarea asp-for="PersonalMessage" class="your-email" placeholder="@T("Products.EmailAFriend.PersonalMessage.Hint")"></textarea>
-                            <nop-required />
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <textarea asp-for="PersonalMessage" placeholder="@T("Products.EmailAFriend.PersonalMessage.Hint")" rows="1" class="form-control" onfocus="this.placeholder = ''"
+                                      onblur="this.placeholder = '@T("Products.EmailAFriend.PersonalMessage.Hint")'"></textarea>
                             <span asp-validation-for="PersonalMessage"></span>
                         </div>
-                        @if (Model.DisplayCaptcha)
-                        {
+                    </div>
+                    @if (Model.DisplayCaptcha)
+                    {
+                        <div class="col-sm-12">
                             <div class="captcha-box">
                                 <nop-captcha />
                             </div>
-                        }
+                        </div>
+                    }
+                    <div class="col-md-12 text-right">
+                        <input type="submit" name="send-email" class="primary-btn" value="@T("Products.EmailAFriend.Button")" />
                     </div>
-                </div>
-                <div class="buttons">
-                    <input type="submit" name="send-email" class="button-1 send-email-a-friend-button" value="@T("Products.EmailAFriend.Button")" />
-                </div>
-            </form>
-        }
+                </form>
+            }
+        </div>
     </div>
 </div>
