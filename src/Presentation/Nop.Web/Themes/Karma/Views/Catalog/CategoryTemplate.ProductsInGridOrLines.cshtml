@@ -37,19 +37,21 @@
 
                 @if (isLastCategory)
                 {
-                    <a href="@Url.RouteUrl("Category", new {SeName = cat.SeName})" title="@T("Categories.Breadcrumb.Top")" itemscope itemprop="item">
-                        <span itemprop="item" itemscope itemtype="http://schema.org/Thing" id="@Url.RouteUrl("Category", new {SeName = cat.SeName})">
+                    <a href="@Url.RouteUrl("Category", new {SeName = cat.SeName})" title="@T("Categories.Breadcrumb.Top")" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+                        <span itemprop="name" id="@Url.RouteUrl("Category", new {SeName = cat.SeName})">
                             @cat.Name
                         </span>
+
                     </a>
                 }
                 else
                 {
-                    <a href="@Url.RouteUrl("Category", new { SeName = cat.SeName })" itemprop="item" itemscope itemtype="http://schema.org/Thing">
-                        <span itemprop="name">@cat.Name</span>
+                    <a href="@Url.RouteUrl("Category", new { SeName = cat.SeName })" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+                        <span itemprop="name" id="@Url.RouteUrl("Category", new {SeName = cat.SeName})">@cat.Name</span>
                         <span class="lnr lnr-arrow-right"></span>
                     </a>
                 }
+                <span itemprop="item" itemscope itemtype="http://schema.org/Thing" id="@Url.RouteUrl("Category", new {SeName = cat.SeName})"> </span>
                 <meta itemprop="position" content="@position" />
                 position++;
             }

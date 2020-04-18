@@ -2097,9 +2097,10 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 50px;
 }
 
-  .single-product img {
+  .single-product .picture {
     margin-bottom: 20px;
-    width: 100%;
+    width: 255px;
+    height: 271px;
   }
 
   .single-product .product-details h6 {
@@ -8462,8 +8463,39 @@ span.grid-report-item {
   border-radius: 0px;
 }
 
-.nice-select .list {
-  border-radius: 0px;
-  height: 200px;
-  overflow-y: auto;
+  .nice-select .list {
+    border-radius: 0px;
+    height: 200px;
+    overflow-y: auto;
+  }
+
+.single_sidebar_widget .card-header {
+  background: #fafaff;
 }
+
+.single_sidebar_widget .card-body {
+  background: #fafaff;
+}
+
+.single_sidebar_widget .btn-link {
+  color: #777;
+}
+
+  .single_sidebar_widget .btn-link:hover {
+    background: #ffba00;
+  }
+
+
+.picture {
+  width: 255px;
+  height: 271px;
+}
+
+  .picture .img-fluid {
+    max-height: -webkit-fill-available;
+    max-height: -webkit-fill-available; /* Mozilla-based browsers will ignore this. */
+    max-height: fill-available;
+    width: 100%;
+  }
+
+

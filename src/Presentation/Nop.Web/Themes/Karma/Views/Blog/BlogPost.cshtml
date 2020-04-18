@@ -1,6 +1,6 @@
 ﻿@model BlogPostModel
 @{
-    Layout = "_ColumnsTwo";
+    Layout = "_BlogLayout";
 
     //title
     Html.AddTitleParts(!string.IsNullOrEmpty(Model.MetaTitle) ? Model.MetaTitle : Model.Title);
