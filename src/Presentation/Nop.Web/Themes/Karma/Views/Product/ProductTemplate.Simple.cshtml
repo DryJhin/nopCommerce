@@ -93,7 +93,10 @@
                             @await Html.PartialAsync("_ProductAttributes", Model.ProductAttributes, dataDictAttributes)
                         }
                         <div class="product_count">
-                            @await Html.PartialAsync("_AddToCart", Model.AddToCart, dataDictAddToCart)
+                            @if (!Model.ProductPrice.CallForPrice)
+                            {
+                                @await Html.PartialAsync("_AddToCart", Model.AddToCart, dataDictAddToCart)
+                            }
                         </div>
                         <div class="card_area d-flex align-items-center">
                             @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.ProductDetailsInsideOverviewButtonsBefore, additionalData = Model })
