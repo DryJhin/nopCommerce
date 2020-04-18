@@ -2,5 +2,5 @@
 
 @if (Model.EmailAFriendEnabled)
 {
-    <a class="icon_btn" href="" onclick="event.preventDefault();setLocation('@Url.RouteUrl("ProductEmailAFriend", new { productId = Model.Id })');return false;"><i class="lnr lnr lnr-envelope"></i></a>
+    <a class="icon_btn d-flex align-items-center justify-content-center" href="" onclick="event.preventDefault();setLocation('@Url.RouteUrl("ProductEmailAFriend", new { productId = Model.Id })');return false;"><i class="lnr lnr lnr-envelope"></i></a>
 }

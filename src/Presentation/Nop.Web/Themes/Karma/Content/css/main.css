@@ -2099,8 +2099,7 @@ h1, h2, h3, h4, h5, h6 {
 
   .single-product .picture {
     margin-bottom: 20px;
-    width: 255px;
-    height: 271px;
+    max-height: 271px;
   }
 
   .single-product .product-details h6 {
@@ -8487,8 +8486,7 @@ span.grid-report-item {
 
 
 .picture {
-  width: 255px;
-  height: 271px;
+  max-height: 271px;
 }
 
   .picture .img-fluid {
@@ -8498,4 +8496,13 @@ span.grid-report-item {
     width: 100%;
   }
 
+.single-prd-item {
+    max-height: 583px;
+}
 
+  .single-prd-item .img-fluid {
+    max-height: -webkit-fill-available;
+    max-height: -webkit-fill-available; /* Mozilla-based browsers will ignore this. */
+    max-height: fill-available;
+    width: 100%;
+  }

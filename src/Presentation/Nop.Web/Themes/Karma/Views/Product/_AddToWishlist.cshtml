@@ -12,5 +12,8 @@
     {
         addToWishlistText = T("Products.Wishlist.AddToWishlist").Text;
     }
-    <a class="icon_btn" href="" data-productid="@Model.ProductId" onclick="event.preventDefault();AjaxCart.addproducttocart_details('@Url.RouteUrl("AddProductToCart-Details", new {productId = Model.ProductId, shoppingCartTypeId = (int) ShoppingCartType.Wishlist})', '#product-details-form');return false;"><i class="lnr lnr lnr-heart"></i></a>
+    <a class="icon_btn d-flex align-items-center justify-content-center" href="" data-productid="@Model.ProductId"
+       onclick="event.preventDefault();AjaxCart.addproducttocart_details('@Url.RouteUrl("AddProductToCart-Details", new {productId = Model.ProductId, shoppingCartTypeId = (int) ShoppingCartType.Wishlist})', '#product-details-form');return false;">
+        <i class="lnr lnr lnr-heart"></i>
+    </a>
 }
