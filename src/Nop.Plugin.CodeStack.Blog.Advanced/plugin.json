@@ -1,0 +1,11 @@
+﻿{
+  "Group": "Blog",
+  "FriendlyName": "Advanced Blogging",
+  "SystemName": "CodeStack.Blog.Advanced",
+  "Version": "1.00",
+  "SupportedVersions": [ "4.20" ],
+  "Author": "CodeStack Consulting",
+  "DisplayOrder": 1,
+  "FileName": "Nop.Plugin.CodeStack.Blog.Advanced.dll",
+  "Description": "This plugin allows you to extend blog functionalities"
+}

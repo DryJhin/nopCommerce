@@ -21,70 +21,70 @@
     @Html.BuildBreadcrumbNavigation()
 }
 
-    <div class="blog_left_sidebar">
-        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.BlogListPageBeforePosts })
-        @foreach (var item in Model.BlogPosts)
-        {
-            @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.BlogListPageBeforePost, additionalData = item })
-            <article class="row blog_item">
-                <div class="col-md-3">
-                    <div class="blog_info text-right">
-                        @if (item.Tags.Count > 0)
-                        {
-                            <div class="post_tag">
-                                @for (var i = 0; i < item.Tags.Count; i++)
-                                {
-                                    var tag = item.Tags[i];
-                                    @if (i != item.Tags.Count - 1)
-                                    {
-                                        tag = tag + ",";
-                                    }
-
-                                    <a href="@Url.RouteUrl("BlogByTag", new {tag = tag})">
-                                        @tag
-                                    </a>
-                                }
-                            </div>
-                        }
-                        <ul class="blog_meta list">
-                            @*<li><a href="#">Mark wiens<i class="lnr lnr-user"></i></a></li>*@
-                            <li><a href="#">-@item.CreatedOn.ToString("D")<i class="lnr lnr-calendar-full"></i></a></li>
-                            @*<li><a href="#">1.2M Views<i class="lnr lnr-eye"></i></a></li>*@
-                            @if (item.AllowComments)
+<div class="blog_left_sidebar">
+    @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.BlogListPageBeforePosts })
+    @foreach (var item in Model.BlogPosts)
+    {
+        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.BlogListPageBeforePost, additionalData = item })
+        <article class="row blog_item">
+            <div class="col-md-3">
+                <div class="blog_info text-right">
+                    @if (item.Tags.Count > 0)
+                    {
+                        <div class="post_tag">
+                            @for (var i = 0; i < item.Tags.Count; i++)
                             {
-                                <li><a href="@Url.RouteUrl("BlogPost", new {SeName = item.SeName})#comments" class="read-comments">@string.Format(T("Blog.CommentsLink").Text, item.NumberOfComments)</a></li>
+                                var tag = item.Tags[i];
+                                @if (i != item.Tags.Count - 1)
+                                {
+                                    tag = tag + ",";
+                                }
+
+                                <a href="@Url.RouteUrl("BlogByTag", new {tag = tag})">
+                                    @tag
+                                </a>
                             }
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-9">
-                    <div class="blog_post">
-                        @*<img src="img/blog/main-blog/m-blog-1.jpg" alt="">*@
-                        <div class="blog_details">
-                            <a href="@Url.RouteUrl("BlogPost", new {SeName = item.SeName})">
-                                <h2>@item.Title</h2>
-                            </a>
-                            @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.BlogListPageBeforePostBody, additionalData = item })
-                            <p>
-                                @Html.Raw(!string.IsNullOrEmpty(item.BodyOverview) ? item.BodyOverview : item.Body)
-                            </p>
-                            @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.BlogListPageAfterPostBody, additionalData = item })
-                            <a href="@Url.RouteUrl("BlogPost", new {SeName = item.SeName})" class="white_bg_btn">@T("Blog.MoreInfo")</a>
-                            @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.BlogListPageInsidePost, additionalData = item })
                         </div>
+                    }
+                    <ul class="blog_meta list">
+                        @*<li><a href="#">Mark wiens<i class="lnr lnr-user"></i></a></li>*@
+                        <li><a href="#">-@item.CreatedOn.ToString("D")<i class="lnr lnr-calendar-full"></i></a></li>
+                        @*<li><a href="#">1.2M Views<i class="lnr lnr-eye"></i></a></li>*@
+                        @if (item.AllowComments)
+                        {
+                            <li><a href="@Url.RouteUrl("BlogPost", new {SeName = item.SeName})#comments" class="read-comments">@string.Format(T("Blog.CommentsLink").Text, item.NumberOfComments)</a></li>
+                        }
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="blog_post">
+                    @*<img src="img/blog/main-blog/m-blog-1.jpg" alt="">*@
+                    <div class="blog_details">
+                        <a href="@Url.RouteUrl("BlogPost", new {SeName = item.SeName})">
+                            <h2>@item.Title</h2>
+                        </a>
+                        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.BlogListPageBeforePostBody, additionalData = item })
+                        <p>
+                            @Html.Raw(!string.IsNullOrEmpty(item.BodyOverview) ? item.BodyOverview : item.Body)
+                        </p>
+                        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.BlogListPageAfterPostBody, additionalData = item })
+                        <a href="@Url.RouteUrl("BlogPost", new {SeName = item.SeName})" class="white_bg_btn">@T("Blog.MoreInfo")</a>
+                        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.BlogListPageInsidePost, additionalData = item })
                     </div>
                 </div>
-            </article>
-            @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.BlogListPageAfterPost, additionalData = item })
+            </div>
+        </article>
+        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.BlogListPageAfterPost, additionalData = item })
+    }
+    @{
+        var pager = Html.Pager(Model.PagingFilteringContext).QueryParam("pagenumber");
+    }
+    <div class="blog-pagination d-flex flex-wrap align-items-center">
+        @if (!pager.IsEmpty())
+        {
+            @pager
         }
-        @{
-            var pager = Html.Pager(Model.PagingFilteringContext).QueryParam("pagenumber");
-        }
-        <div class="blog-pagination d-flex flex-wrap align-items-center">
-            @if (!pager.IsEmpty())
-            {
-                @pager
-            }
-        </div>
-        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.BlogListPageAfterPosts })
     </div>
+    @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.BlogListPageAfterPosts })
+</div>

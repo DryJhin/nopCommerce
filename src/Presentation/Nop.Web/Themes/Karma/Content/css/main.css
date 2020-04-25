@@ -2100,6 +2100,7 @@ h1, h2, h3, h4, h5, h6 {
   .single-product .picture {
     margin-bottom: 20px;
     max-height: 271px;
+    height: 271px;
   }
 
   .single-product .product-details h6 {
@@ -7197,26 +7198,34 @@ label {
         color: #ffba00;
       }
 
-  .blog_info .blog_meta li a {
-    font: 300 14px/20px "Roboto", sans-serif;
-    color: #777777;
-    vertical-align: middle;
-    padding-bottom: 12px;
-    display: inline-block;
+  .blog_info .blog_meta {
+    display: inline-flex;
   }
 
-    .blog_info .blog_meta li a i {
-      color: #222222;
-      font-size: 16px;
-      font-weight: 600;
-      padding-left: 15px;
-      line-height: 20px;
-      vertical-align: middle;
+    .blog_info .blog_meta li  {
+      padding-left: 10px;
     }
 
-    .blog_info .blog_meta li a:hover {
-      color: #ffba00;
+    .blog_info .blog_meta li a {
+      font: 300 14px/20px "Roboto", sans-serif;
+      color: #777777;
+      vertical-align: middle;
+      padding-bottom: 12px;
+      display: inline-block;
     }
+
+      .blog_info .blog_meta li a i {
+        color: #222222;
+        font-size: 16px;
+        font-weight: 600;
+        padding-left: 15px;
+        line-height: 20px;
+        vertical-align: middle;
+      }
+
+      .blog_info .blog_meta li a:hover {
+        color: #ffba00;
+      }
 
 .blog_post img {
   max-width: 100%;
@@ -8497,7 +8506,7 @@ span.grid-report-item {
   }
 
 .single-prd-item {
-    max-height: 583px;
+  max-height: 583px;
 }
 
   .single-prd-item .img-fluid {
@@ -8518,7 +8527,7 @@ span.grid-report-item {
   height: 14px;
 }
 
-.rating div {
-  background: url('../images/rating2.png') repeat-x;
-  height: 14px;
-}
+  .rating div {
+    background: url('../images/rating2.png') repeat-x;
+    height: 14px;
+  }
