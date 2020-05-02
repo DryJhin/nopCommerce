@@ -36,9 +36,24 @@
     "SevenSpikes.Nop.Plugins.RichBlog",
     "SevenSpikes.Nop.Plugins.SaleOfTheDay",
     "SevenSpikes.Nop.Plugins.SmartProductCollections",
-    "SevenSpikes.Nop.Plugins.SocialFeed"
+    "SevenSpikes.Nop.Plugins.SocialFeed",
+    "SevenSpikes.Nop.Plugins.PrevNextProduct",
+    "SevenSpikes.Nop.Plugins.SmartSEO"
   ],
   "PluginNamesToUninstall": [],
-  "PluginNamesToDelete": [],
+  "PluginNamesToDelete": [
+    "SevenSpikes.Nop.Plugins.Attachments",
+    "SevenSpikes.Nop.Plugins.CategoriesHeaderMenu",
+    "SevenSpikes.Nop.Plugins.CustomerReminders",
+    "SevenSpikes.Nop.Plugins.HelpDesk",
+    "SevenSpikes.Nop.Plugins.HtmlWidgets",
+    "SevenSpikes.Nop.Plugins.Knowledgebase",
+    "SevenSpikes.Nop.Plugins.NewsletterPopup",
+    "SevenSpikes.Nop.Plugins.PriceMatch",
+    "SevenSpikes.Nop.Plugins.StoreLocator",
+    "SevenSpikes.Nop.Plugins.SalesCampaigns",
+    "SevenSpikes.Nop.Plugins.AjaxFilters.Pro",
+    "Pickup.PickupInStore"
+  ],
   "PluginNamesToInstall": []
 }
