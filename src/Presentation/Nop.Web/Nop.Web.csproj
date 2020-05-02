@@ -29,6 +29,10 @@
     <Content Update="App_Data\DataProtectionKeys\*.xml" CopyToPublishDirectory="Never" />
 
     <Compile Remove="Plugins\**" />
+
+    <Content Remove="Plugins\FoxNetSoft.SpeedFilters\**" />
+
+    <Content Remove="Plugins\FoxNetSoft.SpeedTab\**" />
     <EmbeddedResource Remove="Plugins\**" />
     <None Remove="Plugins\**" />
 
@@ -55,31 +59,6 @@
     <None Include="Plugins\FoxNetSoft.HistoryofChanges\Views\Configure.cshtml" />
     <None Include="Plugins\FoxNetSoft.HistoryofChanges\Views\ListLogs.cshtml" />
     <None Include="Plugins\FoxNetSoft.HistoryofChanges\Views\_ViewImports.cshtml" />
-    <None Include="Plugins\FoxNetSoft.SpeedFilters\Views\SpeedFiltersSettings\Configure.cshtml" />
-    <None Include="Plugins\FoxNetSoft.SpeedFilters\Views\SpeedFiltersSettings\_ViewImports.cshtml" />
-    <None Include="Plugins\FoxNetSoft.SpeedFilters\Views\SpeedFilters\FilterBlocks.cshtml" />
-    <None Include="Plugins\FoxNetSoft.SpeedFilters\Views\SpeedFilters\Pager.cshtml" />
-    <None Include="Plugins\FoxNetSoft.SpeedFilters\Views\SpeedFilters\ProductSelectorsCategory.cshtml" />
-    <None Include="Plugins\FoxNetSoft.SpeedFilters\Views\SpeedFilters\ProductsInGridOrLines.cshtml" />
-    <None Include="Plugins\FoxNetSoft.SpeedFilters\Views\SpeedFilters\_ViewImports.cshtml" />
-    <None Include="Plugins\FoxNetSoft.SpeedTab\Views\SpeedTabAdmin\AdminNopPanel.cshtml" />
-    <None Include="Plugins\FoxNetSoft.SpeedTab\Views\SpeedTabAdmin\AdminTabStripContent.cshtml" />
-    <None Include="Plugins\FoxNetSoft.SpeedTab\Views\SpeedTabAdmin\Create.cshtml" />
-    <None Include="Plugins\FoxNetSoft.SpeedTab\Views\SpeedTabAdmin\Edit.cshtml" />
-    <None Include="Plugins\FoxNetSoft.SpeedTab\Views\SpeedTabAdmin\List.cshtml" />
-    <None Include="Plugins\FoxNetSoft.SpeedTab\Views\SpeedTabAdmin\ProductAddPopup.cshtml" />
-    <None Include="Plugins\FoxNetSoft.SpeedTab\Views\SpeedTabAdmin\SpeedTabListPopup.cshtml" />
-    <None Include="Plugins\FoxNetSoft.SpeedTab\Views\SpeedTabAdmin\_CreateOrUpdate.Categories.cshtml" />
-    <None Include="Plugins\FoxNetSoft.SpeedTab\Views\SpeedTabAdmin\_CreateOrUpdate.cshtml" />
-    <None Include="Plugins\FoxNetSoft.SpeedTab\Views\SpeedTabAdmin\_CreateOrUpdate.Info.cshtml" />
-    <None Include="Plugins\FoxNetSoft.SpeedTab\Views\SpeedTabAdmin\_CreateOrUpdate.Manufacturers.cshtml" />
-    <None Include="Plugins\FoxNetSoft.SpeedTab\Views\SpeedTabAdmin\_CreateOrUpdate.Products.cshtml" />
-    <None Include="Plugins\FoxNetSoft.SpeedTab\Views\SpeedTabAdmin\_ViewImports.cshtml" />
-    <None Include="Plugins\FoxNetSoft.SpeedTab\Views\SpeedTabSettings\Configure.cshtml" />
-    <None Include="Plugins\FoxNetSoft.SpeedTab\Views\SpeedTabSettings\_ViewImports.cshtml" />
-    <None Include="Plugins\FoxNetSoft.SpeedTab\Views\SpeedTab\ProductReviews.cshtml" />
-    <None Include="Plugins\FoxNetSoft.SpeedTab\Views\SpeedTab\Tab_Widget.cshtml" />
-    <None Include="Plugins\FoxNetSoft.SpeedTab\Views\SpeedTab\_ViewImports.cshtml" />
     <None Include="Themes\Karma\Views\BackInStockSubscription\CustomerSubscriptions.cshtml" />
     <None Include="Themes\Karma\Views\BackInStockSubscription\SubscribePopup.cshtml" />
     <None Include="Themes\Karma\Views\Catalog\CategoryTemplate.ProductsInGridOrLines.cshtml" />

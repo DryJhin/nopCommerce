@@ -4478,8 +4478,10 @@ label {
     width: 40px;
     line-height: 40px;
     text-align: center;
-    display: inline-block;
+    display: flex;
     background: #fff;
+    align-items: center;
+    justify-content: center;
   }
 
     .pagination a.active {

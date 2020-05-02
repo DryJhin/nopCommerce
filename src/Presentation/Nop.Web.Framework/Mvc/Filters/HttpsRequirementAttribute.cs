@@ -119,6 +119,9 @@ namespace Nop.Web.Framework.Mvc.Filters
                 if (!DataSettingsManager.DatabaseIsInstalled)
                     return;
 
+                if (filterContext.HttpContext.Request.Host.Host.Contains("localhost"))
+                    return;
+
                 //check whether this filter has been overridden for the Action
                 var actionFilter = filterContext.ActionDescriptor.FilterDescriptors
                     .Where(filterDescriptor => filterDescriptor.Scope == FilterScope.Action)
