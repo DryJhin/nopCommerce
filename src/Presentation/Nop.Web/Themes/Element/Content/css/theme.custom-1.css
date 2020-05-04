@@ -234,13 +234,13 @@
 .earth-theme .filter-shops-button,
 .air-theme .shops-item .read-more,
 .earth-theme .shops-item .read-more {
-  background-color: #3466C1;
+  background-color: #bcbcbe;
 }
 /*theme*/
 
 .air-theme .inputs .required,
 .earth-theme .inputs .required {
-  border-color: transparent #3466C1 transparent;
+  border-color: transparent #bcbcbe transparent;
 }
 /*plugins*/
 
@@ -258,7 +258,7 @@
 .earth-theme .sale-of-the-day-offer .owl-dot span:hover,
 .air-theme .spc-products .spc-header li.active span,
 .earth-theme .spc-products .spc-header li.active span {
-  border-color: #3466C1;
+  border-color: #bcbcbe;
 }
 /*theme*/
 
@@ -364,20 +364,20 @@
 .air-theme .feeds-page .post-link-btn,
 .earth-theme .social-feed .post-link-btn,
 .earth-theme .feeds-page .post-link-btn {
-  color: #3466C1;
+  color: #bcbcbe;
 }
 @media all and (max-width: 1024px) {
   .air-theme .order-progress .active-step a:after,
   .earth-theme .order-progress .active-step a:after {
-    border-color: transparent transparent transparent #3466C1;
+    border-color: transparent transparent transparent #bcbcbe;
   }
   [dir~=rtl] .air-theme .order-progress .active-step a:after,
   [dir~=rtl] .earth-theme .order-progress .active-step a:after {
-    border-color: transparent #3466C1 transparent transparent;
+    border-color: transparent #bcbcbe transparent transparent;
   }
   .air-theme .compare-products-mobile .price .item,
   .earth-theme .compare-products-mobile .price .item {
-    color: #3466C1;
+    color: #bcbcbe;
   }
 }
 @media all and (min-width: 721px) {
@@ -391,7 +391,7 @@
   .earth-theme .product-list .item-box .add-to-compare-list-button:before,
   .air-theme .rich-blog-homepage .post-info,
   .earth-theme .rich-blog-homepage .post-info {
-    background-color: #3466C1;
+    background-color: #bcbcbe;
   }
 }
 @media all and (min-width: 1025px) {
@@ -415,17 +415,17 @@
   .earth-theme.variant-2 .spc-categories .navigation li:after,
   .air-theme .feeds-nav-item.active:after,
   .earth-theme .feeds-nav-item.active:after {
-    background-color: #3466C1;
+    background-color: #bcbcbe;
   }
   .air-theme .alternate-products .item-box button:before,
   .earth-theme .alternate-products .item-box button:before,
   .air-theme .alternate-products .quick-view-button:before,
   .earth-theme .alternate-products .quick-view-button:before {
-    border-color: #3466C1;
+    border-color: #bcbcbe;
   }
   .air-theme .spc-products .spc-header li.active span:after,
   .earth-theme .spc-products .spc-header li.active span:after {
-    border-color: #3466C1 transparent transparent;
+    border-color: #bcbcbe transparent transparent;
   }
   .air-theme .header-menu ul > li:hover > a,
   .air-theme .header-menu ul > li:hover > span,
@@ -441,7 +441,7 @@
   .earth-theme .product-grid .item-box button span,
   .air-theme .compare-products-page .product-price td,
   .earth-theme .compare-products-page .product-price td {
-    color: #3466C1;
+    color: #bcbcbe;
   }
 }
 @media all and (min-width: 1025px) {
@@ -456,4 +456,69 @@
 .item-box .picture img {
    max-height: 100%;
    object-fit: contain;
+}
+
+.earth-theme .header-logo img {
+   background-color: #222
+}
+
+.earth-theme.variant-2 .spc-categories .category-picture img {
+  margin: 25px 0px 0px 25px;
+  max-height: 100%;
+}
+
+.owl-carousel .owl-item img {
+   max-height: 100%;
+    object-fit: contain;
+    max-width: 100%;
+}
+
+.earth-theme .header {
+   background-color: #222
+}
+.earth-theme .desktop-nav-wrapper {
+  background-color: #222
+}
+.earth-theme .page-title {
+   background: url(../img/banner-1.jpg);
+}
+.module .collapse, .module .collapsing {
+  height: 5rem;
+}
+
+.module .collapse {
+  position: relative; /* For ...'s content absolute positioning */
+  display: block;
+  overflow: hidden;
+}
+  .module .collapse:before {
+    content: ' ...';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+  .module .collapse.show {
+    height: auto; 
+  }
+    .module .collapse.show:before {
+      display: none; 
+    }
+.module a.collapsed:after {
+  content: '\25bc';
+  font-family: FontAwesome;
+  color: #bcbcbe;
+}
+.module a:not(.collapsed):after {
+  content: '\25B2';
+  font-family: FontAwesome;
+  color: #bcbcbe;
+}
+@media (min-width: 1025px) {
+.page-title h1 {
+  color: #0c58a6;
+  bottom: 150px;
+}
+.page-title h1:after {
+    display:none;
+}
 }

@@ -6,6 +6,7 @@
 }
 <div class="page home-page">
     <div class="page-body">
+        <div class="page-title wrapper-content"></div>
         @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HomepageTop })
         @await Component.InvokeAsync("TopicBlock", new { systemName = "HomepageText" })
         @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HomepageBeforeCategories })

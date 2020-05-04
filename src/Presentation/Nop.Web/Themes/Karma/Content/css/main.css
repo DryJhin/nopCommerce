@@ -8433,7 +8433,7 @@ span.grid-report-item {
 /* Set yellow color when star hover */
 
 .module .collapse, .module .collapsing {
-  height: 3rem; /* [NUM_OF_LINES] x [LINE_HEIGHT] */
+  height: 5rem; /* [NUM_OF_LINES] x [LINE_HEIGHT] */
 }
 
 .module .collapse {
