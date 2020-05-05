@@ -162,7 +162,7 @@
 }
 .earth-theme .responsive-nav-wrapper span,
 .earth-theme .responsive-nav-wrapper a {
-	background-image: url('../img/header-navigation-sprite-grey.png');
+	background-image: url('../img/header-navigation-sprite.png');
 }
 
 /* HEADER VARIANTS */
@@ -193,7 +193,7 @@
 }
 .earth-theme.variant-2 .menu-title-wrapper span {
 	background-color: #007c5a;
-	background-image: url('../img/header-navigation-sprite-grey.png');
+	background-image: url('../img/header-navigation-sprite.png');
 }
 .air-theme.variant-2 .menu-title-wrapper .personal-button span {
 	background-position: -100px center;

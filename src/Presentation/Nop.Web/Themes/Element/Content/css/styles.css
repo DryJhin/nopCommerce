@@ -1998,7 +1998,7 @@ label, label + * {
 .home-page-category-grid .title a,
 .sub-category-grid .title a {
 	display: block;
-	background-color: rgba(0,0,0,0.7);
+	background-color: #cbcbce;
 	padding: 15px 30px;
 	transition: all 0.5s ease;
 }
@@ -2013,13 +2013,13 @@ label, label + * {
 .air-theme .sub-category-grid .item-box:hover .title a,
 .air-theme .manufacturer-grid .item-box:hover .title a,
 .air-theme .vendor-grid .item-box:hover .title a {
-	background-color: #333;
+  background-color: #cbcbce;
 }
 .earth-theme .home-page-category-grid .item-box:hover .title a,
 .earth-theme .sub-category-grid .item-box:hover .title a,
 .earth-theme .manufacturer-grid .item-box:hover .title a,
 .earth-theme .vendor-grid .item-box:hover .title a {
-	background-color: #222;
+	background-color: #cbcbce;
 }
 
 .pager {
