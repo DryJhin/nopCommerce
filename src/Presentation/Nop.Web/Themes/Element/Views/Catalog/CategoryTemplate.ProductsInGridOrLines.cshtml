@@ -115,6 +115,9 @@
                         @Html.Raw(Model.Description)
                     </div>
                 </div>
+                <div class="module dots">
+
+                </div>
                 <div class="module text-center">
                     <a role="button" class="collapsed text-center" data-toggle="collapse" href="#collapseExample"
                        aria-expanded="false" aria-controls="collapseExample"></a>
@@ -122,7 +125,7 @@
             }
 
             @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.CategoryDetailsBeforeSubcategories, additionalData = Model })
-            @if (Model.SubCategories.Count > 0)
+            @*@if (Model.SubCategories.Count > 0)
             {
                 <div class="category-grid sub-category-grid @subCategoriesPerRowClassName">
                     <div class="item-grid">
@@ -157,9 +160,9 @@
                         }
                     </div>
                 </div>
-            }
+            }*@
             @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.CategoryDetailsBeforeFeaturedProducts, additionalData = Model })
-            @if (Model.FeaturedProducts.Count > 0)
+            @*@if (Model.FeaturedProducts.Count > 0)
             {
                 <div class="product-grid featured-product-grid">
                     <div class="title">
@@ -174,7 +177,7 @@
                         }
                     </div>
                 </div>
-            }
+            }*@
             @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.CategoryDetailsAfterFeaturedProducts, additionalData = Model })
         }
 
