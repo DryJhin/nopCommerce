@@ -38,7 +38,8 @@
     "SevenSpikes.Nop.Plugins.SmartProductCollections",
     "SevenSpikes.Nop.Plugins.SocialFeed",
     "SevenSpikes.Nop.Plugins.PrevNextProduct",
-    "SevenSpikes.Nop.Plugins.SmartSEO"
+    "SevenSpikes.Nop.Plugins.SmartSEO",
+    "SevenSpikes.Theme.Venture"
   ],
   "PluginNamesToUninstall": [],
   "PluginNamesToDelete": [

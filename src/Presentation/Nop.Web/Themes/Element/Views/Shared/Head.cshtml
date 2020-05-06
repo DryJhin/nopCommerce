@@ -18,7 +18,7 @@
     }
 
     Html.AppendCssFileParts("~/Plugins/SevenSpikes.Core/Styles/perfect-scrollbar.min.css");
-
+    Html.AppendCssFileParts("~/Themes/Element/Content/css/custom.css");
     if (supportRtl)
     {
         Html.AppendCssFileParts("~/Themes/Element/Content/css/1320.rtl.css");
@@ -40,7 +40,7 @@
         Html.AppendCssFileParts("~/Themes/Element/Content/css/styles.css");
     }
 
-    Html.AppendCssFileParts("~/Themes/Element/Content/css/custom.css");
+
     Html.AddScriptParts(ResourceLocation.Footer, "~/Plugins/SevenSpikes.Core/Scripts/footable.min.js");
     Html.AddScriptParts(ResourceLocation.Footer, "~/Plugins/SevenSpikes.Core/Scripts/perfect-scrollbar.min.js");
     Html.AddScriptParts(ResourceLocation.Footer, "~/Plugins/SevenSpikes.Core/Scripts/sevenspikes.core.min.js");
