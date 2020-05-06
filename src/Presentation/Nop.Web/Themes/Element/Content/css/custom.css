@@ -1,0 +1,108 @@
+﻿@media all and (min-width: 1025px) {
+  .item-box .buttons.desktop {
+    pointer-events: none;
+  }
+
+    .item-box .buttons.desktop * {
+      pointer-events: auto;
+    }
+}
+
+@media (min-width: 1025px) {
+  .page-title h1 {
+    color: #0c77c1;
+    bottom: 150px;
+  }
+
+    .page-title h1:after {
+      display: none;
+    }
+
+  .earth-theme.variant-2 .header-menu > ul li > a:before {
+    background-color: #0c77c1;
+  }
+
+  .earth-theme .desktop-nav-wrapper {
+    background: rgb(255, 255, 255);
+    background: radial-gradient( circle, rgba(255, 255, 255, 1) 0%, rgba(253, 253, 253, 1) 20%, rgba(152, 155, 160, 1) 57% );
+  }
+}
+
+@media (max-width: 1025px) {
+  .earth-theme .desktop-nav-wrapper {
+    background: rgb(255, 255, 255);
+    background: radial-gradient( circle, rgba(255, 255, 255, 1) 0%, rgba(253, 253, 253, 1) 51%, rgba(152, 155, 160, 1) 84% );
+  }
+}
+
+.item-box .picture img {
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.earth-theme .header {
+  background-color: transparent !important;
+}
+
+.earth-theme.variant-2 .spc-categories .category-picture img {
+  margin: 25px 0px 0px 25px;
+  max-height: 100%;
+}
+
+.earth-theme .header-logo img {
+  background-color: transparent;
+}
+
+.owl-carousel .owl-item img {
+  max-height: 100%;
+  object-fit: contain;
+  max-width: 100%;
+}
+
+.earth-theme .page-title {
+  background: url(../img/banner-1.jpg);
+}
+
+.module .collapse,
+.module .collapsing {
+  height: 3.5rem;
+}
+
+.module .collapse {
+  position: relative; /* For ...'s content absolute positioning */
+  display: block;
+  overflow: hidden;
+}
+
+  .module .collapse.show {
+    height: auto;
+  }
+
+    .module .collapse.show:before {
+      display: none;
+    }
+
+.module a.collapsed:after {
+  content: "\25bc";
+  font-family: FontAwesome;
+  color: #0c77c1;
+}
+
+.module a:not(.collapsed):after {
+  content: "\25B2";
+  font-family: FontAwesome;
+  color: #0c77c1;
+}
+
+.category-description,
+.manufacturer-description,
+.vendor-description {
+  margin: unset;
+}
+
+.module .collapse:before {
+  content: " .........";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}

@@ -170,8 +170,9 @@ label, label + * {
 	z-index: 0; /* giving priority to header and header-menu */
 }
 .master-column-wrapper {
-	width: 94%;
-	margin: auto;
+  width: 94%;
+  margin: auto;
+  padding-top: 15px;
 }
 .master-column-wrapper:after {
 	content: "";
