@@ -49,6 +49,7 @@
     <None Remove="Themes\Element\Content\img\banner-1.jpg" />
     <None Remove="Themes\Element\Content\img\stock-photo-group-of-workers-people-isolated-on-white-background-271213298.jpg" />
     <None Remove="Themes\Karma\preview.jpg" />
+    <None Remove="Themes\Venture\Content\css\custom.css" />
 
     <None Update="Areas\Admin\sitemap.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

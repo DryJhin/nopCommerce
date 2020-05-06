@@ -1,0 +1,127 @@
+﻿.footer {
+  text-align: center;
+  background: #f0f0f0;
+  color: inherit;
+}
+
+  .footer .title strong {
+    color: inherit;
+  }
+
+.social-sharing a:hover {
+  border: 1px dashed #f0f0f0 !important;
+}
+
+.social-sharing a {
+  color: #f0f0f0 !important;
+  background: #0c50a1 !important;
+  border: 1px dashed #0c50a1 !important;
+}
+
+  .social-sharing a:hover {
+    background: #f0f0f0 !important;
+    color: #0c50a1 !important;
+  }
+
+.social-sharing:before,
+.social-sharing:after {
+  border-top: 1px dashed #0c50a1 !important;
+}
+
+.newsletter-email .newsletter-subscribe-text {
+  background: #909090 !important;
+  color: #0c50a1 !important;
+}
+
+.scroll-back-button {
+  background: #0c50a1 !important;
+}
+
+  .scroll-back-button:before {
+    color: #f0f0f0 !important;
+  }
+
+.rich-blog-homepage .post-primary {
+  background: #909090 !important;
+}
+
+.rich-blog-homepage .read-more {
+  color: inherit !important;
+  background: #0c50a1 !important;
+}
+
+  .rich-blog-homepage .read-more:hover {
+    color: inherit !important;
+    background: #0c50a1 !important;
+  }
+
+  .rich-blog-homepage .read-more:before {
+    color: #2c2c2c !important;
+  }
+
+.header-lower {
+  background: #fff;
+}
+
+.header-menu > ul > li > a,
+.header-menu > ul > li > span {
+  color: #0c50a1;
+}
+
+.header-upper {
+  background: #f0f0f0;
+}
+
+.header-selectors-wrapper select {
+  background-color: #0c50a1;
+}
+
+.home-page-filters-wrapper {
+  background: #f0f0f0 !important;
+}
+
+.home-page-filter-title strong {
+  color: #222 !important;
+}
+
+.home-page-filter-selector span.k-dropdown-wrap {
+  color: #0c50a1 !important;
+  background: #909090 !important;
+}
+
+.spc-categories .category-title:before {
+  background: #909090 !important;
+}
+
+.sale-of-the-day-offer {
+  background: #909090 !important;
+}
+
+  .sale-of-the-day-offer:before {
+    background: transparent !important;
+  }
+
+  .sale-of-the-day-offer .item-navigation-buttons button {
+    background-color: #0c50a1 !important;
+  }
+
+    .sale-of-the-day-offer .item-navigation-buttons button:hover {
+      background-color: #0c50a1 !important;
+    }
+
+    .sale-of-the-day-offer .item-navigation-buttons button:before {
+      color: #222 !important; /* alb */
+    }
+
+  .sale-of-the-day-offer .go-to-product-page {
+    background-color: #0c50a1 !important;
+  }
+
+    .sale-of-the-day-offer .go-to-product-page:hover {
+      background-color: #0c50a1 !important;
+    }
+
+.ui-slider-handle span {
+  background: #0c50a1;
+  color: #fff;
+}

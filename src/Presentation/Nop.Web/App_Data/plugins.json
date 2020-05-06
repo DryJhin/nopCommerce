@@ -39,7 +39,8 @@
     "SevenSpikes.Nop.Plugins.SocialFeed",
     "SevenSpikes.Nop.Plugins.PrevNextProduct",
     "SevenSpikes.Nop.Plugins.SmartSEO",
-    "SevenSpikes.Theme.Venture"
+    "SevenSpikes.Theme.Venture",
+    "SevenSpikes.Nop.Plugins.AjaxFilters.Pro"
   ],
   "PluginNamesToUninstall": [],
   "PluginNamesToDelete": [
@@ -53,7 +54,6 @@
     "SevenSpikes.Nop.Plugins.PriceMatch",
     "SevenSpikes.Nop.Plugins.StoreLocator",
     "SevenSpikes.Nop.Plugins.SalesCampaigns",
-    "SevenSpikes.Nop.Plugins.AjaxFilters.Pro",
     "Pickup.PickupInStore"
   ],
   "PluginNamesToInstall": []
