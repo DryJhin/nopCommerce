@@ -150,11 +150,10 @@ td .ui-state-active,
 .save-price-match-button {
   background-color: #0c50a1;
 }
-  .home-page-filters-wrapper .search-button:disabled,
-  .home-page-filters-wrapper .search-button[disabled] {
-    background-color: #d4d4d4 !important;
-    opacity: .6 !important;
-  }
+.home-page-filters-wrapper .search-button:disabled,
+.home-page-filters-wrapper .search-button[disabled] {
+  background-color: #0c50a1 !important;
+}
 /* hover one buttons */
 
 .footer-map-holder .title:hover,
@@ -435,4 +434,10 @@ td .ui-state-active:hover,
 
 html {
     overflow-x: hidden;
+}
+
+.home-page-filters-wrapper .search-button:disabled,
+.home-page-filters-wrapper .search-button[disabled] {
+  background-color: #d4d4d4 !important;
+  opacity: .6 !important;
 }
