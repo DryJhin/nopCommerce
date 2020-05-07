@@ -24,6 +24,9 @@
     }
 
     var breadcrumbDelimiter = commonSettings.BreadcrumbDelimiter;
+
+    Html.AppendScriptParts(ResourceLocation.Footer, "~/js/karma/vendor/bootstrap.min.js");
+    Html.AppendScriptParts(ResourceLocation.Footer, "~/js/karma/vendor/popper.js");
 }
 
 @*category breadcrumb*@
@@ -95,8 +98,14 @@
         @*description*@
         @if (!String.IsNullOrWhiteSpace(Model.Description))
         {
-            <div class="category-description">
-                @Html.Raw(Model.Description)
+            <div class="module">
+                <div class="category-description collapse" id="collapseExample" aria-expanded="false">
+                    @Html.Raw(Model.Description)
+                </div>
+            </div>
+            <div class="module arrows">
+                <a role="button" class="collapsed text-center" data-toggle="collapse" href="#collapseExample"
+                   aria-expanded="false" aria-controls="collapseExample"></a>
             </div>
         }
 
@@ -113,7 +122,7 @@
                     @foreach (var item in Model.FeaturedProducts)
                     {
                         <div class="item-box">
-                            @Html.Partial("_ProductBox", item)
+                            @Html.PartialAsync("_ProductBox", item)
                         </div>
                     }
                 </div>

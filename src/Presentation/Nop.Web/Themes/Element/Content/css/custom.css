@@ -82,6 +82,10 @@
       display: none;
     }
 
+.module arrows {
+  text-align: center !important;
+}
+
 .module a.collapsed:after {
   content: "\25bc";
   font-family: FontAwesome;
