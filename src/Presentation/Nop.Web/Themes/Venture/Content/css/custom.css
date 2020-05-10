@@ -104,6 +104,11 @@
   background: #d4d4d4 !important;
 }
 
+.home-page-filters-wrapper .results-number {
+  color: #0c50a1 !important;
+  background: #d4d4d4 !important;
+}
+
 .spc-categories .category-title:before {
   background: #d4d4d4 !important;
 }
@@ -185,6 +190,10 @@
       color: #fff !important;
       background: #0c50a1;
     }
+
+  .previous-product a:hover, .next-product a:hover {
+    color: #fff !important;
+  }
 }
 
 @media (min-width: 768px) {
@@ -291,9 +300,21 @@
   }
 }
 
-.footer-block .list, .footer-block.newsetter .footer-collapse {
-  background-color: #f0f0f0 !important;
+.previous-product a, .next-product a {
+  background-color: #0c50a1 !important;
+
+} email contact
+  .previous-product a:before, .next-product a:before {
+    color: #fff !important;
+  }
+
+.previous-product a, .next-product a {
+  color: #fff !important;
 }
+
+  .footer-block .list, .footer-block.newsetter .footer-collapse {
+    background-color: #f0f0f0 !important;
+  }
 
 .order-progress li.active-step a {
   color: #fff !important;
@@ -319,3 +340,23 @@
     border: 1px solid #fff;
     margin-bottom: 5px;
   }
+
+.video-button-title {
+    display: none !important;
+}
+
+@media (min-width: 768px) {
+  .video-button-subtitle {
+    position: relative !important;
+    color: #60b733 !important;    
+    bottom: 50px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .video-button-subtitle {
+    position: relative !important;
+    color: #60b733 !important;
+    bottom: 20px !important;
+  }
+}
