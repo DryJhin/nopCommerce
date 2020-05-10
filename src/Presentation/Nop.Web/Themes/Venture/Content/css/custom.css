@@ -8,6 +8,10 @@
     color: inherit;
   }
 
+.footer-block .list, .footer-block.newsetter .footer-collapse {
+  background-color: #f0f0f0 !important;
+}
+
 .social-sharing a:hover {
   border: 1px dashed #f0f0f0 !important;
 }
@@ -46,18 +50,35 @@
 }
 
 .rich-blog-homepage .read-more {
-  color: inherit !important;
+  color: #fff !important;
   background: #0c50a1 !important;
 }
 
   .rich-blog-homepage .read-more:hover {
-    color: inherit !important;
+    color: #fff !important;
     background: #0c50a1 !important;
   }
 
   .rich-blog-homepage .read-more:before {
-    color: #2c2c2c !important;
+    color: #fff !important;
   }
+
+.news-item .news-head, .blog-posts .post-head {
+  background: #909090 !important;
+}
+
+.news-item .buttons a, .blog-posts .post .buttons a {
+  color: #fff !important;
+  background: #0c50a1 !important;
+}
+
+  .blog-posts .post .buttons a:before {
+    color: #fff !important;
+  }
+
+.news-item-page .buttons input[type='submit'], .blogpost-page .buttons input[type='submit'] {
+  color: #fff !important;
+}
 
 .header-lower {
   background: #fff !important;
@@ -188,10 +209,36 @@
 
     .header-menu .sublist li:hover > a {
       color: #fff !important;
-      background: #0c50a1;
+      background: #0c50a1 !important;
     }
 
   .previous-product a:hover, .next-product a:hover {
+    color: #fff !important;
+  }
+
+  .header-links-box-top {
+    background: #0c50a1 !important;
+  }
+
+    .header-links-box-top:before {
+      color: #fff !important;
+    }
+
+  .header-links-box-bottom {
+    background: #0c50a1 !important;
+  }
+
+    .header-links-box-bottom:before {
+      color: #fff !important;
+    }
+
+  .header-link-wrapper a {
+    background: #0c50a1 !important;
+    color: #fff !important;
+  }
+
+  .header-link-wrapper a:hover {
+    background: #0c50a1 !important;
     color: #fff !important;
   }
 }
@@ -302,8 +349,9 @@
 
 .previous-product a, .next-product a {
   background-color: #0c50a1 !important;
+}
 
-} email contact
+  email contact
   .previous-product a:before, .next-product a:before {
     color: #fff !important;
   }
@@ -311,10 +359,6 @@
 .previous-product a, .next-product a {
   color: #fff !important;
 }
-
-  .footer-block .list, .footer-block.newsetter .footer-collapse {
-    background-color: #f0f0f0 !important;
-  }
 
 .order-progress li.active-step a {
   color: #fff !important;
@@ -342,13 +386,13 @@
   }
 
 .video-button-title {
-    display: none !important;
+  display: none !important;
 }
 
 @media (min-width: 768px) {
   .video-button-subtitle {
     position: relative !important;
-    color: #60b733 !important;    
+    color: #60b733 !important;
     bottom: 50px !important;
   }
 }
