@@ -751,7 +751,6 @@
                 rel: 0,
                 showinfo: 0,
                 iv_load_policy: 3,
-                mute: 1,
                 enablejsapi: 1,
                 start: startTime
             };
