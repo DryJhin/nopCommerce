@@ -894,10 +894,13 @@ namespace Nop.Services.Common
         /// <param name="doc">Document</param>
         protected virtual void PrintAddresses(int vendorId, Language lang, Font titleFont, Order order, Font font, Document doc)
         {
-            var addressTable = new PdfPTable(2) { RunDirection = GetDirection(lang) };
+            var addressTable = new PdfPTable(3) { RunDirection = GetDirection(lang) };
             addressTable.DefaultCell.Border = Rectangle.NO_BORDER;
             addressTable.WidthPercentage = 100f;
-            addressTable.SetWidths(new[] { 50, 50 });
+            addressTable.SetWidths(new[] { 33, 33, 33 });
+
+            //company info
+            PrintCompanyInfo(lang, titleFont, order, font, addressTable);
 
             //billing info
             PrintBillingInfo(vendorId, lang, titleFont, order, font, addressTable);
@@ -1002,6 +1005,40 @@ namespace Nop.Services.Common
                 shippingAddress.AddCell(new Paragraph());
                 addressTable.AddCell(shippingAddress);
             }
+        }
+
+        /// <summary>
+        /// Print billing info
+        /// </summary>
+        /// <param name="lang">Language</param>
+        /// <param name="titleFont">Title font</param>
+        /// <param name="order">Order</param>
+        /// <param name="font">Text font</param>
+        /// <param name="addressTable">Address PDF table</param>
+        protected virtual void PrintCompanyInfo(Language lang, Font titleFont, Order order, Font font, PdfPTable addressTable)
+        {
+            const string indent = "   ";
+            var companyAddress = new PdfPTable(1) { RunDirection = GetDirection(lang) };
+            companyAddress.DefaultCell.Border = Rectangle.NO_BORDER;
+
+            companyAddress.AddCell(GetParagraph("PDFInvoiceCompany.BillingInformation", lang, titleFont));
+
+            companyAddress.AddCell(GetParagraph("PDFInvoiceCompany.Company", indent, lang, font, "SC PROTECT KRONOS SRL"));
+
+            companyAddress.AddCell(GetParagraph("PDFInvoiceCompany.Phone", indent, lang, font, "+40722223166"));
+
+            companyAddress.AddCell(GetParagraph("PDFInvoiceCompany.Address", indent, lang, font, "INTRAREA RUGULET NR 1/3"));
+
+            companyAddress.AddCell(GetParagraph("PDFInvoiceCompany.AddressLine", indent, lang, font, "ROMANIA, BUCURESTI, SECT 1, 014025"));
+
+            companyAddress.AddCell(GetParagraph("PDFInvoiceCompany.BankAccount", indent, lang, font, "RO84 BACX 0000 0006 6459 7000"));
+
+            companyAddress.AddCell(GetParagraph("PDFInvoiceCompany.BankName", indent, lang, font, "UNICREDIT TIRIAC BANK"));
+
+            //VAT number
+            companyAddress.AddCell(GetParagraph("PDFInvoiceCompany.VATNumber", indent, lang, font, order.VatNumber));
+
+            addressTable.AddCell(companyAddress);
         }
 
         /// <summary>

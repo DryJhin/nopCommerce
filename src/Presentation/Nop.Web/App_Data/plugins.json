@@ -5,7 +5,6 @@
     "Tax.FixedOrByCountryStateZip",
     "Widgets.NivoSlider",
     "Payments.CashOnDelivery",
-    "Payments.PurchaseOrder",
     "FoxNetSoft.AntiBot",
     "FoxNetSoft.HistoryofChanges",
     "FoxNetSoft.AutomaticRelatedProducts",
@@ -39,7 +38,11 @@
     "SevenSpikes.Nop.Plugins.PrevNextProduct",
     "SevenSpikes.Nop.Plugins.SmartSEO",
     "SevenSpikes.Theme.Venture",
-    "SevenSpikes.Nop.Plugins.AjaxFilters.Pro"
+    "SevenSpikes.Nop.Plugins.AjaxFilters.Pro",
+    "Payments.CheckMoneyOrder",
+    "SevenSpikes.Nop.Plugins.RealOnePageCheckout",
+    "Widgets.GoogleAnalytics",
+    "FoxNetSoft.SliderManager"
   ],
   "PluginNamesToUninstall": [],
   "PluginNamesToDelete": [
@@ -53,7 +56,8 @@
     "SevenSpikes.Nop.Plugins.PriceMatch",
     "SevenSpikes.Nop.Plugins.StoreLocator",
     "SevenSpikes.Nop.Plugins.SalesCampaigns",
-    "Pickup.PickupInStore"
+    "Pickup.PickupInStore",
+    "Payments.PurchaseOrder"
   ],
   "PluginNamesToInstall": []
 }
