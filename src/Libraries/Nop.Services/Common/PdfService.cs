@@ -894,10 +894,10 @@ namespace Nop.Services.Common
         /// <param name="doc">Document</param>
         protected virtual void PrintAddresses(int vendorId, Language lang, Font titleFont, Order order, Font font, Document doc)
         {
-            var addressTable = new PdfPTable(3) { RunDirection = GetDirection(lang) };
+            var addressTable = new PdfPTable(2) { RunDirection = GetDirection(lang) };
             addressTable.DefaultCell.Border = Rectangle.NO_BORDER;
             addressTable.WidthPercentage = 100f;
-            addressTable.SetWidths(new[] { 33, 33, 33 });
+            addressTable.SetWidths(new[] { 50, 50 });
 
             //company info
             PrintCompanyInfo(lang, titleFont, order, font, addressTable);
@@ -906,7 +906,7 @@ namespace Nop.Services.Common
             PrintBillingInfo(vendorId, lang, titleFont, order, font, addressTable);
 
             //shipping info
-            PrintShippingInfo(lang, order, titleFont, font, addressTable);
+            //PrintShippingInfo(lang, order, titleFont, font, addressTable);
 
             doc.Add(addressTable);
             doc.Add(new Paragraph(" "));
