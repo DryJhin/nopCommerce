@@ -256,7 +256,7 @@ textarea, select {
   vertical-align: middle;
   font-size: 15px;
   color: #909090;
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
   background: #f0f0f0;
 }
 
@@ -476,7 +476,7 @@ button {
 .no-data {
   text-align: center;
   text-transform: none;
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
   line-height: 25px;
   color: #909090;
   margin: 0 0 10px;
@@ -581,7 +581,7 @@ body:after {
       padding: 5px 5px 5px 25px;
       margin: 0;
       text-align: left;
-      font-family: 'Lato', sans-serif;
+      /* font-family: 'Lato', sans-serif; */
       text-transform: none;
       color: #909090;
       cursor: pointer;
@@ -648,7 +648,7 @@ body:after {
   line-height: 20px;
   color: #e75862;
   text-transform: none;
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
   margin: 0 0 15px;
 }
 
@@ -661,7 +661,7 @@ body:after {
   line-height: 20px;
   color: #e75862;
   text-transform: none;
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
   position: relative;
 }
 
@@ -691,7 +691,7 @@ body:after {
   line-height: 20px;
   color: #3eaf5a;
   text-transform: none;
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
   position: relative;
 }
 
@@ -793,7 +793,7 @@ body:after {
   text-transform: none;
   font-size: 15px;
   line-height: 22px;
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
 }
 
 .data-table .product,
@@ -903,7 +903,7 @@ body:after {
   z-index: 1840;
   width: 295px;
   padding: 20px 50px 20px 28px;
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
   font-size: 14px;
   line-height: 20px;
   text-transform: none;
@@ -1087,7 +1087,7 @@ body:after {
     .ui-dialog-content .page-title h1 {
       font-size: 15px;
       text-transform: none;
-      font-family: 'Lato', sans-serif;
+      /* font-family: 'Lato', sans-serif; */
       font-weight: bold;
     }
 
@@ -1104,7 +1104,7 @@ body:after {
     text-transform: none;
     line-height: 25px;
     color: #909090;
-    font-family: 'Lato', sans-serif;
+    /* font-family: 'Lato', sans-serif; */
     text-align: center;
   }
 
@@ -1112,7 +1112,7 @@ body:after {
   text-transform: none;
   line-height: 25px;
   color: #909090;
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
 }
 
 .ui-dialog-content button {
@@ -1321,7 +1321,7 @@ body:after {
     padding: 10px;
     font-size: 16px;
     line-height: 36px;
-    font-family: 'Lato', sans-serif;
+    /* font-family: 'Lato', sans-serif; */
     border: none;
   }
 
@@ -1695,7 +1695,7 @@ body:after {
 .footer-block .list,
 .footer-block.newsetter .footer-collapse {
   text-transform: none;
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
   padding: 20px 10px;
   background: #232323;
 }
@@ -2007,7 +2007,7 @@ body:after {
 .footer-lower {
   overflow: hidden;
   text-transform: none;
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
   line-height: 25px;
 }
 
@@ -2191,7 +2191,7 @@ body:after {
 .poll-results {
   text-transform: none;
   line-height: 25px;
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
 }
 
 .poll-options li input[type='radio'] {
@@ -2511,7 +2511,7 @@ body:after {
   box-shadow: 0 0 14px rgba(0,0,0,0.06);
   text-transform: none;
   color: #909090;
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
 }
 
   .breadcrumb ul {
@@ -2675,7 +2675,7 @@ body:after {
 .sub-categories-wrapper {
   display: none;
   text-transform: none;
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
   padding: 20px 10px;
   background: #232323;
 }
@@ -2704,7 +2704,7 @@ body:after {
   text-transform: none;
   line-height: 25px;
   color: #909090;
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
 }
 
 .contact-vendor {
@@ -3051,7 +3051,7 @@ body:after {
     text-transform: none;
     line-height: 25px;
     color: #909090;
-    font-family: 'Lato', sans-serif;
+    /* font-family: 'Lato', sans-serif; */
     overflow: hidden;
   }
 
@@ -3094,7 +3094,7 @@ body:after {
     text-transform: none;
     line-height: 25px;
     color: #909090;
-    font-family: 'Lato', sans-serif;
+    /* font-family: 'Lato', sans-serif; */
   }
 
   .item-box .tax-shipping-info,
@@ -3494,7 +3494,7 @@ body:after {
 .product-no-reviews a,
 .product-review-links {
   color: #909090;
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
   text-transform: none;
   font-size: 14px;
 }
@@ -3536,7 +3536,7 @@ body:after {
     margin: auto;
     padding: 100px 0 0;
     text-align: center;
-    font-family: 'Lato', sans-serif;
+    /* font-family: 'Lato', sans-serif; */
     text-transform: none;
   }
 
@@ -3562,7 +3562,7 @@ body:after {
   text-transform: none;
   line-height: 25px;
   color: #909090;
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
 }
 
 .overview .label,
@@ -3571,7 +3571,7 @@ body:after {
 .variant-overview .value {
   font-size: 14px;
   color: #909090;
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
   text-transform: none;
 }
 
@@ -3734,7 +3734,7 @@ body:after {
     max-width: 100%;
     padding: 9px 9px 9px 25px;
     text-align: left;
-    font-family: 'Lato', sans-serif;
+    /* font-family: 'Lato', sans-serif; */
     text-transform: none;
   }
 
@@ -4110,7 +4110,7 @@ td.ui-datepicker-week-end {
 .base-price-pangv {
   text-transform: none;
   color: #909090;
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
 }
 
 .overview .rental-price,
@@ -4134,7 +4134,7 @@ td.ui-datepicker-week-end {
   font-size: 14px;
   text-transform: none;
   color: #909090;
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
 }
 
 .overview .product-price,
@@ -4451,7 +4451,7 @@ td.ui-datepicker-week-end {
 .tax-shipping-info {
   text-transform: none;
   color: #909090;
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
 }
 
 .product-social-buttons {
@@ -4534,7 +4534,7 @@ td.ui-datepicker-week-end {
   text-transform: none;
   line-height: 25px;
   color: #909090;
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
   box-shadow: 0 0 14px rgba(0,0,0,0.06);
   margin: 0 0 80px;
 }
@@ -4614,7 +4614,7 @@ td.ui-datepicker-week-end {
   .product-specs-box .data-table .spec-value {
     text-transform: none;
     color: #909090;
-    font-family: 'Lato', sans-serif;
+    /* font-family: 'Lato', sans-serif; */
     line-height: 25px;
   }
 
@@ -4959,7 +4959,7 @@ td.ui-datepicker-week-end {
   color: #909090;
   text-transform: none;
   font-size: 14px;
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
   line-height: 20px;
   -webkit-transform: translateX(-50%);
   -ms-transform: translateX(-50%);
@@ -5017,7 +5017,7 @@ td.ui-datepicker-week-end {
   line-height: 20px;
   color: #3eaf5a;
   text-transform: none;
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
   text-align: center;
 }
 
@@ -5026,7 +5026,7 @@ td.ui-datepicker-week-end {
   line-height: 20px;
   color: #e75862;
   text-transform: none;
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
 }
 
 .product-review-list {
@@ -5056,7 +5056,7 @@ td.ui-datepicker-week-end {
     color: #909090;
     text-transform: none;
     font-size: 14px;
-    font-family: 'Lato', sans-serif;
+    /* font-family: 'Lato', sans-serif; */
     line-height: 20px;
     margin: 0 0 25px;
   }
@@ -5136,7 +5136,7 @@ td.ui-datepicker-week-end {
   color: #909090;
   text-transform: none;
   font-size: 14px;
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
   line-height: 20px;
 }
 
@@ -5159,7 +5159,7 @@ td.ui-datepicker-week-end {
   color: #909090;
   text-transform: none;
   font-size: 14px;
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
   line-height: 20px;
 }
 
@@ -5256,7 +5256,7 @@ td.ui-datepicker-week-end {
   padding: 20px;
   text-transform: none;
   color: #909090;
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
   line-height: 25px;
   text-align: center;
   box-shadow: 0 0 14px rgba(0,0,0,0.06);
@@ -5396,7 +5396,7 @@ td.ui-datepicker-week-end {
 
 .compare-section.description ul {
   text-transform: none;
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
 }
 
 
@@ -5421,7 +5421,7 @@ td.ui-datepicker-week-end {
   text-transform: none;
   line-height: 25px;
   color: #909090;
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
   max-width: 650px;
   margin: auto;
 }
@@ -5435,7 +5435,7 @@ td.ui-datepicker-week-end {
   text-transform: none;
   line-height: 25px;
   color: #909090;
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
   max-width: 900px;
   margin: auto;
   text-align: center;
@@ -5678,11 +5678,11 @@ td.ui-datepicker-week-end {
   text-transform: none;
   font-size: 13px;
   color: #909090;
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
 }
 
 .accept-consent {
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
   text-transform: none;
   color: #909090;
   text-align: center;
@@ -5796,7 +5796,7 @@ td.ui-datepicker-week-end {
   text-transform: none;
   text-align: center;
   line-height: 25px;
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
 }
 
 .login-page .title {
@@ -5822,7 +5822,7 @@ td.ui-datepicker-week-end {
   text-transform: none;
   line-height: 25px;
   color: #909090;
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
 }
 
 .login-page .buttons {
@@ -5860,7 +5860,7 @@ td.ui-datepicker-week-end {
 
 .login-page .inputs.reversed .forgot-password {
   float: right;
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
   text-transform: none;
   color: #909090;
   padding: 5px 0;
@@ -5920,7 +5920,7 @@ td.ui-datepicker-week-end {
   text-transform: none;
   line-height: 25px;
   color: #909090;
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
   border-bottom: 1px dashed #ccc;
 }
 
@@ -5935,7 +5935,7 @@ td.ui-datepicker-week-end {
   padding: 20px 20px 0;
   text-transform: none;
   line-height: 25px;
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
 }
 
 .account-page .page-body {
@@ -6006,7 +6006,7 @@ td.ui-datepicker-week-end {
   margin: 0 0 20px;
   text-transform: none;
   color: #909090;
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
   line-height: 25px;
 }
 
@@ -6050,7 +6050,7 @@ td.ui-datepicker-week-end {
   color: #909090;
   text-transform: none;
   font-size: 15px;
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
   line-height: 25px !important;
   margin: 0 0 20px;
 }
@@ -6071,7 +6071,7 @@ td.ui-datepicker-week-end {
   text-transform: none;
   color: #909090;
   font-size: 15px;
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
   line-height: 25px !important;
   vertical-align: middle;
 }
@@ -6216,7 +6216,7 @@ td.ui-datepicker-week-end {
     text-transform: none;
     line-height: 25px;
     color: #909090;
-    font-family: 'Lato', sans-serif;
+    /* font-family: 'Lato', sans-serif; */
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -6276,7 +6276,7 @@ td.ui-datepicker-week-end {
   text-transform: none;
   line-height: 25px;
   color: #909090;
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
   margin: 0 0 20px;
 }
 
@@ -6322,7 +6322,7 @@ td.ui-datepicker-week-end {
   text-transform: none;
   line-height: 25px;
   color: #909090;
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
   margin: 0 0 20px;
 }
 
@@ -6544,7 +6544,7 @@ td.ui-datepicker-week-end {
     padding: 9px 9px 9px 25px;
     margin: 0 10px 0 0;
     text-align: left;
-    font-family: 'Lato', sans-serif;
+    /* font-family: 'Lato', sans-serif; */
     text-transform: none;
     color: #909090;
     position: relative;
@@ -6629,7 +6629,7 @@ td.ui-datepicker-week-end {
 
 .cart-options .selected-checkout-attributes {
   padding: 30px;
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
   font-size: 15px;
   line-height: 25px;
   text-transform: none;
@@ -6704,7 +6704,7 @@ td.ui-datepicker-week-end {
 .terms-of-service {
   padding: 15px 30px;
   border-top: 1px dashed #ccc;
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
   font-size: 15px;
   line-height: 20px;
   text-transform: none;
@@ -6728,7 +6728,7 @@ td.ui-datepicker-week-end {
       margin: auto;
       padding: 9px 9px 9px 37px;
       text-align: left;
-      font-family: 'Lato', sans-serif;
+      /* font-family: 'Lato', sans-serif; */
       text-transform: none;
       color: #909090;
       position: relative;
@@ -6849,7 +6849,7 @@ td.ui-datepicker-week-end {
     padding: 10px 30px;
     text-transform: none;
     color: #909090;
-    font-family: 'Lato', sans-serif;
+    /* font-family: 'Lato', sans-serif; */
     font-size: 15px;
     line-height: 25px;
   }
@@ -6885,12 +6885,12 @@ td.ui-datepicker-week-end {
     padding: 0 0 30px;
     color: #e75862;
     text-transform: none;
-    font-family: 'Lato', sans-serif;
+    /* font-family: 'Lato', sans-serif; */
   }
 
   .cart-collaterals .message-success {
     text-transform: none;
-    font-family: 'Lato', sans-serif;
+    /* font-family: 'Lato', sans-serif; */
     color: #690;
     padding: 0 30px;
   }
@@ -6903,7 +6903,7 @@ td.ui-datepicker-week-end {
     padding: 5px 30px 30px;
     text-transform: none;
     color: #909090;
-    font-family: 'Lato', sans-serif;
+    /* font-family: 'Lato', sans-serif; */
     line-height: 25px;
   }
 
@@ -6943,7 +6943,7 @@ td.ui-datepicker-week-end {
     .cart-collaterals .shipping-results li {
       text-transform: none;
       color: #909090;
-      font-family: 'Lato', sans-serif;
+      /* font-family: 'Lato', sans-serif; */
       line-height: 25px;
     }
 
@@ -6977,7 +6977,7 @@ td.ui-datepicker-week-end {
   text-transform: none;
   font-size: 15px;
   line-height: 25px;
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
   text-align: center;
 }
 
@@ -7005,7 +7005,7 @@ td.ui-datepicker-week-end {
         margin: auto;
         padding: 9px 9px 9px 25px;
         text-align: left;
-        font-family: 'Lato', sans-serif;
+        /* font-family: 'Lato', sans-serif; */
         text-transform: none;
         color: #909090;
         position: relative;
@@ -7075,7 +7075,7 @@ td.ui-datepicker-week-end {
 
 .checkout-page .address-box {
   padding: 30px;
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
   text-transform: none;
   color: #909090;
 }
@@ -7400,7 +7400,7 @@ td.ui-datepicker-week-end {
 
 .shipping-method .method-description,
 .payment-method .payment-description {
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
   text-transform: none;
   color: #909090;
   line-height: 25px;
@@ -7503,7 +7503,7 @@ td.ui-datepicker-week-end {
   position: relative;
   border-bottom: 1px dashed #ccc;
   padding: 20px 30px;
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
   text-transform: none;
   color: #909090;
 }
@@ -7514,7 +7514,7 @@ td.ui-datepicker-week-end {
   padding: 0;
   background: #fff;
   box-shadow: 0 0 14px rgba(0,0,0,0.06);
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
   text-transform: none;
   color: #909090;
   line-height: 25px;
@@ -7611,7 +7611,7 @@ td.ui-datepicker-week-end {
   padding: 0 30px 30px;
   text-transform: none;
   color: #909090;
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
   line-height: 25px;
 }
 
@@ -7851,7 +7851,7 @@ td.ui-datepicker-week-end {
 .shipment-details-area ul {
   text-transform: none;
   color: #909090;
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
   line-height: 20px;
   font-size: 14px;
 }
@@ -7922,7 +7922,7 @@ td.ui-datepicker-week-end {
 .order-details-page .order-overview-content {
   text-transform: none;
   color: #909090;
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
   line-height: 20px;
   font-size: 14px;
 }
@@ -8103,7 +8103,7 @@ td.ui-datepicker-week-end {
     max-width: 100%;
     text-transform: none;
     color: #909090;
-    font-family: 'Lato', sans-serif;
+    /* font-family: 'Lato', sans-serif; */
     line-height: 25px;
     font-size: 15px;
     position: relative;
@@ -8260,7 +8260,7 @@ td.ui-datepicker-week-end {
   text-align: center;
   text-transform: none;
   color: #909090;
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
   line-height: 25px;
 }
 
@@ -8278,7 +8278,7 @@ td.ui-datepicker-week-end {
 .sitemap-page .description {
   text-transform: none;
   color: #909090;
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
   line-height: 25px;
   text-align: center;
   margin: 0 0 30px;
@@ -8297,7 +8297,7 @@ td.ui-datepicker-week-end {
   margin: 3px 15px 3px 0;
   text-transform: none;
   color: #909090;
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
   line-height: 25px;
 }
 
@@ -8480,7 +8480,7 @@ td.ui-datepicker-week-end {
 .blog-posts .post-text {
   color: #909090;
   line-height: 25px;
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
 }
 
 .news-list-homepage .view-all a {
@@ -8604,7 +8604,7 @@ td.ui-datepicker-week-end {
     text-transform: none;
     color: #909090;
     line-height: 25px;
-    font-family: 'Lato', sans-serif;
+    /* font-family: 'Lato', sans-serif; */
   }
 
   .news-item-page .new-comment,
@@ -8719,7 +8719,7 @@ td.ui-datepicker-week-end {
   color: #909090;
   text-transform: none;
   font-size: 14px;
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
   line-height: 20px;
 }
 
@@ -8804,7 +8804,7 @@ td.ui-datepicker-week-end {
   color: #909090;
   text-transform: none;
   font-size: 14px;
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
   line-height: 20px;
 }
 
@@ -9094,7 +9094,7 @@ td.ui-datepicker-week-end {
 .forums-table-section-body .forum-description {
   line-height: 25px;
   color: #909090;
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
 }
 
 .forums-table-section .view-all {
@@ -9225,7 +9225,7 @@ td.ui-datepicker-week-end {
   text-align: center;
   line-height: 25px;
   color: #909090;
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
 }
 
 .forum-actions,
@@ -9371,7 +9371,7 @@ td.ui-datepicker-week-end {
     text-transform: none;
     color: #909090;
     font-size: 14px;
-    font-family: 'Lato', sans-serif;
+    /* font-family: 'Lato', sans-serif; */
   }
 
     .topic-post .user-stats li {
@@ -9485,7 +9485,7 @@ td.ui-datepicker-week-end {
   color: #909090;
   font-size: 15px;
   line-height: 25px;
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
 }
 
 .topic-post .user-posted-image,
@@ -9571,7 +9571,7 @@ td.ui-datepicker-week-end {
   margin: 0 0 20px;
   text-transform: none;
   color: #909090;
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
   font-weight: bold;
 }
 
@@ -9589,7 +9589,7 @@ td.ui-datepicker-week-end {
 .private-message-send-page a {
   font-size: 15px;
   line-height: 25px;
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
   text-transform: none;
   color: #909090;
 }
@@ -9695,7 +9695,7 @@ td.ui-datepicker-week-end {
 .private-message-send-page .inputs span {
   font-size: 15px;
   color: #909090;
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
   text-transform: none;
   line-height: 25px;
 }
@@ -9778,7 +9778,7 @@ td.ui-datepicker-week-end {
   color: #909090;
   text-transform: none;
   font-size: 14px;
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
   line-height: 20px;
 }
 
@@ -9809,7 +9809,7 @@ td.ui-datepicker-week-end {
 
     .profile-info-box .profile-stats .stats {
       text-transform: none;
-      font-family: 'Lato', sans-serif;
+      /* font-family: 'Lato', sans-serif; */
       line-height: 25px;
       font-size: 14px;
       color: #909090;
@@ -9859,7 +9859,7 @@ td.ui-datepicker-week-end {
   color: #909090;
   text-transform: none;
   font-size: 14px;
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
   line-height: 20px;
 }
 

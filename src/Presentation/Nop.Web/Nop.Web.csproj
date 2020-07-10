@@ -81,6 +81,14 @@
     <None Include="Plugins\FoxNetSoft.SliderManager\Views\SliderManagerSettings\_ViewImports.cshtml" />
     <None Include="Plugins\FoxNetSoft.SliderManager\Views\SliderManager\PublicInfo.cshtml" />
     <None Include="Plugins\FoxNetSoft.SliderManager\Views\SliderManager\_ViewImports.cshtml" />
+    <None Include="Plugins\FoxNetSoft.TrackingCodeManager\Views\TrackingCodeAdmin\Create.cshtml" />
+    <None Include="Plugins\FoxNetSoft.TrackingCodeManager\Views\TrackingCodeAdmin\CreateFromTemplate.cshtml" />
+    <None Include="Plugins\FoxNetSoft.TrackingCodeManager\Views\TrackingCodeAdmin\Edit.cshtml" />
+    <None Include="Plugins\FoxNetSoft.TrackingCodeManager\Views\TrackingCodeAdmin\List.cshtml" />
+    <None Include="Plugins\FoxNetSoft.TrackingCodeManager\Views\TrackingCodeAdmin\_CreateOrUpdate.cshtml" />
+    <None Include="Plugins\FoxNetSoft.TrackingCodeManager\Views\TrackingCodeAdmin\_ViewImports.cshtml" />
+    <None Include="Plugins\FoxNetSoft.TrackingCodeManager\Views\TrackingCodeSettings\Configure.cshtml" />
+    <None Include="Plugins\FoxNetSoft.TrackingCodeManager\Views\TrackingCodeSettings\_ViewImports.cshtml" />
     <None Include="Themes\Karma\Views\BackInStockSubscription\CustomerSubscriptions.cshtml" />
     <None Include="Themes\Karma\Views\BackInStockSubscription\SubscribePopup.cshtml" />
     <None Include="Themes\Karma\Views\Catalog\CategoryTemplate.ProductsInGridOrLines.cshtml" />

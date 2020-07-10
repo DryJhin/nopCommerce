@@ -468,7 +468,7 @@
 }
 .compare-products-table .short-description {
     text-transform: none;
-    font-family: 'Lato', sans-serif;
+    /* font-family: 'Lato', sans-serif; */
 }
 .compare-products-table .remove-product td {
     text-align: right;

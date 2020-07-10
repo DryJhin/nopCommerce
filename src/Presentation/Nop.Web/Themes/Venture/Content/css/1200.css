@@ -531,7 +531,7 @@
     color: #909090;
     text-transform: none;
     font-size: 14px;
-    font-family: 'Lato', sans-serif;
+    /* font-family: 'Lato', sans-serif; */
     line-height: 25px !important;
 }
 .mini-shopping-cart .attributes {
@@ -1040,7 +1040,7 @@
     text-transform: none;
     line-height: 25px;
     color: #909090;
-    font-family: 'Lato', sans-serif;
+    /* font-family: 'Lato', sans-serif; */
 }
 
 

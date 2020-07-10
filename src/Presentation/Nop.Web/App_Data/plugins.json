@@ -3,7 +3,6 @@
     "CurrencyExchange.ECB",
     "Shipping.FixedByWeightByTotal",
     "Tax.FixedOrByCountryStateZip",
-    "Widgets.NivoSlider",
     "Payments.CashOnDelivery",
     "FoxNetSoft.AntiBot",
     "FoxNetSoft.HistoryofChanges",
@@ -40,9 +39,8 @@
     "SevenSpikes.Theme.Venture",
     "SevenSpikes.Nop.Plugins.AjaxFilters.Pro",
     "Payments.CheckMoneyOrder",
-    "SevenSpikes.Nop.Plugins.RealOnePageCheckout",
-    "Widgets.GoogleAnalytics",
-    "FoxNetSoft.SliderManager"
+    "FoxNetSoft.SliderManager",
+    "FoxNetSoft.TrackingCodeManager"
   ],
   "PluginNamesToUninstall": [],
   "PluginNamesToDelete": [

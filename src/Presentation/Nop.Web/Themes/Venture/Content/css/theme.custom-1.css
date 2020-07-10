@@ -150,63 +150,64 @@ td .ui-state-active,
 .save-price-match-button {
   background-color: #0c50a1;
 }
-.home-page-filters-wrapper .search-button:disabled,
-.home-page-filters-wrapper .search-button[disabled] {
-  background-color: #0c50a1 !important;
-}
-/* hover one buttons */
 
-.footer-map-holder .title:hover,
-.newsletter-email .newsletter-subscribe-button:hover,
-.contact-vendor-button:hover,
-.overview .add-to-cart-button:hover,
-.variant-overview .add-to-cart-button:hover,
-td .ui-state-active:hover,
-.write-review .button-1:hover,
-.wishlist-content .wishlist-add-to-cart-button:hover,
-.enter-password-form input[type="submit"]:hover,
-.contact-page .button-1:hover,
-.email-a-friend-page .button-1:hover,
-.apply-vendor-page .button-1:hover,
-.registration-page .button-1:hover,
-.registration-result-page .button-1:hover,
-.login-page .button-1:hover,
-.password-recovery-page .button-1:hover,
-.account-page .button-1:hover,
-.return-request-page .button-1:hover,
-.user-agreement-page .button-1:hover,
-.cart-footer .checkout-buttons button:hover,
-.checkout-page .address-item input[type="button"]:hover,
-.billing-address-page .buttons input[type='submit']:hover,
-.shipping-address-page .buttons input[type='submit']:hover,
-.section.shipping-method .buttons input[type='submit']:hover,
-.section.payment-method .buttons input[type='submit']:hover,
-.section.payment-info .buttons input[type='submit']:hover,
-.section.confirm-order .buttons input[type='submit']:hover,
-.section.order-completed .buttons input[type='button']:hover,
-.order-details-page .actions input:last-child:hover,
-.search-input .button-1:hover,
-.news-item-page .buttons input[type='submit']:hover,
-.blogpost-page .buttons input[type='submit']:hover,
-.forum-search-box .search-box-button:hover,
-.forum-edit-page .buttons input[type='submit']:hover,
-.private-message-send-page .buttons input[type='submit']:hover,
-.private-messages-page .buttons input[type='submit']:hover,
-.move-topic-page .buttons input[type='submit']:hover,
-.private-message-view-page .buttons .reply-pm-button:hover,
-.profile-info-box .pm-button:hover,
-.mini-shopping-cart input[type="button"].cart-button:hover,
-/*plugins*/ .home-page-filters-wrapper .search-button:hover,
-.productAddedToCartWindowSummary .button-1:hover,
-.ropc .complete-button button:hover,
-.page-body form > .buttons .k-button:hover,
-.k-edit-buttons.k-state-default button.k-dialog-insert.k-button:hover,
-#submit-reply .buttons .k-button:hover,
-.my-tickets-page .clear-filters:hover,
-.manage-tickets-page .clear-filters:hover,
-.save-price-match-button:hover {
-  background-color: #093d7b;
-}
+  .home-page-filters-wrapper .search-button:disabled,
+  .home-page-filters-wrapper .search-button[disabled] {
+    background-color: #0c50a1 !important;
+  }
+  /* hover one buttons */
+
+  .footer-map-holder .title:hover,
+  .newsletter-email .newsletter-subscribe-button:hover,
+  .contact-vendor-button:hover,
+  .overview .add-to-cart-button:hover,
+  .variant-overview .add-to-cart-button:hover,
+  td .ui-state-active:hover,
+  .write-review .button-1:hover,
+  .wishlist-content .wishlist-add-to-cart-button:hover,
+  .enter-password-form input[type="submit"]:hover,
+  .contact-page .button-1:hover,
+  .email-a-friend-page .button-1:hover,
+  .apply-vendor-page .button-1:hover,
+  .registration-page .button-1:hover,
+  .registration-result-page .button-1:hover,
+  .login-page .button-1:hover,
+  .password-recovery-page .button-1:hover,
+  .account-page .button-1:hover,
+  .return-request-page .button-1:hover,
+  .user-agreement-page .button-1:hover,
+  .cart-footer .checkout-buttons button:hover,
+  .checkout-page .address-item input[type="button"]:hover,
+  .billing-address-page .buttons input[type='submit']:hover,
+  .shipping-address-page .buttons input[type='submit']:hover,
+  .section.shipping-method .buttons input[type='submit']:hover,
+  .section.payment-method .buttons input[type='submit']:hover,
+  .section.payment-info .buttons input[type='submit']:hover,
+  .section.confirm-order .buttons input[type='submit']:hover,
+  .section.order-completed .buttons input[type='button']:hover,
+  .order-details-page .actions input:last-child:hover,
+  .search-input .button-1:hover,
+  .news-item-page .buttons input[type='submit']:hover,
+  .blogpost-page .buttons input[type='submit']:hover,
+  .forum-search-box .search-box-button:hover,
+  .forum-edit-page .buttons input[type='submit']:hover,
+  .private-message-send-page .buttons input[type='submit']:hover,
+  .private-messages-page .buttons input[type='submit']:hover,
+  .move-topic-page .buttons input[type='submit']:hover,
+  .private-message-view-page .buttons .reply-pm-button:hover,
+  .profile-info-box .pm-button:hover,
+  .mini-shopping-cart input[type="button"].cart-button:hover,
+  /*plugins*/ .home-page-filters-wrapper .search-button:hover,
+  .productAddedToCartWindowSummary .button-1:hover,
+  .ropc .complete-button button:hover,
+  .page-body form > .buttons .k-button:hover,
+  .k-edit-buttons.k-state-default button.k-dialog-insert.k-button:hover,
+  #submit-reply .buttons .k-button:hover,
+  .my-tickets-page .clear-filters:hover,
+  .manage-tickets-page .clear-filters:hover,
+  .save-price-match-button:hover {
+    background-color: #093d7b;
+  }
 /* text color */
 
 .cart a:hover,
@@ -305,6 +306,7 @@ td .ui-state-active:hover,
 .ticket-comments .comment-header .left a:hover {
   color: #0c50a1;
 }
+
 .k-pager-numbers span.k-state-selected {
   color: #0c50a1 !important;
 }
@@ -313,6 +315,7 @@ td .ui-state-active:hover,
 .bar-notification {
   border-color: #0c50a1;
 }
+
 .page-loader .loader,
 .page-loader .loader:before,
 .page-loader .loader:after,
@@ -348,10 +351,12 @@ td .ui-state-active:hover,
 .k-loading-image:after {
   border-top-color: #0c50a1;
 }
+
 .video-player .play:before,
 .information-box .image-wrapper:before {
   border-color: transparent #0c50a1 transparent #0c50a1;
 }
+
 @media all and (max-width: 1200px) {
   .responsive-nav-wrapper .cart-qty,
   .plus-button:before,
@@ -360,23 +365,28 @@ td .ui-state-active:hover,
     color: #0c50a1;
   }
 }
+
 @media all and (min-width: 481px) {
   .customer-pages-body .block .list a.active {
     background-color: #0c50a1;
   }
+
   .customer-pages-body .center-2 {
     border-color: #0c50a1;
   }
 }
+
 @media all and (min-width: 769px) {
   .sub-categories-wrapper {
     background-color: #0c50a1;
   }
+
   .compare-products-table .product-name a:hover,
   .compare-products-table .product-price td {
     color: #0c50a1;
   }
 }
+
 @media all and (min-width: 1201px) {
   #topcartlink,
   .mini-shopping-cart input[type="button"].cart-button,
@@ -390,6 +400,7 @@ td .ui-state-active:hover,
   .spc-categories .category-sublist:before {
     background-color: #0c50a1;
   }
+
   .header-menu > ul > li:hover > a,
   .header-menu > ul > li:hover > span,
   .mini-shopping-cart .price,
@@ -406,34 +417,38 @@ td .ui-state-active:hover,
 .theme-roller .options-block span::after {
   background-color: #0c50a1;
 }
-.theme-roller .open-button:before {
-  background-color: #052142;
-}
+
+  .theme-roller .open-button:before {
+    background-color: #052142;
+  }
+
 .theme-roller .options-block span {
   color: #0c50a1;
 }
+
 .item-box .product-ribbon:before {
-     content: '';
-     position: absolute;
-     top: 0;
-     left: 6px;
-     right: -6px;
-     bottom: 0;
-     background: #f3cc2e;
-     z-index: 1;
-     -o-transform: skewX(-20deg);
-     -webkit-transform: skewX(-20deg);
-     -moz-transform: skewX(-20deg);
-     -ms-transform: skewX(-20deg);
-     transform: skewX(-20deg);
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 6px;
+  right: -6px;
+  bottom: 0;
+  background: #f3cc2e;
+  z-index: 1;
+  -o-transform: skewX(-20deg);
+  -webkit-transform: skewX(-20deg);
+  -moz-transform: skewX(-20deg);
+  -ms-transform: skewX(-20deg);
+  transform: skewX(-20deg);
 }
+
 .spc-categories .item-box .product-ribbon {
-     right: -1px !important;
+  right: -1px !important;
 }
 
 
 html {
-    overflow-x: hidden;
+  overflow-x: hidden;
 }
 
 .home-page-filters-wrapper .search-button:disabled,
